@@ -1,0 +1,7 @@
+node_modules/
+storage/
+vendor/
+.antigravityignore
+.DS_Store
+.cursorignore
+.env
