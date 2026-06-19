@@ -1,11 +1,11 @@
 {{-- resources/views/components/navbar.blade.php --}}
-<nav id="main-nav" class="fixed top-0 left-0 w-full z-[100] transition-all duration-500 py-4">
+<nav id="main-nav" class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-[110] transition-all duration-500 py-4 border border-transparent">
     <div class="max-w-[1400px] mx-auto px-6 sm:px-10">
         <div class="flex justify-between items-center relative z-[110]">
             <!-- Logo -->
-            <a href="{{ url('/') }}" class="flex items-center gap-4 group relative z-[110]">
-                <div class="w-14 h-14 rounded-full overflow-hidden border border-charcoal/10 group-hover:border-warm/50 group-hover:shadow-xl group-hover:shadow-warm/20 transition-all duration-500 bg-white shadow-sm flex items-center justify-center transform group-hover:-rotate-6 group-hover:scale-105">
-                    <img src="/logo.png" alt="Tech Planet Logo" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+            <a href="{{ url('/') }}" class="flex items-center gap-3 sm:gap-4 group relative z-[110]">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 transition-all duration-500 flex items-center justify-center transform group-hover:-rotate-3 group-hover:scale-105">
+                    <img src="/logo-removebg-preview.png" alt="Tech Planet Logo" class="w-full h-full object-contain drop-shadow-md transform transition-transform duration-700 group-hover:scale-110">
                 </div>
                 <div class="flex flex-col logo-text transition-colors duration-500">
                     <span class="font-display font-black text-[1.35rem] text-charcoal leading-none tracking-tighter transition-all duration-300 group-hover:translate-x-1">tech planet</span>
@@ -13,17 +13,27 @@
                 </div>
             </a>
 
-            <!-- Hamburger Button -->
-            <button id="menu-trigger" class="w-12 h-12 flex items-center justify-center rounded-full bg-charcoal text-cream hover:bg-warm transition-all duration-300 relative z-[110] shadow-lg shadow-charcoal/20 group overflow-hidden border border-transparent">
-                <div class="flex flex-col justify-center items-end gap-1.5 w-5 h-5 relative">
-                    <span class="absolute top-[3px] right-0 w-full h-[2px] bg-cream rounded-full transform transition-all duration-300 origin-center" id="line-1"></span>
-                    <span class="absolute bottom-[3px] right-0 w-3/4 h-[2px] bg-cream rounded-full transform transition-all duration-300 group-hover:w-full origin-center" id="line-2"></span>
-                </div>
-            </button>
+            <!-- Actions -->
+            <div class="flex items-center gap-3 relative z-[110]">
+                <!-- Theme Toggle Button -->
+                <button id="main-theme-toggle" class="theme-toggle-btn w-12 h-12 rounded-full border border-charcoal/20 dark:border-white/20 bg-white/5 backdrop-blur-sm flex items-center justify-center hover:bg-charcoal hover:text-white dark:hover:bg-white dark:hover:text-charcoal transition-all group text-charcoal dark:text-white shadow-sm">
+                    <i class="fas fa-moon dark:hidden group-hover:scale-110 transition-transform"></i>
+                    <i class="fas fa-sun hidden dark:block group-hover:scale-110 transition-transform"></i>
+                </button>
+
+                <!-- Hamburger Button -->
+                <button id="menu-trigger" class="w-12 h-12 flex items-center justify-center rounded-full bg-charcoal text-cream hover:bg-warm transition-all duration-300 shadow-lg shadow-charcoal/20 group overflow-hidden border border-transparent">
+                    <div class="flex flex-col justify-center items-end gap-1.5 w-5 h-5 relative">
+                        <span class="absolute top-[3px] right-0 w-full h-[2px] bg-cream rounded-full transform transition-all duration-300 origin-center" id="line-1"></span>
+                        <span class="absolute bottom-[3px] right-0 w-3/4 h-[2px] bg-cream rounded-full transform transition-all duration-300 group-hover:w-full origin-center" id="line-2"></span>
+                    </div>
+                </button>
+            </div>
         </div>
     </div>
+</nav>
     
-    <!-- Fullscreen Menu Overlay -->
+<!-- Fullscreen Menu Overlay -->
     <div id="fullscreen-menu" class="fixed inset-0 bg-charcoal text-cream z-[105] flex items-center justify-center opacity-0 pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden">
         
         <!-- Decorative background elements -->
@@ -112,7 +122,6 @@
             
         </div>
     </div>
-</nav>
 
 <style>
     /* Add transition utility for JS manipulation */
@@ -172,18 +181,18 @@
         }
         themeToggleBtns.forEach(btn => btn.addEventListener('click', toggleTheme));
 
-        // Scroll effect — transparent to glass
+        // Scroll effect — transparent to glass pill
         let lastScroll = 0;
         window.addEventListener('scroll', () => {
             if (isOpen) return; // Don't apply scroll effects if menu is open
             
             const scrollY = window.scrollY;
             if (scrollY > 60) {
-                nav.classList.add('glass', 'shadow-sm', 'border-b', 'border-charcoal/5', 'py-3');
-                nav.classList.remove('py-4');
+                nav.classList.add('glass', 'shadow-lg', 'top-4', 'rounded-[2rem]', 'w-[95%]', 'max-w-[1200px]', 'border-charcoal/10', 'py-2');
+                nav.classList.remove('w-full', 'py-4', 'top-0', 'border-transparent');
             } else {
-                nav.classList.remove('glass', 'shadow-sm', 'border-b', 'border-charcoal/5', 'py-3');
-                nav.classList.add('py-4');
+                nav.classList.remove('glass', 'shadow-lg', 'top-4', 'rounded-[2rem]', 'w-[95%]', 'max-w-[1200px]', 'border-charcoal/10', 'py-2');
+                nav.classList.add('w-full', 'py-4', 'top-0', 'border-transparent');
             }
             lastScroll = scrollY;
         });
@@ -215,6 +224,19 @@
                     logoTextContainer.classList.add('text-white');
                     logoTexts[0].classList.remove('text-charcoal');
                     logoTexts[0].classList.add('text-white');
+                    
+                    // Change main theme toggle button color for contrast
+                    const mainThemeToggle = document.getElementById('main-theme-toggle');
+                    if (mainThemeToggle) {
+                        mainThemeToggle.classList.remove('text-charcoal', 'border-charcoal/20');
+                        mainThemeToggle.classList.add('text-white', 'border-white/20');
+                    }
+                    
+                    // Remove glass background if scrolled so menu is not obscured
+                    if (window.scrollY > 60) {
+                        nav.classList.remove('glass', 'shadow-lg', 'border-charcoal/10');
+                        nav.classList.add('border-transparent');
+                    }
                     
                     // Animate Blobs
                     setTimeout(() => {
@@ -258,6 +280,19 @@
                     logoTextContainer.classList.remove('text-white');
                     logoTexts[0].classList.add('text-charcoal');
                     logoTexts[0].classList.remove('text-white');
+                    
+                    // Revert main theme toggle button color
+                    const mainThemeToggle = document.getElementById('main-theme-toggle');
+                    if (mainThemeToggle) {
+                        mainThemeToggle.classList.add('text-charcoal', 'border-charcoal/20');
+                        mainThemeToggle.classList.remove('text-white', 'border-white/20');
+                    }
+                    
+                    // Restore glass background if scrolled
+                    if (window.scrollY > 60) {
+                        nav.classList.add('glass', 'shadow-lg', 'border-charcoal/10');
+                        nav.classList.remove('border-transparent');
+                    }
                     
                     // Reset Blobs
                     blob1.style.transform = 'translateY(20px)';
