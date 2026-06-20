@@ -65,7 +65,7 @@
         <!-- Large Item -->
         <div class="md:col-span-12 lg:col-span-6 row-span-2 rounded-[2rem] overflow-hidden group relative cursor-pointer gallery-item shadow-md"
              data-category="workshop" data-title="React Frontend Workshop" data-date="Mar 14, 2025" data-coordinator="Prof. Rohan Kapoor" data-location="SRM Tech Hall 3" data-desc="Interactive session covering component trees, state hooks, and custom API consumption setups.">
-            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f52b?w=1200&h=800&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=800&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
             <div class="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
             <div class="absolute bottom-8 left-8 right-8">
                 <span class="bg-white/90 backdrop-blur-sm text-charcoal text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 inline-block">Workshop</span>

@@ -120,15 +120,36 @@
             opacity: 1;
         }
 
+        /* Text Stroke */
+        .text-stroke-cream { -webkit-text-stroke: 1.5px var(--color-cream); color: transparent; }
+        .text-stroke-charcoal { -webkit-text-stroke: 1.5px var(--color-charcoal); color: transparent; }
+        .hover\:text-stroke-blue:hover { -webkit-text-stroke: 1.5px #60a5fa; }
+        .hover\:text-stroke-purple:hover { -webkit-text-stroke: 1.5px #c084fc; }
+        .hover\:text-stroke-pink:hover { -webkit-text-stroke: 1.5px #f472b6; }
+
+        /* Marquee enhancements */
+        .marquee-container {
+            transform: rotate(-1.5deg) scale(1.03);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15);
+        }
+        .marquee-container:hover {
+            transform: rotate(0deg) scale(1);
+        }
+
         /* Smooth marquee */
         .marquee-track {
             display: flex;
             width: max-content;
-            animation: marquee-scroll 25s linear infinite;
+            animation: marquee-scroll 35s linear infinite;
+            will-change: transform;
+        }
+        .marquee-track:hover {
+            animation-play-state: paused;
         }
         @keyframes marquee-scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
 
         /* Underline slide for links */

@@ -16,7 +16,7 @@
                         Who we are
                     </h1>
                     <p class="text-charcoal/60 text-sm sm:text-base leading-relaxed mb-8 max-w-md">
-                        Tech Planet SRM is a core student community under the CSI Department, bridging tech education with real-world industry experience.
+                        Tech Planet SRM is an elite student group under the Computer Society of India (CSI), bridging tech education and industry skills.
                     </p>
                     <div class="flex gap-4">
                         <div class="flex items-center gap-3 glass px-4 py-3 rounded-xl border border-charcoal/10 shadow-sm">

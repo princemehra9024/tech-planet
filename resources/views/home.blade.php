@@ -6,12 +6,12 @@
 @section('content')
 
     <!-- ===== HERO SECTION ===== -->
-    <section id="hero" class="relative h-screen overflow-hidden px-4 sm:px-8 pt-20 pb-4">
+    <section id="hero" class="relative min-h-screen lg:h-screen lg:overflow-hidden px-4 sm:px-8 pt-20 pb-4">
         <div class="max-w-[1400px] mx-auto w-full h-full">
             <div class="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-5 items-stretch h-full">
 
                 <!-- ===== LEFT COLUMN ===== -->
-                <div class="flex flex-col justify-between py-2 lg:py-4 lg:pr-6">
+                <div class="flex flex-col justify-center gap-8 md:gap-12 py-8 lg:py-4 lg:pr-6 h-full">
                     
                     <!-- Top: Meta + Heading -->
                     <div>
@@ -24,15 +24,15 @@
                         <!-- Heading with inline avatars -->
                         <div class="reveal">
                             <h1 class="font-display font-black text-[clamp(2rem,5.5vw,3.6rem)] leading-[1] tracking-tight text-charcoal mb-3">
-                                Build Your<br>
+                                Shaping the<br>
                                 <span class="inline-flex items-center gap-2">
-                                    Tech
+                                    Digital
                                     <span class="inline-flex -space-x-2 align-middle">
                                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=60&h=60" alt="" class="w-8 h-8 rounded-full border-2 border-cream object-cover">
                                         <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=60&h=60" alt="" class="w-8 h-8 rounded-full border-2 border-cream object-cover">
                                     </span>
                                 </span>
-                                Future<span class="text-warm">✦</span>
+                                Frontiers<span class="text-warm">✦</span>
                             </h1>
                         </div>
 
@@ -45,7 +45,7 @@
                         <span class="text-muted/40 text-[11px] font-semibold mt-0.5 shrink-0 tracking-wider">05</span>
                         <div>
                             <p class="text-charcoal/65 text-[13px] leading-relaxed max-w-[340px] mb-4">
-                                We specialize in delivering hands-on tech education with an unparalleled level of curiosity, innovation, and real-world project experience.
+                                Tech Planet is SRM's premier computer science student chapter. We merge technical rigour, design thinking, and collaborative execution into real-world builds. Join us to level up your engineering capabilities.
                             </p>
                             <a href="{{ url('/events') }}" class="btn-pill btn-pill-primary group text-xs !py-2.5 !px-5">
                                 More <i class="fas fa-arrow-up-right arrow-icon text-[10px] ml-1"></i>
@@ -56,28 +56,28 @@
                     <!-- Bottom: Stats row -->
                     <div class="reveal reveal-delay-2 flex items-end gap-6 sm:gap-10">
                         <div class="hero-stat" data-target="150">
-                            <p class="font-display font-black text-[clamp(1.6rem,3vw,2.2rem)] text-charcoal leading-none"><span class="hero-stat-number">0</span>k+</p>
-                            <p class="text-muted text-[10px] font-medium mt-0.5">Active Members</p>
+                            <p class="font-display font-black text-[clamp(1.6rem,3vw,2.2rem)] text-charcoal leading-none"><span class="hero-stat-number">0</span>+</p>
+                            <p class="text-charcoal/70 text-xs sm:text-sm font-semibold mt-1">Active Members</p>
                         </div>
                         <div class="hero-stat" data-target="25">
                             <p class="font-display font-black text-[clamp(1.6rem,3vw,2.2rem)] text-charcoal leading-none"><span class="hero-stat-number">0</span>+</p>
-                            <p class="text-muted text-[10px] font-medium mt-0.5">Events Hosted</p>
+                            <p class="text-charcoal/70 text-xs sm:text-sm font-semibold mt-1">Tech Campaigns</p>
                         </div>
                         <div class="hero-stat" data-target="12">
-                            <p class="font-display font-black text-[clamp(1.6rem,3vw,2.2rem)] text-charcoal leading-none"><span class="hero-stat-number">0</span>K+</p>
-                            <p class="text-muted text-[10px] font-medium mt-0.5">Bootcamps Run</p>
+                            <p class="font-display font-black text-[clamp(1.6rem,3vw,2.2rem)] text-charcoal leading-none"><span class="hero-stat-number">0</span>+</p>
+                            <p class="text-charcoal/70 text-xs sm:text-sm font-semibold mt-1">Bootcamp Seminars</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- ===== RIGHT COLUMN: Immersive Image ===== -->
-                <div class="reveal reveal-delay-1 relative rounded-[1.5rem] overflow-hidden">
+                <div class="reveal reveal-delay-1 relative rounded-[1.5rem] overflow-hidden min-h-[500px] lg:min-h-0">
                     
                     <!-- Main hero image -->
                     <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=85&w=1200&h=1600" alt="Tech community collaboration" class="w-full h-full object-cover absolute inset-0 transition-transform duration-[2s] hover:scale-105">
                     
                     <!-- Gradient overlays -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 pointer-events-none"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
                     <div class="absolute inset-0 bg-gradient-to-l from-transparent to-black/15 pointer-events-none"></div>
 
                     <!-- Top-right floating location card -->
@@ -96,8 +96,8 @@
                         </div>
                     </div>
 
-                    <!-- Bottom-left floating featured event card -->
-                    <div class="absolute bottom-16 left-4 hero-float-card z-10" style="animation-delay: 1.5s;">
+                    <!-- Bottom-left floating featured event card (Hidden on mobile) -->
+                    <div class="absolute bottom-16 left-4 hero-float-card z-10 hidden md:block" style="animation-delay: 1.5s;">
                         <div class="hero-featured-card group relative w-[200px] rounded-xl overflow-hidden border border-white/10 shadow-2xl cursor-pointer">
                             <div class="img-zoom aspect-[16/10]">
                                 <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?auto=format&fit=crop&q=80&w=400" alt="Hackathon" class="w-full h-full object-cover">
@@ -143,10 +143,41 @@
 
 
     <!-- ===== SCROLLING MARQUEE ===== -->
-    <div class="border-y border-charcoal/10 py-5 overflow-hidden bg-cream-dark">
-        <div class="marquee-track">
-            <span class="font-display font-bold text-3xl sm:text-4xl text-charcoal/80 whitespace-nowrap px-6">workshops <span class="text-warm mx-4">✦</span> hackathons <span class="text-warm mx-4">✦</span> bootcamps <span class="text-warm mx-4">✦</span> networking <span class="text-warm mx-4">✦</span> innovation <span class="text-warm mx-4">✦</span> open source <span class="text-warm mx-4">✦</span></span>
-            <span class="font-display font-bold text-3xl sm:text-4xl text-charcoal/80 whitespace-nowrap px-6">workshops <span class="text-warm mx-4">✦</span> hackathons <span class="text-warm mx-4">✦</span> bootcamps <span class="text-warm mx-4">✦</span> networking <span class="text-warm mx-4">✦</span> innovation <span class="text-warm mx-4">✦</span> open source <span class="text-warm mx-4">✦</span></span>
+    <div class="marquee-container relative py-6 sm:py-8 overflow-hidden bg-charcoal border-y border-white/5 my-12 z-20">
+        <!-- Glow effect -->
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 pointer-events-none opacity-50 mix-blend-screen"></div>
+        
+        <div class="marquee-track group flex items-center">
+            <!-- First Set -->
+            <div class="flex items-center whitespace-nowrap px-4">
+                <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-cream tracking-tighter uppercase hover:text-blue-400 cursor-default transition-colors duration-300">workshops</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-transparent text-stroke-cream tracking-tighter uppercase hover:text-stroke-blue hover:text-blue-400/20 cursor-default transition-all duration-300">hackathons</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-cream tracking-tighter uppercase hover:text-purple-400 cursor-default transition-colors duration-300">bootcamps</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-transparent text-stroke-cream tracking-tighter uppercase hover:text-stroke-purple hover:text-purple-400/20 cursor-default transition-all duration-300">networking</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-cream tracking-tighter uppercase hover:text-pink-400 cursor-default transition-colors duration-300">innovation</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-transparent text-stroke-cream tracking-tighter uppercase hover:text-stroke-pink hover:text-pink-400/20 cursor-default transition-all duration-300">open source</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+            </div>
+            <!-- Duplicate for infinite scroll (Second Set) -->
+            <div class="flex items-center whitespace-nowrap px-4">
+                <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-cream tracking-tighter uppercase hover:text-blue-400 cursor-default transition-colors duration-300">workshops</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-transparent text-stroke-cream tracking-tighter uppercase hover:text-stroke-blue hover:text-blue-400/20 cursor-default transition-all duration-300">hackathons</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-cream tracking-tighter uppercase hover:text-purple-400 cursor-default transition-colors duration-300">bootcamps</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-transparent text-stroke-cream tracking-tighter uppercase hover:text-stroke-purple hover:text-purple-400/20 cursor-default transition-all duration-300">networking</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-cream tracking-tighter uppercase hover:text-pink-400 cursor-default transition-colors duration-300">innovation</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-transparent text-stroke-cream tracking-tighter uppercase hover:text-stroke-pink hover:text-pink-400/20 cursor-default transition-all duration-300">open source</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+            </div>
         </div>
     </div>
 
@@ -167,8 +198,8 @@
                             
                             <!-- Integrated floating badge -->
                             <div class="absolute bottom-6 left-6 z-20 bg-white/95 backdrop-blur-md px-6 py-3 rounded-2xl shadow-xl border border-white/50 transform transition-transform group-hover:-translate-y-1">
-                                <span class="text-charcoal font-display font-black text-sm tracking-widest uppercase flex items-center gap-2">
-                                    <span class="w-2 h-2 rounded-full bg-warm animate-pulse"></span>
+                                <span class="text-gray-900 font-display font-black text-sm tracking-widest uppercase flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-gray-900 animate-pulse"></span>
                                     Est. 2023
                                 </span>
                             </div>
@@ -182,7 +213,7 @@
                         Shaping digital frontiers
                     </h2>
                     <p class="text-charcoal/60 text-base leading-relaxed mb-8 max-w-lg">
-                        At Tech Planet, we are dedicated to crafting future-ready engineers through hands-on learning and real-world projects. Our programs embrace modern engineering, collaborative thinking, and creative problem-solving that bring warmth and excellence to every initiative.
+                        To build a premier tech incubator where students transition from writing elementary code to deploying distributed enterprise software, cultivating standard practices of modern engineering.
                     </p>
                     <!-- Mini gallery -->
                     <div class="flex gap-3 mb-10">
@@ -205,19 +236,19 @@
         <div class="max-w-[1400px] mx-auto">
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="reveal text-center py-6">
-                    <p class="font-display font-bold text-5xl sm:text-6xl text-white mb-2">150<span class="text-warm">+</span></p>
+                    <p class="font-display font-bold text-5xl sm:text-6xl text-cream mb-2">150<span>+</span></p>
                     <p class="text-cream/50 text-sm font-medium">Active Members</p>
                 </div>
                 <div class="reveal reveal-delay-1 text-center py-6">
-                    <p class="font-display font-bold text-5xl sm:text-6xl text-white mb-2">25<span class="text-warm">+</span></p>
-                    <p class="text-cream/50 text-sm font-medium">Events Hosted</p>
+                    <p class="font-display font-bold text-5xl sm:text-6xl text-cream mb-2">25<span>+</span></p>
+                    <p class="text-cream/50 text-sm font-medium">Tech Campaigns</p>
                 </div>
                 <div class="reveal reveal-delay-2 text-center py-6">
-                    <p class="font-display font-bold text-5xl sm:text-6xl text-white mb-2">12<span class="text-warm">+</span></p>
-                    <p class="text-cream/50 text-sm font-medium">Bootcamps Run</p>
+                    <p class="font-display font-bold text-5xl sm:text-6xl text-cream mb-2">12<span>+</span></p>
+                    <p class="text-cream/50 text-sm font-medium">Bootcamp Seminars</p>
                 </div>
                 <div class="reveal reveal-delay-3 text-center py-6">
-                    <p class="font-display font-bold text-5xl sm:text-6xl text-white mb-2">5<span class="text-warm">+</span></p>
+                    <p class="font-display font-bold text-5xl sm:text-6xl text-cream mb-2">5<span>+</span></p>
                     <p class="text-cream/50 text-sm font-medium">Industry Partners</p>
                 </div>
             </div>
@@ -245,7 +276,7 @@
                             Technical Core
                         </h3>
                         <p class="relative text-charcoal/70 text-sm leading-relaxed mt-1 flex-grow z-20">
-                            Full-stack application development, open-source systems, and cloud orchestration.
+                            Full-stack application development, open-source systems, cloud setups, and DevOps orchestration.
                         </p>
                         <div class="relative mt-6 flex items-center gap-2 text-xs font-semibold text-charcoal/40 group-hover:text-blue-500 transition-colors duration-300 z-20">
                             <span class="tracking-wider uppercase text-[10px]">Explore</span>
@@ -266,7 +297,7 @@
                             AI / ML Lab
                         </h3>
                         <p class="relative text-charcoal/70 text-sm leading-relaxed mt-1 flex-grow z-20">
-                            Neural networks, vision engines, NLP agents, and machine learning pipelines.
+                            Neural networks, custom vision engines, NLP agents, and machine learning pipelines.
                         </p>
                         <div class="relative mt-6 flex items-center gap-2 text-xs font-semibold text-charcoal/40 group-hover:text-purple-500 transition-colors duration-300 z-20">
                             <span class="tracking-wider uppercase text-[10px]">Explore</span>
@@ -284,10 +315,10 @@
                             <i class="fas fa-palette"></i>
                         </div>
                         <h3 class="relative font-display font-bold text-xl text-charcoal mb-3 transition-colors duration-300 group-hover:text-pink-500 z-20">
-                            Creative Dept
+                            Creative & UI/UX
                         </h3>
                         <p class="relative text-charcoal/70 text-sm leading-relaxed mt-1 flex-grow z-20">
-                            Design systems, modern interfaces, branding, and high-fidelity mockups.
+                            Design systems, responsive interfaces, branding strategy, and high-fidelity prototype mockups.
                         </p>
                         <div class="relative mt-6 flex items-center gap-2 text-xs font-semibold text-charcoal/40 group-hover:text-pink-500 transition-colors duration-300 z-20">
                             <span class="tracking-wider uppercase text-[10px]">Explore</span>
@@ -307,13 +338,13 @@
                         </div>
 
                         <div class="relative w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-amber-400 text-xl mb-6 group-hover:scale-110 group-hover:text-amber-300 group-hover:border-amber-400/30 group-hover:bg-amber-400/10 transition-all duration-500 shadow-sm z-20">
-                            <i class="fas fa-code"></i>
+                            <i class="fas fa-bullhorn"></i>
                         </div>
                         <h3 class="relative font-display font-bold text-xl text-cream mb-3 transition-colors duration-300 group-hover:text-amber-400 z-20">
-                            Coding Arena
+                            Outreach & Ops
                         </h3>
                         <p class="relative text-cream/70 text-sm leading-relaxed mt-1 flex-grow z-20">
-                            Solve algorithms, attempt quizzes, and earn XP in competitive coding challenges.
+                            Event organization, community engagement, branding outreach, and industrial collaborations.
                         </p>
                         <div class="relative mt-6 z-20">
                             <a href="{{ url('/signup') }}" class="btn-pill inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-500 text-charcoal text-xs font-bold hover:bg-amber-400 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] group/btn">
@@ -331,7 +362,7 @@
         <div class="max-w-[1400px] mx-auto">
             <div class="reveal grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <!-- Image -->
-                <div class="rounded-3xl overflow-hidden aspect-video img-zoom shadow-xl shadow-charcoal/5">
+                <div class="rounded-3xl overflow-hidden aspect-video img-zoom shadow-xl shadow-charcoal/5 outline outline-2 outline-offset-[6px] outline-charcoal/20 dark:outline-white/20">
                     <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?auto=format&fit=crop&q=80&w=900" alt="AI Forge Hackathon" class="w-full h-full object-cover">
                 </div>
                 <!-- Details -->

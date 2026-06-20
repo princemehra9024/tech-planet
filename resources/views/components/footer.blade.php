@@ -56,14 +56,14 @@
             <!-- Right: Newsletter -->
             <div class="w-full md:w-2/4 flex flex-col items-start md:items-end">
                 <div class="w-full max-w-[400px]">
-                    <div class="flex items-center gap-x-4 text-charcoal mb-4">
+                    <div class="flex items-center gap-x-4 text-charcoal dark:text-white mb-4">
                         <span class="text-3xl font-black italic tracking-tighter">SIGN UP</span>
-                        <span class="text-[9px] font-bold tracking-widest not-italic leading-tight text-center">TO<br>OUR</span>
+                        <span class="text-[9px] font-bold tracking-widest not-italic leading-tight text-center text-charcoal/60 dark:text-white/60">TO<br>OUR</span>
                         <span class="text-3xl font-black italic tracking-tighter">NEWSLETTER</span>
                     </div>
-                    <div class="relative w-full">
-                        <input type="email" placeholder="YOUR EMAIL" class="w-full bg-[#d5ff00] text-black placeholder-black font-bold text-[10px] uppercase rounded-full pl-6 pr-14 py-4 focus:outline-none">
-                        <button class="absolute right-1.5 top-1.5 bottom-1.5 aspect-square rounded-full bg-black flex items-center justify-center text-[#d5ff00] hover:scale-105 transition-all">
+                    <div class="relative w-full group">
+                        <input type="email" placeholder="YOUR EMAIL" class="w-full bg-transparent border-2 border-charcoal/20 dark:border-white/20 text-charcoal dark:text-white placeholder-charcoal/40 dark:placeholder-white/40 font-bold text-[10px] uppercase rounded-full pl-6 pr-14 py-4 focus:outline-none focus:border-charcoal dark:focus:border-white transition-colors">
+                        <button class="absolute right-2 top-2 bottom-2 aspect-square rounded-full bg-charcoal dark:bg-white flex items-center justify-center text-white dark:text-charcoal hover:scale-105 group-focus-within:bg-black dark:group-focus-within:bg-gray-200 transition-all">
                             <i class="fas fa-arrow-right text-[10px] transform -rotate-45"></i>
                         </button>
                     </div>

@@ -1,15 +1,15 @@
 {{-- resources/views/components/navbar.blade.php --}}
-<nav id="main-nav" class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-[110] transition-all duration-500 py-4 border border-transparent">
-    <div class="max-w-[1400px] mx-auto px-6 sm:px-10">
+<nav id="main-nav" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-[1200px] z-[110] transition-all duration-500 py-2 glass shadow-lg rounded-[2rem] border border-charcoal/10 outline outline-2 outline-offset-[6px] outline-charcoal/20 dark:outline-white/20 pointer-events-none">
+    <div class="max-w-[1400px] mx-auto px-6 sm:px-10 pointer-events-auto">
         <div class="flex justify-between items-center relative z-[110]">
             <!-- Logo -->
-            <a href="{{ url('/') }}" class="flex items-center gap-3 sm:gap-4 group relative z-[110]">
-                <div class="w-14 h-14 sm:w-16 sm:h-16 transition-all duration-500 flex items-center justify-center transform group-hover:-rotate-3 group-hover:scale-105">
-                    <img src="/logo-removebg-preview.png" alt="Tech Planet Logo" class="w-full h-full object-contain drop-shadow-md transform transition-transform duration-700 group-hover:scale-110">
+            <a href="{{ url('/') }}" class="flex items-center gap-3 sm:gap-5 group relative z-[110]">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 transition-all duration-500 flex items-center justify-center transform group-hover:-rotate-3 group-hover:scale-105">
+                    <img src="/logo.png" alt="Tech Planet Logo" class="w-full h-full object-contain drop-shadow-xl transform transition-transform duration-700 group-hover:scale-110">
                 </div>
                 <div class="flex flex-col logo-text transition-colors duration-500">
-                    <span class="font-display font-black text-[1.35rem] text-charcoal leading-none tracking-tighter transition-all duration-300 group-hover:translate-x-1">tech planet</span>
-                    <span class="text-[9px] text-muted font-bold tracking-[0.25em] uppercase mt-1 transition-all duration-300 group-hover:translate-x-1 group-hover:text-charcoal/60">CSI • SRM</span>
+                    <span class="font-display font-black text-2xl sm:text-3xl text-charcoal leading-none tracking-tighter transition-all duration-300 group-hover:translate-x-1.5">tech planet</span>
+                    <span class="text-[10px] sm:text-xs text-muted font-bold tracking-[0.3em] uppercase mt-1 transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-charcoal/80">CSI • SRM</span>
                 </div>
             </a>
 
@@ -23,9 +23,9 @@
 
                 <!-- Hamburger Button -->
                 <button id="menu-trigger" class="w-12 h-12 flex items-center justify-center rounded-full bg-charcoal text-cream hover:bg-warm transition-all duration-300 shadow-lg shadow-charcoal/20 group overflow-hidden border border-transparent">
-                    <div class="flex flex-col justify-center items-end gap-1.5 w-5 h-5 relative">
-                        <span class="absolute top-[3px] right-0 w-full h-[2px] bg-cream rounded-full transform transition-all duration-300 origin-center" id="line-1"></span>
-                        <span class="absolute bottom-[3px] right-0 w-3/4 h-[2px] bg-cream rounded-full transform transition-all duration-300 group-hover:w-full origin-center" id="line-2"></span>
+                    <div class="flex flex-col justify-between items-end w-5 h-[14px] relative">
+                        <span class="w-full h-[2px] bg-cream rounded-full transform transition-all duration-300 origin-center" id="line-1"></span>
+                        <span class="w-3/4 h-[2px] bg-cream rounded-full transform transition-all duration-300 group-hover:w-full origin-center" id="line-2"></span>
                     </div>
                 </button>
             </div>
@@ -181,21 +181,7 @@
         }
         themeToggleBtns.forEach(btn => btn.addEventListener('click', toggleTheme));
 
-        // Scroll effect — transparent to glass pill
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            if (isOpen) return; // Don't apply scroll effects if menu is open
-            
-            const scrollY = window.scrollY;
-            if (scrollY > 60) {
-                nav.classList.add('glass', 'shadow-lg', 'top-4', 'rounded-[2rem]', 'w-[95%]', 'max-w-[1200px]', 'border-charcoal/10', 'py-2');
-                nav.classList.remove('w-full', 'py-4', 'top-0', 'border-transparent');
-            } else {
-                nav.classList.remove('glass', 'shadow-lg', 'top-4', 'rounded-[2rem]', 'w-[95%]', 'max-w-[1200px]', 'border-charcoal/10', 'py-2');
-                nav.classList.add('w-full', 'py-4', 'top-0', 'border-transparent');
-            }
-            lastScroll = scrollY;
-        });
+        // Scroll effect removed since we are using a permanent pill
 
         // Toggle Menu
         if(trigger && menu) {
@@ -209,9 +195,9 @@
                     menu.classList.add('opacity-100');
                     
                     // Animate Hamburger to X
-                    line1.style.transform = 'translateY(3.5px) rotate(45deg)';
+                    line1.style.transform = 'translateY(6px) rotate(45deg)';
                     line2.style.width = '100%';
-                    line2.style.transform = 'translateY(-3.5px) rotate(-45deg)';
+                    line2.style.transform = 'translateY(-6px) rotate(-45deg)';
                     
                     // Button styles
                     trigger.classList.remove('bg-charcoal', 'text-cream');
@@ -232,11 +218,9 @@
                         mainThemeToggle.classList.add('text-white', 'border-white/20');
                     }
                     
-                    // Remove glass background if scrolled so menu is not obscured
-                    if (window.scrollY > 60) {
-                        nav.classList.remove('glass', 'shadow-lg', 'border-charcoal/10');
-                        nav.classList.add('border-transparent');
-                    }
+                    // Remove pill styles so menu is not obscured
+                    nav.classList.remove('glass', 'shadow-lg', 'border-charcoal/10', 'outline', 'outline-2', 'outline-charcoal/20', 'dark:outline-white/20');
+                    nav.classList.add('border-transparent');
                     
                     // Animate Blobs
                     setTimeout(() => {
@@ -288,11 +272,9 @@
                         mainThemeToggle.classList.remove('text-white', 'border-white/20');
                     }
                     
-                    // Restore glass background if scrolled
-                    if (window.scrollY > 60) {
-                        nav.classList.add('glass', 'shadow-lg', 'border-charcoal/10');
-                        nav.classList.remove('border-transparent');
-                    }
+                    // Restore pill styles
+                    nav.classList.add('glass', 'shadow-lg', 'border-charcoal/10', 'outline', 'outline-2', 'outline-charcoal/20', 'dark:outline-white/20');
+                    nav.classList.remove('border-transparent');
                     
                     // Reset Blobs
                     blob1.style.transform = 'translateY(20px)';
