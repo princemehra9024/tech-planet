@@ -15,17 +15,18 @@ use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminEventController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\GuestPageController;
 
 /*
 |--------------------------------------------------------------------------
 | Public Routes (no login required)
 |--------------------------------------------------------------------------
 */
-Route::view('/', 'home')->name('home');
-Route::view('/about', 'about')->name('about');
-Route::view('/events', 'events')->name('public.events'); // informational events page
-Route::view('/gallery', 'gallery')->name('gallery');
-Route::view('/contact', 'contact')->name('contact');
+Route::get('/', [GuestPageController::class, 'home'])->name('home');
+Route::get('/about', [GuestPageController::class, 'about'])->name('about');
+Route::get('/events', [GuestPageController::class, 'events'])->name('public.events'); // informational events page
+Route::get('/gallery', [GuestPageController::class, 'gallery'])->name('gallery');
+Route::get('/contact', [GuestPageController::class, 'contact'])->name('contact');
 
 Route::view('/login', 'auth.login')->name('login');
 Route::view('/signup', 'auth.signup')->name('signup');
@@ -110,4 +111,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::patch('/users/{user}', [AdminUserController::class, 'update'])->name('users.update');
     Route::delete('/users/{user}', [AdminUserController::class, 'destroy'])->name('users.destroy');
     Route::post('/users/{user}/impersonate', [AdminUserController::class, 'impersonate'])->name('users.impersonate');
+
+    // Gallery Management (Authorized via EnsureUserCanManageGallery middleware)
+    Route::middleware([\App\Http\Middleware\EnsureUserCanManageGallery::class])->group(function () {
+        Route::resource('gallery', \App\Http\Controllers\Admin\AdminGalleryController::class);
+        Route::resource('gallery-categories', \App\Http\Controllers\Admin\AdminGalleryCategoryController::class);
+    });
 });

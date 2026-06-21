@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -158,9 +158,9 @@
         });
     </script>
 </head>
-<body class="antialiased min-h-screen flex flex-col md:flex-row transition-colors duration-500 selection:bg-charcoal selection:text-cream dark:selection:bg-cream dark:selection:text-charcoal">
+<body class="antialiased h-screen flex flex-col transition-colors duration-500 selection:bg-charcoal selection:text-cream dark:selection:bg-cream dark:selection:text-charcoal bg-cream">
     @if(session()->has('impersonator_id'))
-        <div class="bg-gradient-to-r from-purple-900 via-indigo-950 to-purple-900 border-b border-purple-500/30 text-purple-200 px-6 py-3 flex items-center justify-between gap-4 text-xs font-bold shadow-lg shadow-purple-500/5 relative z-50">
+        <div class="bg-gradient-to-r from-purple-900 via-indigo-950 to-purple-900 border-b border-purple-500/30 text-purple-200 px-6 py-3 flex items-center justify-between gap-4 text-xs font-bold shadow-lg shadow-purple-500/5 relative z-50 shrink-0">
             <div class="flex items-center gap-2.5">
                 <span class="flex h-2 w-2 relative">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
@@ -176,10 +176,10 @@
             </form>
         </div>
     @endif
-    <div class="min-h-screen flex flex-col md:flex-row">
+    <div class="flex-1 flex overflow-hidden w-full">
         <!-- Desktop Sidebar Nav -->
-        <aside class="hidden md:flex md:w-64 flex-col bg-cream-darker/50 glass-card border-r border-charcoal/5 p-6 h-screen sticky top-0 shrink-0 justify-between z-30">
-            <div class="space-y-8">
+        <aside class="hidden md:flex md:w-64 flex-col bg-cream-darker/50 glass-card border-r border-charcoal/5 p-6 h-full shrink-0 justify-between z-30">
+            <div class="space-y-8 overflow-y-auto no-scrollbar">
                 <!-- Brand logo -->
                 <div class="flex items-center space-x-3">
                     <div class="w-8 h-8 rounded-lg bg-cream-darker flex items-center justify-center shadow-lg shadow-purple-500/15">
@@ -290,7 +290,7 @@
             </form>
         </div>
         <!-- Main Content Area -->
-        <div class="flex-grow flex flex-col min-w-0">
+        <div class="flex-grow flex flex-col min-w-0 overflow-y-auto h-full">
             <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div class="flex flex-col lg:flex-row gap-8">
                     <!-- Main Content -->

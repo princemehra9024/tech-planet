@@ -1,4 +1,4 @@
-﻿{{-- resources/views/about.blade.php --}}
+{{-- resources/views/about.blade.php --}}
 @extends('layouts.app')
 
 @section('title', 'About Us - Tech Planet Club')
@@ -136,30 +136,46 @@
 
             @php
                 $team = [
-                    ['name' => 'Ankit Verma', 'role' => 'President', 'img' => 'https://randomuser.me/api/portraits/men/45.jpg'],
-                    ['name' => 'Sneha Raj', 'role' => 'Vice President', 'img' => 'https://randomuser.me/api/portraits/women/44.jpg'],
-                    ['name' => 'Kunal Mehta', 'role' => 'Technical Lead', 'img' => 'https://randomuser.me/api/portraits/men/22.jpg'],
-                    ['name' => 'Ishita Roy', 'role' => 'Events Head', 'img' => 'https://randomuser.me/api/portraits/women/90.jpg'],
+                    [
+                        'name' => 'Aditya', 
+                        'role' => 'Platform Architect & Lead Developer', 
+                        'img' => asset('storage/devs/aditya.png'),
+                        'portfolio' => 'https://aditya-chauhan.vercel.app'
+                    ],
+                    [
+                        'name' => 'Prince Mehra', 
+                        'role' => 'UI/UX and Frontend', 
+                        'img' => asset('storage/devs/prince.jfif'),
+                        'portfolio' => 'https://portfolio-prince-opal.vercel.app/'
+                    ]
                 ];
             @endphp
             
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="flex flex-wrap justify-center gap-8">
                 @foreach($team as $i => $member)
-                <div class="reveal {{ $i > 0 ? 'reveal-delay-'.$i : '' }} glass rounded-3xl p-6 border border-charcoal/10 relative overflow-hidden group card-lift shadow-lg flex flex-col items-center text-center">
+                @if(isset($member['portfolio']))
+                <a href="{{ $member['portfolio'] }}" target="_blank" class="reveal {{ $i > 0 ? 'reveal-delay-'.$i : '' }} w-full sm:w-[280px] glass rounded-3xl p-6 border border-charcoal/10 relative overflow-hidden group card-lift shadow-lg flex flex-col items-center text-center block cursor-pointer">
+                @else
+                <div class="reveal {{ $i > 0 ? 'reveal-delay-'.$i : '' }} w-full sm:w-[280px] glass rounded-3xl p-6 border border-charcoal/10 relative overflow-hidden group card-lift shadow-lg flex flex-col items-center text-center">
+                @endif
                     <div class="absolute inset-0 bg-gradient-to-b from-warm/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
-                    <div class="relative w-32 h-32 rounded-2xl mx-auto mb-6 overflow-hidden border-2 border-charcoal/10 group-hover:border-warm transition-colors duration-300 shadow-md">
-                        <img src="{{ $member['img'] }}" alt="{{ $member['name'] }}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700">
+                    <div class="relative w-40 h-40 rounded-2xl mx-auto mb-6 overflow-hidden border-2 border-charcoal/10 group-hover:border-warm transition-colors duration-300 shadow-md">
+                        <img src="{{ $member['img'] }}" alt="{{ $member['name'] }}" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700">
                     </div>
                     <h3 class="font-display font-bold text-lg text-charcoal mb-1 relative z-10">{{ $member['name'] }}</h3>
-                    <p class="text-warm text-sm font-medium relative z-10 mb-4">{{ $member['role'] }}</p>
+                    <p class="text-warm text-sm font-medium relative z-10 mb-2">{{ $member['role'] }}</p>
                     
-                    <div class="flex gap-3 text-charcoal/40 group-hover:text-charcoal/70 transition-colors relative z-10">
-                        <a href="#" class="hover:text-warm transition-colors"><i class="fab fa-github"></i></a>
-                        <a href="#" class="hover:text-warm transition-colors"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="hover:text-warm transition-colors"><i class="fas fa-globe"></i></a>
+                    <div class="flex gap-3 text-charcoal/40 group-hover:text-charcoal/70 transition-colors relative z-10 mt-auto pt-2">
+                        @if(isset($member['portfolio']))
+                            <span class="text-warm/80 group-hover:text-warm transition-colors text-sm"><i class="fas fa-arrow-up-right-from-square"></i></span>
+                        @endif
                     </div>
+                @if(isset($member['portfolio']))
+                </a>
+                @else
                 </div>
+                @endif
                 @endforeach
             </div>
         </div>

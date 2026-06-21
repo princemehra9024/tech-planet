@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -219,6 +219,12 @@
                     <a href="{{ route('admin.events.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.events.*') ? 'bg-charcoal text-cream  shadow-md' : 'text-charcoal/70 hover:bg-charcoal/5 hover:text-charcoal ' }}">
                         <i class="fas fa-calendar-alt w-5 {{ request()->routeIs('admin.events.*') ? 'text-cream/70 ' : 'text-charcoal/50 ' }}"></i>
                         <span>Events</span>
+                    </a>
+                    @endif
+                    @if(auth()->user()->canManageGallery())
+                    <a href="{{ route('admin.gallery.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.gallery.*') || request()->routeIs('admin.gallery-categories.*') ? 'bg-charcoal text-cream shadow-md' : 'text-charcoal/70 hover:bg-charcoal/5 hover:text-charcoal' }}">
+                        <i class="fas fa-images w-5 {{ request()->routeIs('admin.gallery.*') || request()->routeIs('admin.gallery-categories.*') ? 'text-cream/70' : 'text-charcoal/50' }}"></i>
+                        <span>Gallery</span>
                     </a>
                     @endif
                 </nav>

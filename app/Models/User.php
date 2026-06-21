@@ -37,6 +37,11 @@ class User extends Authenticatable
         return in_array($this->role, ['admin', 'president', 'secretary', 'treasurer']);
     }
 
+    public function canManageGallery(): bool
+    {
+        return in_array($this->role, ['admin', 'media_manager']);
+    }
+
     public function addXp($amount, $reason = null) {
         $this->increment('xp', $amount);
         if ($reason) {

@@ -8,8 +8,8 @@
                     <img src="/logo.png" alt="Tech Planet Logo" class="w-full h-full object-contain drop-shadow-xl transform transition-transform duration-700 group-hover:scale-110">
                 </div>
                 <div class="flex flex-col logo-text transition-colors duration-500">
-                    <span class="font-display font-black text-2xl sm:text-3xl text-charcoal leading-none tracking-tighter transition-all duration-300 group-hover:translate-x-1.5">tech planet</span>
-                    <span class="text-[10px] sm:text-xs text-muted font-bold tracking-[0.3em] uppercase mt-1 transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-charcoal/80">CSI â€¢ SRM</span>
+                    <span class="font-display font-black text-2xl sm:text-3xl text-charcoal leading-none tracking-tighter transition-all duration-300 group-hover:translate-x-1.5">Tech Planet</span>
+                    <span class="text-[10px] sm:text-xs text-muted font-bold tracking-[0.3em] uppercase mt-1 transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-charcoal/80">CSI / UOK</span>
                 </div>
             </a>
 
