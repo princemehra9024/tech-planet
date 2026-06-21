@@ -1,4 +1,4 @@
-{{-- resources/views/components/navbar.blade.php --}}
+﻿{{-- resources/views/components/navbar.blade.php --}}
 <nav id="main-nav" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-[1200px] z-[110] transition-all duration-500 py-2 glass shadow-lg rounded-[2rem] border border-charcoal/10 outline outline-2 outline-offset-[6px] outline-charcoal/20 dark:outline-white/20 pointer-events-none">
     <div class="max-w-[1400px] mx-auto px-6 sm:px-10 pointer-events-auto">
         <div class="flex justify-between items-center relative z-[110]">
@@ -9,14 +9,14 @@
                 </div>
                 <div class="flex flex-col logo-text transition-colors duration-500">
                     <span class="font-display font-black text-2xl sm:text-3xl text-charcoal leading-none tracking-tighter transition-all duration-300 group-hover:translate-x-1.5">tech planet</span>
-                    <span class="text-[10px] sm:text-xs text-muted font-bold tracking-[0.3em] uppercase mt-1 transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-charcoal/80">CSI • SRM</span>
+                    <span class="text-[10px] sm:text-xs text-muted font-bold tracking-[0.3em] uppercase mt-1 transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-charcoal/80">CSI â€¢ SRM</span>
                 </div>
             </a>
 
             <!-- Actions -->
             <div class="flex items-center gap-3 relative z-[110]">
                 <!-- Theme Toggle Button -->
-                <button id="main-theme-toggle" class="theme-toggle-btn w-12 h-12 rounded-full border border-charcoal/20 dark:border-white/20 bg-white/5 backdrop-blur-sm flex items-center justify-center hover:bg-charcoal hover:text-white dark:hover:bg-white dark:hover:text-charcoal transition-all group text-charcoal dark:text-white shadow-sm">
+                <button id="main-theme-toggle" class="theme-toggle-btn w-12 h-12 rounded-full border border-charcoal/20 dark:border-white/20 bg-cream-dark/5 backdrop-blur-sm flex items-center justify-center hover:bg-charcoal hover:text-white  transition-all group text-charcoal dark:text-white shadow-sm">
                     <i class="fas fa-moon dark:hidden group-hover:scale-110 transition-transform"></i>
                     <i class="fas fa-sun hidden dark:block group-hover:scale-110 transition-transform"></i>
                 </button>
@@ -201,7 +201,7 @@
                     
                     // Button styles
                     trigger.classList.remove('bg-charcoal', 'text-cream');
-                    trigger.classList.add('bg-white', 'text-charcoal');
+                    trigger.classList.add('bg-cream-dark', 'text-charcoal');
                     line1.classList.remove('bg-cream'); line1.classList.add('bg-charcoal');
                     line2.classList.remove('bg-cream'); line2.classList.add('bg-charcoal');
                     
@@ -255,7 +255,7 @@
                     
                     // Button styles
                     trigger.classList.add('bg-charcoal', 'text-cream');
-                    trigger.classList.remove('bg-white', 'text-charcoal');
+                    trigger.classList.remove('bg-cream-dark', 'text-charcoal');
                     line1.classList.add('bg-cream'); line1.classList.remove('bg-charcoal');
                     line2.classList.add('bg-cream'); line2.classList.remove('bg-charcoal');
                     
@@ -311,3 +311,4 @@
         });
     });
 </script>
+

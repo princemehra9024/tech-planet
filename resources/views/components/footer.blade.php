@@ -1,4 +1,4 @@
-{{-- resources/views/components/footer.blade.php --}}
+﻿{{-- resources/views/components/footer.blade.php --}}
 <style>
     .footer-bg-grid {
         background-color: var(--color-cream);
@@ -63,7 +63,7 @@
                     </div>
                     <div class="relative w-full group">
                         <input type="email" placeholder="YOUR EMAIL" class="w-full bg-transparent border-2 border-charcoal/20 dark:border-white/20 text-charcoal dark:text-white placeholder-charcoal/40 dark:placeholder-white/40 font-bold text-[10px] uppercase rounded-full pl-6 pr-14 py-4 focus:outline-none focus:border-charcoal dark:focus:border-white transition-colors">
-                        <button class="absolute right-2 top-2 bottom-2 aspect-square rounded-full bg-charcoal dark:bg-white flex items-center justify-center text-white dark:text-charcoal hover:scale-105 group-focus-within:bg-black dark:group-focus-within:bg-gray-200 transition-all">
+                        <button class="absolute right-2 top-2 bottom-2 aspect-square rounded-full bg-charcoal flex items-center justify-center text-white hover:scale-105 group-focus-within:bg-black dark:group-focus-within:bg-gray-200 transition-all">
                             <i class="fas fa-arrow-right text-[10px] transform -rotate-45"></i>
                         </button>
                     </div>
@@ -115,10 +115,11 @@
                         <div class="flex flex-col items-center">
                             <img src="/team/avatar3.png" alt="Jane Smith" class="w-12 h-12 rounded-full object-cover border-2 border-charcoal/20 dark:border-white/20 hover:scale-105 transition-transform duration-300" />
                             <span class="text-sm font-medium text-charcoal dark:text-[#EAEAEA]">Jane Smith</span>
-                            <span class="text-xs text-charcoal/60 dark:text-[#A0A0A0]">Front‑end Engineer</span>
+                            <span class="text-xs text-charcoal/60 dark:text-[#A0A0A0]">Frontâ€‘end Engineer</span>
                         </div>
                     </div>
                 </div>
         
     </div>
 </footer>
+

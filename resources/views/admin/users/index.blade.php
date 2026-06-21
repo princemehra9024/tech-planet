@@ -1,33 +1,33 @@
-@extends('layouts.admin')
+﻿@extends('layouts.admin')
 @section('title', 'Users')
 
 @section('content')
 <div class="mb-8">
-    <h1 class="text-3xl font-extrabold text-white font-display">User Management</h1>
-    <p class="text-sm text-slate-400 mt-1">View registered student accounts and update access levels.</p>
+    <h1 class="text-3xl font-extrabold text-charcoal font-display">User Management</h1>
+    <p class="text-sm text-muted mt-1">View registered student accounts and update access levels.</p>
 </div>
 
-<div class="glass-card rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
+<div class="glass-card rounded-2xl overflow-hidden border border-charcoal/5 shadow-2xl">
     <div class="overflow-x-auto">
         <table class="min-w-full divide-y divide-white/5">
-            <thead class="bg-[#0e1122]/80">
+            <thead class="bg-cream-darker/50 ">
                 <tr>
-                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">Name</th>
-                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">Email Address</th>
-                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">Course</th>
-                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">Semester</th>
-                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">Role</th>
-                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">Joined Date</th>
-                    <th class="px-6 py-4 text-right text-xs font-bold text-slate-400 uppercase tracking-wider">Actions</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-muted uppercase tracking-wider">Name</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-muted uppercase tracking-wider">Email Address</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-muted uppercase tracking-wider">Course</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-muted uppercase tracking-wider">Semester</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-muted uppercase tracking-wider">Role</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-muted uppercase tracking-wider">Joined Date</th>
+                    <th class="px-6 py-4 text-right text-xs font-bold text-muted uppercase tracking-wider">Actions</th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-white/5 bg-[#0e1122]/30">
+            <tbody class="divide-y divide-white/5 bg-cream-dark/30 ">
                 @foreach($users as $user)
-                <tr class="hover:bg-white/5 transition duration-150">
-                    <td class="px-6 py-4 text-sm font-semibold text-slate-200">{{ $user->name }}</td>
-                    <td class="px-6 py-4 text-sm font-semibold text-slate-400">{{ $user->email }}</td>
-                    <td class="px-6 py-4 text-sm font-semibold text-slate-300">{{ $user->course ?? 'N/A' }}</td>
-                    <td class="px-6 py-4 text-sm font-semibold text-slate-300">
+                <tr class="hover:bg-charcoal/5 transition duration-150">
+                    <td class="px-6 py-4 text-sm font-semibold text-charcoal/80 ">{{ $user->name }}</td>
+                    <td class="px-6 py-4 text-sm font-semibold text-muted">{{ $user->email }}</td>
+                    <td class="px-6 py-4 text-sm font-semibold text-charcoal/70 ">{{ $user->course ?? 'N/A' }}</td>
+                    <td class="px-6 py-4 text-sm font-semibold text-charcoal/70 ">
                         @if(is_numeric($user->semester))
                             Sem {{ $user->semester }}
                         @else
@@ -56,18 +56,18 @@
                                 Media Manager
                             </span>
                         @else
-                            <span class="inline-flex items-center rounded-lg bg-white/5 border border-white/5 px-2.5 py-1 text-xs font-semibold text-slate-400">
+                            <span class="inline-flex items-center rounded-lg bg-charcoal/5 border border-charcoal/5 px-2.5 py-1 text-xs font-semibold text-muted">
                                 Student
                             </span>
                         @endif
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-400">{{ $user->created_at->format('M d, Y') }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-muted">{{ $user->created_at->format('M d, Y') }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-xs">
                         @if(auth()->user()->role === 'admin')
                             <form method="POST" action="{{ route('admin.users.update', $user) }}" class="inline-flex items-center gap-2">
                                 @csrf
                                 @method('PATCH')
-                                <select name="role" class="bg-[#07080f] border border-white/10 rounded-xl px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-purple-500">
+                                <select name="role" class="bg-cream-dark/50 border border-charcoal/10 rounded-xl px-2.5 py-1.5 text-xs text-charcoal/80 focus:outline-none focus:ring-1 focus:ring-purple-500">
                                     <option value="student" {{ $user->role === 'student' ? 'selected' : '' }}>Student</option>
                                     <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>Admin</option>
                                     <option value="president" {{ $user->role === 'president' ? 'selected' : '' }}>President</option>
@@ -91,7 +91,7 @@
                                 </form>
                             @endif
                         @else
-                            <span class="text-slate-500 italic font-semibold">No Actions Allowed</span>
+                            <span class="text-muted italic font-semibold">No Actions Allowed</span>
                         @endif
                     </td>
                 </tr>
@@ -101,3 +101,5 @@
     </div>
 </div>
 @endsection
+
+

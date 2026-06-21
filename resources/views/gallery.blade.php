@@ -1,4 +1,4 @@
-{{-- resources/views/gallery.blade.php --}}
+﻿{{-- resources/views/gallery.blade.php --}}
 @extends('layouts.app')
 
 @section('title', 'Gallery - Tech Planet SRM')
@@ -29,8 +29,8 @@
         <!-- Filter Pills -->
         <div class="flex flex-wrap gap-3">
             <button data-filter="all" class="filter-btn active btn-pill text-xs bg-charcoal text-cream hover:scale-105 transition-transform shadow-lg shadow-charcoal/20">All Archives</button>
-            <button data-filter="workshop" class="filter-btn btn-pill btn-pill-outline text-xs hover:border-charcoal hover:text-charcoal transition-colors bg-white/50 backdrop-blur-sm">Workshops</button>
-            <button data-filter="hackathon" class="filter-btn btn-pill btn-pill-outline text-xs hover:border-charcoal hover:text-charcoal transition-colors bg-white/50 backdrop-blur-sm">Hackathons</button>
+            <button data-filter="workshop" class="filter-btn btn-pill btn-pill-outline text-xs hover:border-charcoal hover:text-charcoal transition-colors bg-cream-dark/50 backdrop-blur-sm">Workshops</button>
+            <button data-filter="hackathon" class="filter-btn btn-pill btn-pill-outline text-xs hover:border-charcoal hover:text-charcoal transition-colors bg-cream-dark/50 backdrop-blur-sm">Hackathons</button>
         </div>
     </div>
     
@@ -46,7 +46,7 @@
                     <span class="text-warm text-[10px] font-bold uppercase tracking-widest block mb-1">Featured Event</span>
                     <h3 class="text-white font-display font-bold text-2xl uppercase tracking-tight">Annual Code Sprint 2024</h3>
                 </div>
-                <div class="w-12 h-12 rounded-full bg-white text-charcoal flex items-center justify-center hover:bg-warm hover:text-white transition-colors flex-shrink-0">
+                <div class="w-12 h-12 rounded-full bg-cream-dark text-charcoal flex items-center justify-center hover:bg-warm hover:text-white transition-colors flex-shrink-0">
                     <i class="fas fa-expand text-sm"></i>
                 </div>
             </div>
@@ -68,7 +68,7 @@
             <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=800&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
             <div class="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
             <div class="absolute bottom-8 left-8 right-8">
-                <span class="bg-white/90 backdrop-blur-sm text-charcoal text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 inline-block">Workshop</span>
+                <span class="bg-cream-dark/90 backdrop-blur-sm text-charcoal text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 inline-block">Workshop</span>
                 <h3 class="text-white font-display font-bold text-3xl mb-1 uppercase tracking-tight">React Frontend Workshop</h3>
                 <p class="text-white/70 text-xs font-medium uppercase tracking-widest">Mar 14, 2025</p>
             </div>
@@ -80,7 +80,7 @@
             <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=800&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
             <div class="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
             <div class="absolute bottom-6 left-6 right-6">
-                <span class="bg-white/90 text-charcoal text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 inline-block">Seminar</span>
+                <span class="bg-cream-dark/90 text-charcoal text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 inline-block">Seminar</span>
                 <h3 class="text-white font-display font-bold text-xl mb-1 uppercase tracking-tight">Generative AI</h3>
                 <p class="text-white/70 text-[10px] font-medium uppercase tracking-widest">Jan 19, 2025</p>
             </div>
@@ -180,7 +180,7 @@
 </section>
 
 <!-- 5. Horizontal Image Strip -->
-<section class="py-16 overflow-hidden reveal bg-white">
+<section class="py-16 overflow-hidden reveal bg-cream-dark">
     <div class="mb-10 px-6 sm:px-10 max-w-[1400px] mx-auto flex justify-between items-end border-b border-charcoal/10 pb-6">
         <h2 class="font-display font-black text-3xl lg:text-4xl text-charcoal tracking-tight uppercase">Tech Frames</h2>
         <span class="text-charcoal/40 text-xs font-bold uppercase tracking-widest hidden sm:block">02 / Strip</span>
@@ -245,7 +245,7 @@
 <!-- Lightbox Modal (Retained and styled) -->
 <div id="lightbox" class="fixed inset-0 bg-charcoal/90 backdrop-blur-xl z-50 hidden flex-col lg:flex-row items-center justify-center p-4 md:p-10 opacity-0 transition-opacity duration-300">
     <!-- Close Button -->
-    <button class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-lg transition-all z-50 border border-white/10" id="close-lightbox">
+    <button class="absolute top-6 right-6 w-12 h-12 rounded-full bg-cream-dark/10 hover:bg-cream-dark/20 flex items-center justify-center text-white text-lg transition-all z-50 border border-white/10" id="close-lightbox">
         <i class="fas fa-times"></i>
     </button>
     
@@ -330,13 +330,13 @@
                 b.classList.remove('bg-charcoal', 'text-cream', 'shadow-lg', 'shadow-charcoal/20');
                 if (!b.classList.contains('btn-pill-outline')) {
                     b.classList.add('btn-pill-outline');
-                    b.classList.add('bg-white/50', 'backdrop-blur-sm');
+                    b.classList.add('bg-cream-dark/50', 'backdrop-blur-sm');
                 }
             });
             
             // Set active button
             btn.classList.add('bg-charcoal', 'text-cream', 'shadow-lg', 'shadow-charcoal/20');
-            btn.classList.remove('btn-pill-outline', 'bg-white/50', 'backdrop-blur-sm');
+            btn.classList.remove('btn-pill-outline', 'bg-cream-dark/50', 'backdrop-blur-sm');
             
             const filterValue = btn.getAttribute('data-filter');
             

@@ -1,11 +1,11 @@
-@extends('layouts.student')
+﻿@extends('layouts.student')
 @section('title', 'Notifications')
 
 @section('content')
 <div class="space-y-6">
     <div class="mb-4">
-        <h2 class="text-3xl font-extrabold text-white font-display flex items-center gap-2.5"><i class="fas fa-bell text-purple-400"></i> Notifications</h2>
-        <p class="text-slate-400 mt-2 text-xs sm:text-sm">Stay updated with SRM CSI activities, coding challenges, and coordinator updates.</p>
+        <h2 class="text-3xl font-extrabold text-charcoal font-display flex items-center gap-2.5"><i class="fas fa-bell text-purple-400"></i> Notifications</h2>
+        <p class="text-muted mt-2 text-xs sm:text-sm">Stay updated with SRM CSI activities, coding challenges, and coordinator updates.</p>
     </div>
 
     @if($notifications->count())
@@ -18,8 +18,8 @@
                             <i class="fas fa-info-circle text-xs"></i>
                         </div>
                         <div>
-                            <p class="text-slate-200 text-xs sm:text-sm leading-relaxed">{{ $notif->message }}</p>
-                            <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mt-2.5">{{ $notif->created_at->diffForHumans() }}</p>
+                            <p class="text-charcoal/80 text-xs sm:text-sm leading-relaxed">{{ $notif->message }}</p>
+                            <p class="text-[10px] text-muted font-bold uppercase tracking-wider mt-2.5">{{ $notif->created_at->diffForHumans() }}</p>
                         </div>
                     </div>
                     @if(!$notif->is_read)
@@ -30,8 +30,8 @@
             @endforeach
         </div>
     @else
-        <div class="glass-card rounded-2xl p-12 text-center text-slate-505 border border-white/5 shadow-xl">
-            <div class="w-14 h-14 rounded-full bg-slate-900/50 flex items-center justify-center mx-auto text-slate-650 border border-white/5 text-2xl mb-4">
+        <div class="glass-card rounded-2xl p-12 text-center text-slate-505 border border-charcoal/5 shadow-xl">
+            <div class="w-14 h-14 rounded-full bg-slate-900/50 flex items-center justify-center mx-auto text-slate-650 border border-charcoal/5 text-2xl mb-4">
                 <i class="fas fa-inbox"></i>
             </div>
             <p class="text-xs font-semibold uppercase tracking-wider text-slate-450">No notifications yet. You're all caught up!</p>
@@ -39,3 +39,4 @@
     @endif
 </div>
 @endsection
+

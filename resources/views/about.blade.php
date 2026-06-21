@@ -1,4 +1,4 @@
-{{-- resources/views/about.blade.php --}}
+﻿{{-- resources/views/about.blade.php --}}
 @extends('layouts.app')
 
 @section('title', 'About Us - Tech Planet Club')
@@ -83,7 +83,7 @@
                 <!-- Custom Animated Line -->
                 <div class="absolute left-4 sm:left-1/2 top-0 bottom-0 w-1 bg-charcoal/5 rounded-full transform sm:-translate-x-1/2">
                     <div id="journey-progress" class="absolute top-0 left-0 w-full bg-charcoal rounded-full" style="height: 0%;"></div>
-                    <div id="journey-pointer" class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border-4 border-charcoal rounded-full shadow-lg transition-transform duration-100 ease-out z-10" style="top: 0%;"></div>
+                    <div id="journey-pointer" class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-cream-dark border-4 border-charcoal rounded-full shadow-lg transition-transform duration-100 ease-out z-10" style="top: 0%;"></div>
                 </div>
 
                 <!-- Timeline Item 1 -->

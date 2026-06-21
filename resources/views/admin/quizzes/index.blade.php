@@ -1,14 +1,14 @@
-@extends('layouts.admin')
+﻿@extends('layouts.admin')
 @section('title', 'Quizzes')
 
 @section('content')
 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
     <div>
-        <h1 class="text-3xl font-extrabold text-white font-display">Manage Quizzes</h1>
-        <p class="text-sm text-slate-400 mt-1">Create, update, and manage assessments.</p>
+        <h1 class="text-3xl font-extrabold text-charcoal font-display">Manage Quizzes</h1>
+        <p class="text-sm text-muted mt-1">Create, update, and manage assessments.</p>
     </div>
     @if(auth()->user()->role === 'admin')
-    <a href="{{ route('admin.quizzes.create') }}" class="inline-flex items-center gap-1.5 bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold px-6 py-2.5 rounded-xl text-sm shadow hover:shadow-lg transition">
+    <a href="{{ route('admin.quizzes.create') }}" class="inline-flex items-center gap-1.5 bg-purple-600 dark:bg-purple-500 text-charcoal font-bold px-6 py-2.5 rounded-xl text-sm shadow hover:shadow-lg transition">
         <i class="fas fa-plus text-xs"></i> New Quiz
     </a>
     @endif
@@ -16,18 +16,18 @@
 
 <div class="space-y-4">
     @forelse($quizzes as $quiz)
-    <div class="glass-card rounded-2xl p-6 border border-white/5 shadow-md">
+    <div class="glass-card rounded-2xl p-6 border border-charcoal/5 shadow-md">
         <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
-                <h2 class="text-xl font-bold text-white font-display">{{ $quiz->title }}</h2>
-                <p class="mt-2 text-slate-400 text-sm leading-relaxed">{{ $quiz->description ?: 'No description provided.' }}</p>
+                <h2 class="text-xl font-bold text-charcoal font-display">{{ $quiz->title }}</h2>
+                <p class="mt-2 text-muted text-sm leading-relaxed">{{ $quiz->description ?: 'No description provided.' }}</p>
                 <div class="mt-3 flex items-center gap-2">
                     <span class="bg-purple-950/80 text-purple-300 border border-purple-800/30 text-[10px] uppercase tracking-wider font-extrabold px-2.5 py-0.5 rounded-full">{{ $quiz->questions_count }} Question(s)</span>
                 </div>
             </div>
             <div class="flex flex-wrap gap-2 shrink-0">
                 @if(auth()->user()->role === 'admin')
-                    <a href="{{ route('admin.quizzes.edit', $quiz) }}" class="bg-white/5 border border-white/10 hover:border-cyan-500/30 text-slate-300 px-4 py-2 rounded-xl text-xs font-bold transition">Edit</a>
+                    <a href="{{ route('admin.quizzes.edit', $quiz) }}" class="bg-charcoal/5 border border-charcoal/10 hover:border-cyan-500/30 text-charcoal/70 px-4 py-2 rounded-xl text-xs font-bold transition">Edit</a>
                 @endif
                 <a href="{{ route('admin.quizzes.questions.index', $quiz) }}" class="bg-purple-955/20 border border-purple-500/30 text-purple-400 hover:bg-purple-900/20 px-4 py-2 rounded-xl text-xs font-bold transition">
                     {{ auth()->user()->role === 'admin' ? 'Manage Questions' : 'View Questions' }}
@@ -44,10 +44,13 @@
         </div>
     </div>
     @empty
-    <div class="glass-card rounded-2xl p-8 text-center text-slate-500 border border-white/5">
+    <div class="glass-card rounded-2xl p-8 text-center text-muted border border-charcoal/5 ">
         <i class="fas fa-laptop-code text-3xl mb-2 text-slate-600"></i>
         <p class="text-sm">No quizzes available yet. Create one to get started!</p>
     </div>
     @endforelse
 </div>
 @endsection
+
+
+

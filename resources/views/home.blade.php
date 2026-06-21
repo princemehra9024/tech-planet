@@ -1,4 +1,4 @@
-{{-- resources/views/home.blade.php --}}
+﻿{{-- resources/views/home.blade.php --}}
 @extends('layouts.app')
 
 @section('title', 'Tech Planet Club - SRM CSI Department')
@@ -18,7 +18,7 @@
                         <!-- Meta row -->
                         <div class="reveal flex items-center gap-3 mb-4">
                             <div class="w-2 h-2 rounded-full bg-sage animate-pulse"></div>
-                            <span class="text-muted text-[11px] font-medium tracking-widest uppercase">SRM CSI Department — Est. 2023</span>
+                            <span class="text-muted text-[11px] font-medium tracking-widest uppercase">SRM CSI Department â€” Est. 2023</span>
                         </div>
 
                         <!-- Heading with inline avatars -->
@@ -32,7 +32,7 @@
                                         <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=60&h=60" alt="" class="w-8 h-8 rounded-full border-2 border-cream object-cover">
                                     </span>
                                 </span>
-                                Frontiers<span class="text-warm">✦</span>
+                                Frontiers<span class="text-warm">âœ¦</span>
                             </h1>
                         </div>
 
@@ -106,7 +106,7 @@
                             <div class="absolute bottom-0 left-0 right-0 p-3">
                                 <p class="text-white/90 font-display font-semibold text-xs">AI Forge Hackathon</p>
                                 <div class="flex items-center justify-between mt-1">
-                                    <span class="inline-flex items-center gap-1 text-[9px] text-white/60 bg-white/10 backdrop-blur-sm px-1.5 py-0.5 rounded-full">
+                                    <span class="inline-flex items-center gap-1 text-[9px] text-white/60 bg-cream-dark/10 backdrop-blur-sm px-1.5 py-0.5 rounded-full">
                                         <i class="fas fa-fire text-amber-400 text-[7px]"></i> Popular
                                     </span>
                                     <span class="flex items-center gap-0.5 text-amber-400 text-[9px]">
@@ -125,10 +125,10 @@
                         
                         <!-- Filter bar -->
                         <div class="flex flex-wrap items-center gap-2">
-                            <a href="{{ url('/events') }}" class="hero-filter-btn flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white text-xs font-medium hover:bg-white/15 transition-all">
+                            <a href="{{ url('/events') }}" class="hero-filter-btn flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/20 bg-cream-dark/5 backdrop-blur-md text-white text-xs font-medium hover:bg-cream-dark/15 transition-all">
                                 Events <i class="fas fa-chevron-down text-[8px] text-white/40"></i>
                             </a>
-                            <a href="{{ url('/gallery') }}" class="hero-filter-btn flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white text-xs font-medium hover:bg-white/15 transition-all">
+                            <a href="{{ url('/gallery') }}" class="hero-filter-btn flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/20 bg-cream-dark/5 backdrop-blur-md text-white text-xs font-medium hover:bg-cream-dark/15 transition-all">
                                 Gallery <i class="fas fa-chevron-down text-[8px] text-white/40"></i>
                             </a>
                             <a href="{{ url('/about') }}" class="hero-filter-btn px-5 py-2 rounded-full bg-charcoal text-white text-xs font-semibold hover:bg-warm transition-all shadow-lg">
@@ -151,32 +151,32 @@
             <!-- First Set -->
             <div class="flex items-center whitespace-nowrap px-4">
                 <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-cream tracking-tighter uppercase hover:text-blue-400 cursor-default transition-colors duration-300">workshops</span>
-                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">âœ¦</span>
                 <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-transparent text-stroke-cream tracking-tighter uppercase hover:text-stroke-blue hover:text-blue-400/20 cursor-default transition-all duration-300">hackathons</span>
-                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">âœ¦</span>
                 <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-cream tracking-tighter uppercase hover:text-purple-400 cursor-default transition-colors duration-300">bootcamps</span>
-                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">âœ¦</span>
                 <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-transparent text-stroke-cream tracking-tighter uppercase hover:text-stroke-purple hover:text-purple-400/20 cursor-default transition-all duration-300">networking</span>
-                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">âœ¦</span>
                 <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-cream tracking-tighter uppercase hover:text-pink-400 cursor-default transition-colors duration-300">innovation</span>
-                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">âœ¦</span>
                 <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-transparent text-stroke-cream tracking-tighter uppercase hover:text-stroke-pink hover:text-pink-400/20 cursor-default transition-all duration-300">open source</span>
-                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">âœ¦</span>
             </div>
             <!-- Duplicate for infinite scroll (Second Set) -->
             <div class="flex items-center whitespace-nowrap px-4">
                 <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-cream tracking-tighter uppercase hover:text-blue-400 cursor-default transition-colors duration-300">workshops</span>
-                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">âœ¦</span>
                 <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-transparent text-stroke-cream tracking-tighter uppercase hover:text-stroke-blue hover:text-blue-400/20 cursor-default transition-all duration-300">hackathons</span>
-                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">âœ¦</span>
                 <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-cream tracking-tighter uppercase hover:text-purple-400 cursor-default transition-colors duration-300">bootcamps</span>
-                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">âœ¦</span>
                 <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-transparent text-stroke-cream tracking-tighter uppercase hover:text-stroke-purple hover:text-purple-400/20 cursor-default transition-all duration-300">networking</span>
-                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">âœ¦</span>
                 <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-cream tracking-tighter uppercase hover:text-pink-400 cursor-default transition-colors duration-300">innovation</span>
-                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">âœ¦</span>
                 <span class="font-display font-black text-5xl sm:text-6xl md:text-7xl text-transparent text-stroke-cream tracking-tighter uppercase hover:text-stroke-pink hover:text-pink-400/20 cursor-default transition-all duration-300">open source</span>
-                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">✦</span>
+                <span class="text-warm mx-6 sm:mx-10 text-3xl opacity-50 animate-pulse">âœ¦</span>
             </div>
         </div>
     </div>
@@ -189,7 +189,7 @@
                 <div class="reveal flex justify-center lg:justify-end px-2 sm:px-6">
                     <div class="relative w-full max-w-[440px]">
                         <!-- Single High-Quality Frame (Reduced Height) -->
-                        <div class="rounded-[2.5rem] overflow-hidden aspect-square shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border-8 border-white/90 bg-white/50 backdrop-blur-md relative group">
+                        <div class="rounded-[2.5rem] overflow-hidden aspect-square shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border-8 border-white/90 bg-cream-dark/50 backdrop-blur-md relative group">
                             <!-- Overlay for contrast -->
                             <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-charcoal/0 to-transparent z-10 pointer-events-none"></div>
                             
@@ -197,7 +197,7 @@
                             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=100&w=1200" alt="Team collaboration" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
                             
                             <!-- Integrated floating badge -->
-                            <div class="absolute bottom-6 left-6 z-20 bg-white/95 backdrop-blur-md px-6 py-3 rounded-2xl shadow-xl border border-white/50 transform transition-transform group-hover:-translate-y-1">
+                            <div class="absolute bottom-6 left-6 z-20 bg-cream-dark/95 backdrop-blur-md px-6 py-3 rounded-2xl shadow-xl border border-white/50 transform transition-transform group-hover:-translate-y-1">
                                 <span class="text-gray-900 font-display font-black text-sm tracking-widest uppercase flex items-center gap-2">
                                     <span class="w-2 h-2 rounded-full bg-gray-900 animate-pulse"></span>
                                     Est. 2023
@@ -337,7 +337,7 @@
                             Featured
                         </div>
 
-                        <div class="relative w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-amber-400 text-xl mb-6 group-hover:scale-110 group-hover:text-amber-300 group-hover:border-amber-400/30 group-hover:bg-amber-400/10 transition-all duration-500 shadow-sm z-20">
+                        <div class="relative w-14 h-14 rounded-2xl bg-cream-dark/5 border border-white/10 flex items-center justify-center text-amber-400 text-xl mb-6 group-hover:scale-110 group-hover:text-amber-300 group-hover:border-amber-400/30 group-hover:bg-amber-400/10 transition-all duration-500 shadow-sm z-20">
                             <i class="fas fa-bullhorn"></i>
                         </div>
                         <h3 class="relative font-display font-bold text-xl text-cream mb-3 transition-colors duration-300 group-hover:text-amber-400 z-20">
@@ -385,3 +385,4 @@
     </section>
 
 @endsection
+

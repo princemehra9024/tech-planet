@@ -1,6 +1,6 @@
-<div class="glass-card rounded-2xl p-5 border border-white/5 shadow-xl sticky top-24 space-y-6">
+﻿<div class="glass-card rounded-2xl p-5 border border-charcoal/5 shadow-xl sticky top-24 space-y-6">
     <!-- User Avatar & Level Ring Column -->
-    <div class="flex items-center gap-4 border-b border-white/5 pb-4">
+    <div class="flex items-center gap-4 border-b border-charcoal/5 pb-4">
         <!-- SVG Radial Ring Container -->
         @php
             $level = floor(auth()->user()->xp / 100);
@@ -27,18 +27,18 @@
                 </defs>
             </svg>
             <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-11 h-11 rounded-full bg-[#0e1122] flex items-center justify-center text-white font-extrabold text-sm border border-white/10">
+                <div class="w-11 h-11 rounded-full glass-card flex items-center justify-center text-charcoal font-extrabold text-sm border border-charcoal/10 ">
                     {{ substr(auth()->user()->name, 0, 1) }}
                 </div>
             </div>
             <!-- Floating Level Badge -->
-            <span class="absolute -bottom-1 -right-1 bg-gradient-to-r from-cyan-500 to-purple-600 text-white text-[9px] font-bold rounded-full w-5 h-5 flex items-center justify-center border border-[#07080f]">
+            <span class="absolute -bottom-1 -right-1 bg-purple-600 dark:bg-purple-500 text-charcoal text-[9px] font-bold rounded-full w-5 h-5 flex items-center justify-center border border-cream ">
                 {{ $level }}
             </span>
         </div>
         <div>
             <div class="flex flex-col gap-1">
-                <p class="font-bold text-white text-base font-display leading-tight">{{ auth()->user()->name }}</p>
+                <p class="font-bold text-charcoal text-base font-display leading-tight">{{ auth()->user()->name }}</p>
                 @if(auth()->user()->role !== 'student' && auth()->user()->role)
                     <div class="mt-0.5">
                         @if(auth()->user()->role === 'admin')
@@ -62,71 +62,75 @@
     <!-- Quick Stats -->
     <div>
         <h3 class="font-bold text-xs text-slate-350 font-display flex items-center gap-1.5"><i class="fas fa-chart-line text-cyan-400"></i> Stats Center</h3>
-        <ul class="text-xs font-semibold space-y-2 mt-3 text-slate-400">
-            <li class="flex justify-between items-center bg-[#07080f]/40 border border-white/5 rounded-xl px-3 py-2">
-                <span>📝 Posts Shared</span>
-                <span class="text-white bg-white/5 px-2 py-0.5 rounded-md">{{ auth()->user()->posts->count() }}</span>
+        <ul class="text-xs font-semibold space-y-2 mt-3 text-muted">
+            <li class="flex justify-between items-center bg-cream-dark/50 border border-charcoal/5 rounded-xl px-3 py-2">
+                <span>ðŸ“ Posts Shared</span>
+                <span class="text-charcoal bg-charcoal/5 px-2 py-0.5 rounded-md">{{ auth()->user()->posts->count() }}</span>
             </li>
-            <li class="flex justify-between items-center bg-[#07080f]/40 border border-white/5 rounded-xl px-3 py-2">
-                <span>💬 Comments Made</span>
-                <span class="text-white bg-white/5 px-2 py-0.5 rounded-md">{{ auth()->user()->comments->count() }}</span>
+            <li class="flex justify-between items-center bg-cream-dark/50 border border-charcoal/5 rounded-xl px-3 py-2">
+                <span>ðŸ’¬ Comments Made</span>
+                <span class="text-charcoal bg-charcoal/5 px-2 py-0.5 rounded-md">{{ auth()->user()->comments->count() }}</span>
             </li>
-            <li class="flex justify-between items-center bg-[#07080f]/40 border border-white/5 rounded-xl px-3 py-2">
-                <span>🎉 Events Joined</span>
-                <span class="text-white bg-white/5 px-2 py-0.5 rounded-md">{{ auth()->user()->eventRegistrations->count() }}</span>
+            <li class="flex justify-between items-center bg-cream-dark/50 border border-charcoal/5 rounded-xl px-3 py-2">
+                <span>ðŸŽ‰ Events Joined</span>
+                <span class="text-charcoal bg-charcoal/5 px-2 py-0.5 rounded-md">{{ auth()->user()->eventRegistrations->count() }}</span>
             </li>
-            <li class="flex justify-between items-center bg-[#07080f]/40 border border-white/5 rounded-xl px-3 py-2">
-                <span>📚 Quizzes Taken</span>
-                <span class="text-white bg-white/5 px-2 py-0.5 rounded-md">{{ auth()->user()->quizAttempts->count() }}</span>
+            <li class="flex justify-between items-center bg-cream-dark/50 border border-charcoal/5 rounded-xl px-3 py-2">
+                <span>ðŸ“š Quizzes Taken</span>
+                <span class="text-charcoal bg-charcoal/5 px-2 py-0.5 rounded-md">{{ auth()->user()->quizAttempts->count() }}</span>
             </li>
         </ul>
     </div>
     
     <!-- Next Level Progress Tracker -->
-    <div class="pt-4 border-t border-white/5">
-        <div class="flex justify-between items-center text-[10px] text-slate-500 font-bold uppercase tracking-wider">
+    <div class="pt-4 border-t border-charcoal/5 ">
+        <div class="flex justify-between items-center text-[10px] text-muted font-bold uppercase tracking-wider">
             <span>Progress ({{ $progress }}%)</span>
             <span>Target: {{ ($level + 1) * 100 }} XP</span>
         </div>
     </div>
 
     <!-- Achievements Board (Badges) -->
-    <div class="pt-4 border-t border-white/5">
+    <div class="pt-4 border-t border-charcoal/5 ">
         <h3 class="font-bold text-xs text-slate-350 font-display flex items-center gap-1.5 mb-3"><i class="fas fa-award text-purple-400"></i> Unlocked Badges</h3>
         <div class="grid grid-cols-4 gap-2">
             <!-- Badge 1: Registered -->
-            <div class="group relative flex items-center justify-center p-2 rounded-xl bg-white/5 border border-white/5 hover:border-cyan-500/30 transition duration-300" title="Cadet Badge: Account Initialised">
+            <div class="group relative flex items-center justify-center p-2 rounded-xl bg-charcoal/5 border border-charcoal/5 hover:border-cyan-500/30 transition duration-300" title="Cadet Badge: Account Initialised">
                 <i class="fas fa-user-shield text-cyan-400 text-base"></i>
                 <!-- Tooltip -->
-                <span class="absolute bottom-full mb-2 hidden group-hover:block bg-[#0e1122] text-white text-[9px] px-2 py-1 rounded border border-white/10 whitespace-nowrap z-30">Cadet (Initialised)</span>
+                <span class="absolute bottom-full mb-2 hidden group-hover:block glass-card text-charcoal text-[9px] px-2 py-1 rounded border border-charcoal/10 whitespace-nowrap z-30">Cadet (Initialised)</span>
             </div>
 
             <!-- Badge 2: Quiz Taker -->
             @php $hasQuiz = auth()->user()->quizAttempts->count() > 0; @endphp
-            <div class="group relative flex items-center justify-center p-2 rounded-xl {{ $hasQuiz ? 'bg-white/5 border-purple-500/20 text-purple-400' : 'bg-white/[0.01] border-white/5 opacity-30 text-slate-600' }} border transition duration-300">
+            <div class="group relative flex items-center justify-center p-2 rounded-xl {{ $hasQuiz ? 'bg-charcoal/5 border-purple-500/20 text-purple-400' : 'bg-cream-dark/[0.01] border-charcoal/5 opacity-30 text-slate-600' }} border transition duration-300">
                 <i class="fas fa-brain text-base"></i>
-                <span class="absolute bottom-full mb-2 hidden group-hover:block bg-[#0e1122] text-white text-[9px] px-2 py-1 rounded border border-white/10 whitespace-nowrap z-30">
+                <span class="absolute bottom-full mb-2 hidden group-hover:block glass-card text-charcoal text-[9px] px-2 py-1 rounded border border-charcoal/10 whitespace-nowrap z-30">
                     {{ $hasQuiz ? 'Code Squire (Quiz Taken)' : 'Locked: Squire Badge' }}
                 </span>
             </div>
 
             <!-- Badge 3: Contributor -->
             @php $hasPost = auth()->user()->posts->count() > 0 || auth()->user()->comments->count() > 0; @endphp
-            <div class="group relative flex items-center justify-center p-2 rounded-xl {{ $hasPost ? 'bg-white/5 border-pink-500/20 text-pink-400' : 'bg-white/[0.01] border-white/5 opacity-30 text-slate-600' }} border transition duration-300">
+            <div class="group relative flex items-center justify-center p-2 rounded-xl {{ $hasPost ? 'bg-charcoal/5 border-pink-500/20 text-pink-500' : 'bg-cream-dark/[0.01] border-charcoal/5 opacity-30 text-slate-600' }} border transition duration-300">
                 <i class="fas fa-comments text-base"></i>
-                <span class="absolute bottom-full mb-2 hidden group-hover:block bg-[#0e1122] text-white text-[9px] px-2 py-1 rounded border border-white/10 whitespace-nowrap z-30">
+                <span class="absolute bottom-full mb-2 hidden group-hover:block glass-card text-charcoal text-[9px] px-2 py-1 rounded border border-charcoal/10 whitespace-nowrap z-30">
                     {{ $hasPost ? 'Spark Badge (Communicator)' : 'Locked: Spark Badge' }}
                 </span>
             </div>
 
             <!-- Badge 4: Level 5+ master -->
             @php $isLevel5 = $level >= 5; @endphp
-            <div class="group relative flex items-center justify-center p-2 rounded-xl {{ $isLevel5 ? 'bg-white/5 border-yellow-500/20 text-yellow-400' : 'bg-white/[0.01] border-white/5 opacity-30 text-slate-600' }} border transition duration-300">
+            <div class="group relative flex items-center justify-center p-2 rounded-xl {{ $isLevel5 ? 'bg-charcoal/5 border-yellow-500/20 text-yellow-400' : 'bg-cream-dark/[0.01] border-charcoal/5 opacity-30 text-slate-600' }} border transition duration-300">
                 <i class="fas fa-crown text-base"></i>
-                <span class="absolute bottom-full mb-2 hidden group-hover:block bg-[#0e1122] text-white text-[9px] px-2 py-1 rounded border border-white/10 whitespace-nowrap z-30">
+                <span class="absolute bottom-full mb-2 hidden group-hover:block glass-card text-charcoal text-[9px] px-2 py-1 rounded border border-charcoal/10 whitespace-nowrap z-30">
                     {{ $isLevel5 ? 'Grandmaster Badge (Lvl 5+)' : 'Locked: Grandmaster Badge' }}
                 </span>
             </div>
         </div>
     </div>
 </div>
+
+
+
+

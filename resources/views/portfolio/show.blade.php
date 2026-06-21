@@ -1,4 +1,4 @@
-@extends('layouts.app')
+﻿@extends('layouts.app')
 @section('title', $user->name . ' - Developer Portfolio')
 
 @section('content')
@@ -18,7 +18,7 @@
             <button onclick="shareProfile('{{ route('portfolio.show', $user->portfolioSlug()) }}')" class="text-[10px] font-bold text-cyan-400 hover:text-cyan-300 transition flex items-center gap-1.5 bg-cyan-950/40 border border-cyan-500/20 px-3 py-1.5 rounded-full">
                 <i class="far fa-share-square"></i> Share Portfolio
             </button>
-            <span class="text-[9px] uppercase font-bold tracking-widest text-slate-500 bg-white/5 border border-white/5 px-3 py-1.5 rounded-full">Public Developer CV</span>
+            <span class="text-[9px] uppercase font-bold tracking-widest text-slate-500 bg-cream-dark/5 border border-white/5 px-3 py-1.5 rounded-full">Public Developer CV</span>
         </div>
     </div>
 
@@ -57,8 +57,8 @@
                             @endif
                         </div>
                         <p class="text-xs text-slate-400 font-medium flex items-center justify-center md:justify-start gap-2">
-                            <span class="flex items-center gap-1"><i class="fas fa-graduation-cap text-cyan-400"></i> {{ $user->course ?? 'MCA' }} • Sem {{ $user->semester ?? '1' }}</span>
-                            <span>•</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-graduation-cap text-cyan-400"></i> {{ $user->course ?? 'MCA' }} â€¢ Sem {{ $user->semester ?? '1' }}</span>
+                            <span>â€¢</span>
                             <span class="flex items-center gap-1"><i class="fas fa-code-branch text-purple-400"></i> {{ $user->branch ?? 'Computer Science & Informatics' }}</span>
                         </p>
                     </div>
@@ -171,3 +171,4 @@
     </div>
 </div>
 @endsection
+
