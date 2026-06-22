@@ -31,14 +31,11 @@
                 Register for upcoming developer workshops or browse through our completed milestones.
             </p>
         </div>
-        <button type="button" id="open-suggest-modal-btn" class="btn-pill btn-pill-warm hidden sm:inline-flex group flex-shrink-0 card-lift">
+        <button type="button" onclick="window.location.href='/student/events'" class="btn-pill btn-pill-warm hidden sm:inline-flex group flex-shrink-0 card-lift">
             <i class="fas fa-plus text-xs mr-1.5"></i> Suggest Event
         </button>
     </div>
     
-    <button type="button" id="open-suggest-modal-btn-mobile" class="reveal btn-pill btn-pill-warm w-full justify-center sm:hidden mb-8 group card-lift">
-        <i class="fas fa-plus text-xs mr-1.5"></i> Suggest Event
-    </button>
 
     <!-- Filter Pills -->
     <div class="reveal flex flex-wrap gap-3 mb-12">

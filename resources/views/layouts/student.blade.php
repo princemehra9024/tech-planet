@@ -48,7 +48,7 @@
             --color-sage: #7A8B6F;
             --color-sage-light: #95A888;
             --color-sage-dark: #5E6D54;
-            --color-muted: #6B6B6B;
+            --color-muted: #525252;
         }
 
         html.dark {
@@ -65,7 +65,7 @@
             --color-sage: #5E6D54;
             --color-sage-light: #7A8B6F;
             --color-sage-dark: #95A888;
-            --color-muted: #A0A0A0;
+            --color-muted: #B0B0B0;
         }
 
         * { font-family: 'DM Sans', sans-serif; }
@@ -166,11 +166,11 @@
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
                 </span>
-                <span>Impersonation Active: You are logged in as <span class="text-charcoal underline">{{ auth()->user()->name }}</span> ({{ ucfirst(auth()->user()->role) }})</span>
+                <span>Impersonation Active: You are logged in as <span class="underline">{{ auth()->user()->name }}</span> ({{ ucfirst(auth()->user()->role) }})</span>
             </div>
             <form method="POST" action="{{ route('student.stop-impersonating') }}">
                 @csrf
-                <button type="submit" class="bg-charcoal/10 hover:bg-cream-dark/20 border border-charcoal/20 hover:border-white/30 text-charcoal font-bold px-3 py-1 rounded-lg transition text-[10px] uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+                <button type="submit" class="bg-charcoal/10 hover:bg-cream-dark/20 border border-charcoal/20 hover:border-white/30 text-white font-bold px-3 py-1 rounded-lg transition text-[10px] uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
                     <i class="fas fa-sign-out-alt"></i> Return to Admin
                 </button>
             </form>
@@ -191,41 +191,45 @@
                     </div>
                 </div>
 
-                                <div class="pt-4 mt-2 border-t border-charcoal/5 flex justify-center">
+                                <div class="pt-2 mt-1 flex justify-center">
                     <button onclick="toggleTheme()" class="w-10 h-10 rounded-full flex items-center justify-center bg-cream-dark text-charcoal hover:bg-cream-darker transition-colors shadow-sm" aria-label="Toggle Dark Mode">
                         <i class="theme-icon fas fa-moon text-lg"></i>
                     </button>
                 </div>
                 <!-- Nav Items -->
                 <nav class="space-y-1.5">
-                    <a href="{{ route('student.dashboard') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.dashboard') ? 'bg-purple-600/10 text-purple-400 border border-purple-800/20' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
+                    <a href="{{ route('student.dashboard') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.dashboard') ? 'bg-purple-600/15 text-purple-600 dark:text-purple-400 border border-purple-500/25' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/95 ' }}">
                         <i class="fas fa-th-large w-5 text-center"></i>
                         <span>Dashboard</span>
                     </a>
-                    <a href="{{ route('student.events') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.events') ? 'bg-purple-600/10 text-purple-400 border border-purple-800/20' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
+                    <a href="{{ route('student.events') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.events') ? 'bg-purple-600/15 text-purple-600 dark:text-purple-400 border border-purple-500/25' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/95 ' }}">
                         <i class="fas fa-calendar-alt w-5 text-center"></i>
                         <span>Events</span>
                     </a>
-                    <a href="{{ route('student.coding-arena') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.coding-arena') || request()->routeIs('student.quiz.*') ? 'bg-purple-600/10 text-purple-400 border border-purple-800/20' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
+                    <a href="{{ route('student.coding-arena') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.coding-arena') || request()->routeIs('student.quiz.*') ? 'bg-purple-600/15 text-purple-600 dark:text-purple-400 border border-purple-500/25' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/95 ' }}">
                         <i class="fas fa-code w-5 text-center"></i>
                         <span>Coding Arena</span>
                     </a>
-                    <a href="{{ route('student.leaderboard') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.leaderboard') ? 'bg-purple-600/10 text-purple-400 border border-purple-800/20' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
+                    <a href="{{ route('student.leaderboard') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.leaderboard') ? 'bg-purple-600/15 text-purple-600 dark:text-purple-400 border border-purple-500/25' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/95 ' }}">
                         <i class="fas fa-trophy w-5 text-center"></i>
                         <span>Leaderboard</span>
                     </a>
-                    <a href="{{ route('student.profile') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.profile') ? 'bg-purple-600/10 text-purple-400 border border-purple-800/20' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
+                    <a href="{{ route('student.profile') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.profile') ? 'bg-purple-600/15 text-purple-600 dark:text-purple-400 border border-purple-500/25' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/95 ' }}">
                         <i class="fas fa-user-circle w-5 text-center"></i>
                         <span>Profile</span>
                     </a>
+                    <a href="{{ route('student.certificates') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.certificates') ? 'bg-purple-600/15 text-purple-600 dark:text-purple-400 border border-purple-500/25' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/95 ' }}">
+                        <i class="fas fa-certificate w-5 text-center"></i>
+                        <span>My Certificates</span>
+                    </a>
                     @php $unreadCount = auth()->user()->userNotifications()->where('is_read', false)->count(); @endphp
-                    <a href="{{ route('student.notifications') }}" class="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.notifications') ? 'bg-purple-600/10 text-purple-400 border border-purple-800/20' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
+                    <a href="{{ route('student.notifications') }}" class="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.notifications') ? 'bg-purple-600/15 text-purple-600 dark:text-purple-400 border border-purple-500/25' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/95 ' }}">
                         <div class="flex items-center space-x-3">
                             <i class="fas fa-bell w-5 text-center"></i>
                             <span>Notifications</span>
                         </div>
                         @if($unreadCount)
-                            <span class="bg-red-500 text-charcoal text-[10px] font-bold rounded-full px-2 py-0.5 animate-pulse">{{ $unreadCount }}</span>
+                            <span class="bg-red-500 text-white text-[10px] font-bold rounded-full px-2 py-0.5 animate-pulse">{{ $unreadCount }}</span>
                         @endif
                     </a>
                     @if(auth()->user()->role !== 'student' && auth()->user()->role)
@@ -270,12 +274,13 @@
                     <button id="mobile-close-sidebar" class="text-muted hover:text-cyan-400 text-2xl"><i class="fas fa-times"></i></button>
                 </div>
                 <nav class="space-y-2">
-                    <a href="{{ route('student.dashboard') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/70 hover:bg-charcoal/5 ">Dashboard</a>
-                    <a href="{{ route('student.events') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/70 hover:bg-charcoal/5 ">Events</a>
-                    <a href="{{ route('student.coding-arena') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/70 hover:bg-charcoal/5 ">Coding Arena</a>
-                    <a href="{{ route('student.leaderboard') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/70 hover:bg-charcoal/5 ">Leaderboard</a>
-                    <a href="{{ route('student.profile') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/70 hover:bg-charcoal/5 ">Profile</a>
-                    <a href="{{ route('student.notifications') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/70 hover:bg-charcoal/5 flex justify-between items-center">
+                    <a href="{{ route('student.dashboard') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/90 hover:bg-charcoal/5 ">Dashboard</a>
+                    <a href="{{ route('student.events') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/90 hover:bg-charcoal/5 ">Events</a>
+                    <a href="{{ route('student.coding-arena') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/90 hover:bg-charcoal/5 ">Coding Arena</a>
+                    <a href="{{ route('student.leaderboard') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/90 hover:bg-charcoal/5 ">Leaderboard</a>
+                    <a href="{{ route('student.profile') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/90 hover:bg-charcoal/5 ">Profile</a>
+                    <a href="{{ route('student.certificates') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/90 hover:bg-charcoal/5 ">My Certificates</a>
+                    <a href="{{ route('student.notifications') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/90 hover:bg-charcoal/5 flex justify-between items-center">
                         <span>Notifications</span>
                         @if($unreadCount) <span class="bg-red-500 text-charcoal text-xs rounded-full px-2 py-0.5">{{ $unreadCount }}</span> @endif
                     </a>
@@ -326,5 +331,3 @@
     @stack('scripts')
 </body>
 </html>
-
-

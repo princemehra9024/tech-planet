@@ -4,10 +4,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use NotificationChannels\WebPush\HasPushSubscriptions;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasPushSubscriptions;
 
     protected $fillable = ['name', 'email', 'password', 'role', 'semester', 'branch', 'course', 'bio', 'xp', 'last_login_at'];
 
@@ -21,6 +22,7 @@ class User extends Authenticatable
     public function eventRegistrations() { return $this->hasMany(EventRegistration::class); }
     public function quizAttempts() { return $this->hasMany(QuizAttempt::class); }
     public function userNotifications() { return $this->hasMany(Notification::class); }
+    public function certificates() { return $this->hasMany(Certificate::class); }
 
     public function isAdmin(): bool
     {

@@ -89,6 +89,18 @@ class AdminController extends Controller
             'status' => $request->status
         ]);
 
+        if ($request->status === 'approved') {
+            $users = User::all();
+            foreach ($users as $user) {
+                \App\Models\Notification::create([
+                    'user_id' => $user->id,
+                    'type' => 'new_vote',
+                    'message' => "A new event suggestion '{$suggestion->title}' is up for voting!",
+                    'is_read' => false,
+                ]);
+            }
+        }
+
         return back()->with('success', 'Suggestion status updated.');
     }
 
@@ -127,6 +139,16 @@ class AdminController extends Controller
         $suggestion->update([
             'status' => 'published'
         ]);
+
+        $users = User::all();
+        foreach ($users as $user) {
+            \App\Models\Notification::create([
+                'user_id' => $user->id,
+                'type' => 'new_event',
+                'message' => "New Event Published: {$request->title}! Check it out and register now.",
+                'is_read' => false,
+            ]);
+        }
 
         return redirect()->route('admin.suggestions.index')->with('success', 'Event published successfully!');
     }

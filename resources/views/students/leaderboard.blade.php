@@ -4,8 +4,8 @@
 @section('content')
 <div class="space-y-8">
     <div class="mb-4">
-        <h2 class="text-3xl font-extrabold text-charcoal font-display flex items-center gap-2.5"><i class="fas fa-trophy text-yellow-500"></i> Chapter Leaderboard</h2>
-        <p class="text-muted mt-2 text-xs sm:text-sm">Rise to the top of SRM CSI chapter rankings by gaining XP in assessments.</p>
+        <h2 class="text-3xl font-extrabold text-charcoal font-display flex items-center gap-2.5"><i class="fas fa-trophy text-yellow-500"></i> Leaderboard</h2>
+        <p class="text-muted mt-2 text-xs sm:text-sm">Rise to the top of Club rankings by gaining XP in assessments.</p>
     </div>
 
     <!-- Visual Podium (Only on Page 1) -->
@@ -37,7 +37,7 @@
                 </div>
             @endif
             <div class="w-full bg-slate-500/10 border border-slate-500/20 rounded-t-2xl h-24 flex flex-col justify-center items-center mt-2">
-                <span class="text-xs font-bold text-charcoal/70 ">ðŸ¥ˆ 2nd</span>
+                <span class="text-xs font-bold text-charcoal/70 ">2nd</span>
                 <span class="text-[10px] text-slate-450 font-semibold mt-1">{{ $topStudents[1]->xp }} XP</span>
             </div>
         </div>
@@ -69,7 +69,7 @@
                 </div>
             @endif
             <div class="w-full bg-yellow-500/10 border border-yellow-500/25 rounded-t-3xl h-32 flex flex-col justify-center items-center shadow-lg shadow-yellow-500/5 mt-2">
-                <span class="text-sm font-extrabold text-yellow-400">ðŸ¥‡ 1st</span>
+                <span class="text-sm font-extrabold text-yellow-400">1st</span>
                 <span class="text-xs text-yellow-500 font-bold mt-1">{{ $topStudents[0]->xp }} XP</span>
             </div>
         </div>
@@ -101,7 +101,7 @@
                 </div>
             @endif
             <div class="w-full bg-amber-700/10 border border-amber-700/20 rounded-t-2xl h-20 flex flex-col justify-center items-center mt-2">
-                <span class="text-xs font-bold text-amber-500">ðŸ¥‰ 3rd</span>
+                <span class="text-xs font-bold text-amber-500">3rd</span>
                 <span class="text-[10px] text-slate-450 font-semibold mt-1">{{ $topStudents[2]->xp }} XP</span>
             </div>
         </div>
@@ -116,7 +116,7 @@
                 <thead class="bg-cream-darker/50 ">
                     <tr class="text-[10px] font-bold uppercase tracking-wider text-muted">
                         <th class="px-6 py-4 text-left">Rank</th>
-                        <th class="px-6 py-4 text-left">Developer Node</th>
+                        <th class="px-6 py-4 text-left">Name</th>
                         <th class="px-6 py-4 text-left">Compiled XP</th>
                         <th class="px-6 py-4 text-left">Progress Rank</th>
                     </tr>
@@ -129,13 +129,13 @@
                     <tr class="hover:bg-cream-dark/[0.01] transition-all duration-150">
                         <td class="px-6 py-4 whitespace-nowrap font-bold">
                             @if($rank == 1) 
-                                <span class="text-yellow-400 font-bold">ðŸ¥‡ #1</span>
+                                <span class="text-charcoal/70 font-bold">#1</span>
                             @elseif($rank == 2) 
-                                <span class="text-charcoal/70 font-bold">ðŸ¥ˆ #2</span>
+                                <span class="text-charcoal/70 font-bold">#2</span>
                             @elseif($rank == 3) 
-                                <span class="text-amber-500 font-bold">ðŸ¥‰ #3</span>
+                                <span class="text-charcoal/70 font-bold">#3</span>
                             @else 
-                                <span class="pl-1 font-mono text-muted">#{{ $rank }}</span>
+                                <span class="text-charcoal/70 font-bold">#{{ $rank }}</span>
                             @endif
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
@@ -174,7 +174,8 @@
         {{ $topStudents->links() }}
     </div>
 </div>
-@endsection
+@endsection
+
 
 
 

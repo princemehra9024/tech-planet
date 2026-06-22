@@ -1,10 +1,10 @@
-﻿@extends('layouts.student')
+@extends('layouts.student')
 @section('title', 'Developer Feed')
 
 @section('content')
 <div class="space-y-6">
     @if(session('success'))
-        <div class="bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 px-5 py-4 rounded-2xl flex items-center gap-2.5 shadow-lg shadow-emerald-500/5">
+        <div class="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-400 dark:border-emerald-500/30 text-emerald-700 dark:text-emerald-300 px-5 py-4 rounded-2xl flex items-center gap-2.5 shadow-lg shadow-emerald-500/5">
             <i class="fas fa-check-circle text-emerald-400"></i>
             <span>{{ session('success') }}</span>
         </div>
@@ -30,17 +30,17 @@
                     </h3>
                     <div class="mt-1 flex justify-center">
                         @if(auth()->user()->role === 'admin')
-                            <span class="inline-flex items-center gap-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 font-extrabold uppercase tracking-wider text-[9px] px-2.5 py-0.5 rounded-full shadow-lg shadow-amber-500/10"><i class="fas fa-shield-alt text-[8px]"></i> Admin</span>
+                            <span class="inline-flex items-center gap-1 bg-amber-500/20 border border-amber-500/30 text-amber-400 font-extrabold uppercase tracking-wider text-[9px] px-2.5 py-0.5 rounded-full shadow-lg shadow-amber-500/10"><i class="fas fa-shield-alt text-[8px]"></i> Admin</span>
                         @elseif(auth()->user()->role === 'president')
-                            <span class="inline-flex items-center gap-1 bg-purple-500/10 border border-purple-500/30 text-purple-400 font-extrabold uppercase tracking-wider text-[9px] px-2.5 py-0.5 rounded-full shadow-lg shadow-purple-500/10"><i class="fas fa-crown text-[8px]"></i> President</span>
+                            <span class="inline-flex items-center gap-1 bg-purple-500/20 border border-purple-500/30 text-purple-400 font-extrabold uppercase tracking-wider text-[9px] px-2.5 py-0.5 rounded-full shadow-lg shadow-purple-500/10"><i class="fas fa-crown text-[8px]"></i> President</span>
                         @elseif(auth()->user()->role === 'secretary')
-                            <span class="inline-flex items-center gap-1 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-extrabold uppercase tracking-wider text-[9px] px-2.5 py-0.5 rounded-full shadow-lg shadow-cyan-500/10"><i class="fas fa-signature text-[8px]"></i> Secretary</span>
+                            <span class="inline-flex items-center gap-1 bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 font-extrabold uppercase tracking-wider text-[9px] px-2.5 py-0.5 rounded-full shadow-lg shadow-cyan-500/10"><i class="fas fa-signature text-[8px]"></i> Secretary</span>
                         @elseif(auth()->user()->role === 'treasurer')
-                            <span class="inline-flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-extrabold uppercase tracking-wider text-[9px] px-2.5 py-0.5 rounded-full shadow-lg shadow-emerald-500/10"><i class="fas fa-coins text-[8px]"></i> Treasurer</span>
+                            <span class="inline-flex items-center gap-1 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 font-extrabold uppercase tracking-wider text-[9px] px-2.5 py-0.5 rounded-full shadow-lg shadow-emerald-500/10"><i class="fas fa-coins text-[8px]"></i> Treasurer</span>
                         @elseif(auth()->user()->role === 'media_manager')
-                            <span class="inline-flex items-center gap-1 bg-rose-500/10 border border-rose-500/30 text-rose-400 font-extrabold uppercase tracking-wider text-[9px] px-2.5 py-0.5 rounded-full shadow-lg shadow-rose-500/10"><i class="fas fa-photo-video text-[8px]"></i> Media Manager</span>
+                            <span class="inline-flex items-center gap-1 bg-rose-500/20 border border-rose-500/30 text-rose-400 font-extrabold uppercase tracking-wider text-[9px] px-2.5 py-0.5 rounded-full shadow-lg shadow-rose-500/10"><i class="fas fa-photo-video text-[8px]"></i> Media Manager</span>
                         @else
-                            <p class="text-[10px] text-muted text-center font-semibold leading-relaxed">Student Developer Ã¢â‚¬Â¢ Tech Planet Club</p>
+                            <p class="text-[10px] text-muted text-center font-semibold leading-relaxed">Student - Tech Planet Club</p>
                         @endif
                     </div>
                 </div>
@@ -48,15 +48,15 @@
                 <div class="p-4 space-y-3 text-xs border-b border-charcoal/5 ">
                     <div class="flex justify-between items-center">
                         <span class="text-[10px] font-semibold text-muted">Total XP</span>
-                        <span class="font-bold text-cyan-400">{{ auth()->user()->xp }} XP</span>
+                        <span class="font-bold text-cyan-600 dark:text-cyan-400">{{ auth()->user()->xp }} XP</span>
                     </div>
                     <div class="flex justify-between items-center">
                         <span class="text-[10px] font-semibold text-muted">User Level</span>
-                        <span class="font-bold text-purple-400">Level {{ floor(auth()->user()->xp / 100) }}</span>
+                        <span class="font-bold text-purple-600 dark:text-purple-400">Level {{ floor(auth()->user()->xp / 100) }}</span>
                     </div>
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between items-center  ">
                         <span class="text-[10px] font-semibold text-muted">Department</span>
-                        <span class="font-bold text-charcoal ">{{ auth()->user()->branch ?? 'CSI Member' }}</span>
+                        <span class="font-bold text-charcoal text-[10px] ">{{ auth()->user()->branch ?? 'CSI Member' }}</span>
                     </div>
                 </div>
                 <!-- Action links -->
@@ -64,7 +64,7 @@
                     <a href="{{ route('student.profile') }}" class="block text-center py-3 text-xs font-bold text-purple-600 dark:text-purple-400 hover:bg-cream-dark/[0.02] hover:text-purple-800 dark:hover:text-purple-300 transition">
                         <i class="far fa-user mr-1.5"></i> View Profile
                     </a>
-                    <button onclick="shareProfile('{{ route('portfolio.show', auth()->user()->portfolioSlug()) }}')" class="block text-center py-3 text-xs font-bold text-cyan-400 hover:bg-cream-dark/[0.02] hover:text-cyan-300 transition">
+                    <button onclick="shareProfile('{{ route('portfolio.show', auth()->user()->portfolioSlug()) }}')" class="block text-center py-3 text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:bg-cream-dark/[0.02] hover:text-cyan-700 dark:hover:text-cyan-300 transition">
                         <i class="far fa-share-square mr-1.5"></i> Share Profile
                     </button>
                 </div>
@@ -72,22 +72,22 @@
 
             <!-- Recent activity section card -->
             <div class="glass-card rounded-2xl p-4 border border-charcoal/5 shadow-xl glass-card space-y-3 hidden lg:block">
-                <h4 class="font-bold text-[10px] text-muted uppercase tracking-wider font-display">Recent Hub Access</h4>
+                <h4 class="font-bold text-[10px] text-charcoal uppercase tracking-wider font-display">Recent Hub Access</h4>
                 <div class="space-y-2">
-                    <a href="{{ route('student.events') }}" class="flex items-center gap-2.5 text-xs font-semibold text-muted hover:text-cyan-400 transition">
-                        <i class="fas fa-calendar-check text-[10px] text-cyan-400 w-4 text-center"></i>
+                    <a href="{{ route('student.events') }}" class="flex items-center gap-2.5 text-xs font-semibold text-muted hover:text-cyan-600 dark:hover:text-cyan-400 transition">
+                        <i class="fas fa-calendar-check text-[10px] text-cyan-600 dark:text-cyan-400 w-4 text-center"></i>
                         <span>CSI Events Panel</span>
                     </a>
-                    <a href="{{ route('student.coding-arena') }}" class="flex items-center gap-2.5 text-xs font-semibold text-muted hover:text-purple-400 transition">
-                        <i class="fas fa-code text-[10px] text-purple-400 w-4 text-center"></i>
+                    <a href="{{ route('student.coding-arena') }}" class="flex items-center gap-2.5 text-xs font-semibold text-muted hover:text-purple-600 dark:hover:text-purple-400 transition">
+                        <i class="fas fa-code text-[10px] text-purple-600 dark:text-purple-400 w-4 text-center"></i>
                         <span>Quizzes & Arena</span>
                     </a>
-                    <a href="{{ route('student.leaderboard') }}" class="flex items-center gap-2.5 text-xs font-semibold text-muted hover:text-yellow-400 transition">
-                        <i class="fas fa-trophy text-[10px] text-yellow-400 w-4 text-center"></i>
+                    <a href="{{ route('student.leaderboard') }}" class="flex items-center gap-2.5 text-xs font-semibold text-muted hover:text-yellow-600 dark:hover:text-yellow-400 transition">
+                        <i class="fas fa-trophy text-[10px] text-yellow-600 dark:text-yellow-400 w-4 text-center"></i>
                         <span>Live Leaderboards</span>
                     </a>
-                    <a href="{{ route('student.notifications') }}" class="flex items-center gap-2.5 text-xs font-semibold text-muted hover:text-red-400 transition">
-                        <i class="fas fa-bell text-[10px] text-red-400 w-4 text-center"></i>
+                    <a href="{{ route('student.notifications') }}" class="flex items-center gap-2.5 text-xs font-semibold text-muted hover:text-red-600 dark:hover:text-red-400 transition">
+                        <i class="fas fa-bell text-[10px] text-red-600 dark:text-red-400 w-4 text-center"></i>
                         <span>System Notifications</span>
                     </a>
                 </div>
@@ -99,7 +99,7 @@
             <!-- Community Voting Poll -->
             @if(isset($approvedSuggestions) && $approvedSuggestions->count() > 0)
                 <div class="glass-card rounded-2xl p-6 border border-charcoal/5 shadow-xl bg-gradient-to-br from-cream-dark to-cream dark:from-charcoal dark:to-charcoal-light relative overflow-hidden">
-                    <div class="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 rounded-full bg-purple-500/10 blur-3xl"></div>
+                    <div class="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 rounded-full bg-purple-500/20 blur-3xl"></div>
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-xl bg-purple-500 dark:bg-purple-600 flex items-center justify-center shadow-lg">
                             <i class="fas fa-vote-yea text-charcoal "></i>
@@ -123,7 +123,7 @@
                                 $neutralPercent = $totalVotes > 0 ? round(($neutralCount / $totalVotes) * 100) : 0;
                                 $rejectPercent = $totalVotes > 0 ? round(($rejectCount / $totalVotes) * 100) : 0;
                             @endphp
-                            <div class="bg-black/30 border border-charcoal/5 rounded-xl p-4">
+                            <div class="bg-charcoal/5 border border-charcoal/10 rounded-xl p-4">
                                 <div class="flex justify-between items-start mb-2">
                                     <h4 class="font-bold text-charcoal text-sm">{{ $suggestion->title }}</h4>
                                     <span class="text-xs text-muted">{{ $totalVotes }} votes</span>
@@ -133,21 +133,21 @@
                                 <form action="{{ route('student.events.vote', $suggestion->id) }}" method="POST" class="grid grid-cols-3 gap-2">
                                     @csrf
                                     <!-- Support -->
-                                    <button type="submit" name="vote" value="support" class="flex flex-col items-center justify-center py-2 px-1 rounded-lg border {{ $userVote && $userVote->vote === 'support' ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-400' : 'bg-charcoal/5 border-charcoal/5 text-muted hover:bg-emerald-500/10 hover:text-emerald-400' }} transition">
+                                    <button type="submit" name="vote" value="support" class="flex flex-col items-center justify-center py-2 px-1 rounded-lg border {{ $userVote && $userVote->vote === 'support' ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-400' : 'bg-charcoal/5 border-charcoal/5 text-muted hover:bg-emerald-500/20 hover:text-emerald-400' }} transition">
                                         <span class="text-lg mb-1">Ã°Å¸â€˜Â</span>
                                         <span class="text-[10px] font-bold">Support</span>
                                         <span class="text-[9px] opacity-70">{{ $supportPercent }}%</span>
                                     </button>
                                     
                                     <!-- Neutral -->
-                                    <button type="submit" name="vote" value="neutral" class="flex flex-col items-center justify-center py-2 px-1 rounded-lg border {{ $userVote && $userVote->vote === 'neutral' ? 'bg-yellow-500/20 border-yellow-500/50 text-yellow-400' : 'bg-charcoal/5 border-charcoal/5 text-muted hover:bg-yellow-500/10 hover:text-yellow-400' }} transition">
+                                    <button type="submit" name="vote" value="neutral" class="flex flex-col items-center justify-center py-2 px-1 rounded-lg border {{ $userVote && $userVote->vote === 'neutral' ? 'bg-yellow-500/20 border-yellow-500/50 text-yellow-400' : 'bg-charcoal/8 border-charcoal/15 text-slate-500 hover:bg-yellow-500/15 hover:text-yellow-600 dark:hover:text-yellow-400' }} transition">
                                         <span class="text-lg mb-1">Ã°Å¸Â¤â€</span>
                                         <span class="text-[10px] font-bold">Neutral</span>
                                         <span class="text-[9px] opacity-70">{{ $neutralPercent }}%</span>
                                     </button>
                                     
                                     <!-- Reject -->
-                                    <button type="submit" name="vote" value="reject" class="flex flex-col items-center justify-center py-2 px-1 rounded-lg border {{ $userVote && $userVote->vote === 'reject' ? 'bg-rose-500/20 border-rose-500/50 text-rose-400' : 'bg-charcoal/5 border-charcoal/5 text-muted hover:bg-rose-500/10 hover:text-rose-400' }} transition">
+                                    <button type="submit" name="vote" value="reject" class="flex flex-col items-center justify-center py-2 px-1 rounded-lg border {{ $userVote && $userVote->vote === 'reject' ? 'bg-rose-500/20 border-rose-500/50 text-rose-400' : 'bg-charcoal/5 border-charcoal/5 text-muted hover:bg-rose-500/20 hover:text-rose-400' }} transition">
                                         <span class="text-lg mb-1">Ã°Å¸â€˜Å½</span>
                                         <span class="text-[10px] font-bold">Reject</span>
                                         <span class="text-[9px] opacity-70">{{ $rejectPercent }}%</span>
@@ -168,7 +168,7 @@
                         <div class="w-10 h-10 rounded-full bg-cream-darker flex items-center justify-center text-charcoal font-extrabold text-sm shrink-0 border border-charcoal/10 ">
                             {{ substr(auth()->user()->name, 0, 1) }}
                         </div>
-                        <textarea name="content" required rows="2" class="w-full bg-cream-dark/50 border border-charcoal/10 rounded-2xl px-4 py-3 text-charcoal/80 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-[#0a66c2] focus:border-transparent transition text-xs sm:text-sm resize-none" placeholder="Start a post... share news or project work!"></textarea>
+                        <textarea name="content" required rows="2" class="w-full bg-cream-dark/50 border border-charcoal/10 rounded-2xl px-4 py-3 text-charcoal/95 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-[#0a66c2] focus:border-transparent transition text-xs sm:text-sm resize-none" placeholder="Start a post... share news or project work!"></textarea>
                     </div>
                     
                     <!-- Media Upload Preview Grid -->
@@ -228,15 +228,15 @@
                                     </h4>
                                     @if($post->user->role !== 'student' && $post->user->role)
                                         @if($post->user->role === 'admin')
-                                            <span class="inline-flex items-center gap-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 font-extrabold uppercase tracking-wider text-[9px] px-2 py-0.5 rounded-full shadow-lg shadow-amber-500/10"><i class="fas fa-shield-alt text-[8px]"></i> Admin</span>
+                                            <span class="inline-flex items-center gap-1 bg-amber-500/20 border border-amber-500/30 text-amber-400 font-extrabold uppercase tracking-wider text-[9px] px-2 py-0.5 rounded-full shadow-lg shadow-amber-500/10"><i class="fas fa-shield-alt text-[8px]"></i> Admin</span>
                                         @elseif($post->user->role === 'president')
-                                            <span class="inline-flex items-center gap-1 bg-purple-500/10 border border-purple-500/30 text-purple-400 font-extrabold uppercase tracking-wider text-[9px] px-2 py-0.5 rounded-full shadow-lg shadow-purple-500/10"><i class="fas fa-crown text-[8px]"></i> President</span>
+                                            <span class="inline-flex items-center gap-1 bg-purple-500/20 border border-purple-500/30 text-purple-400 font-extrabold uppercase tracking-wider text-[9px] px-2 py-0.5 rounded-full shadow-lg shadow-purple-500/10"><i class="fas fa-crown text-[8px]"></i> President</span>
                                         @elseif($post->user->role === 'secretary')
-                                            <span class="inline-flex items-center gap-1 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-extrabold uppercase tracking-wider text-[9px] px-2 py-0.5 rounded-full shadow-lg shadow-cyan-500/10"><i class="fas fa-signature text-[8px]"></i> Secretary</span>
+                                            <span class="inline-flex items-center gap-1 bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 font-extrabold uppercase tracking-wider text-[9px] px-2 py-0.5 rounded-full shadow-lg shadow-cyan-500/10"><i class="fas fa-signature text-[8px]"></i> Secretary</span>
                                         @elseif($post->user->role === 'treasurer')
-                                            <span class="inline-flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-extrabold uppercase tracking-wider text-[9px] px-2 py-0.5 rounded-full shadow-lg shadow-emerald-500/10"><i class="fas fa-coins text-[8px]"></i> Treasurer</span>
+                                            <span class="inline-flex items-center gap-1 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 font-extrabold uppercase tracking-wider text-[9px] px-2 py-0.5 rounded-full shadow-lg shadow-emerald-500/10"><i class="fas fa-coins text-[8px]"></i> Treasurer</span>
                                         @elseif($post->user->role === 'media_manager')
-                                            <span class="inline-flex items-center gap-1 bg-rose-500/10 border border-rose-500/30 text-rose-400 font-extrabold uppercase tracking-wider text-[9px] px-2 py-0.5 rounded-full shadow-lg shadow-rose-500/10"><i class="fas fa-photo-video text-[8px]"></i> Media Manager</span>
+                                            <span class="inline-flex items-center gap-1 bg-rose-500/20 border border-rose-500/30 text-rose-400 font-extrabold uppercase tracking-wider text-[9px] px-2 py-0.5 rounded-full shadow-lg shadow-rose-500/10"><i class="fas fa-photo-video text-[8px]"></i> Media Manager</span>
                                         @endif
                                     @endif
                                 </div>
@@ -260,7 +260,7 @@
 
                     <!-- Post Content (Text) -->
                     <div class="px-4 pb-3">
-                        <p class="text-charcoal/80 text-xs sm:text-sm leading-relaxed whitespace-pre-line">{{ $post->content }}</p>
+                        <p class="text-charcoal/95 text-xs sm:text-sm leading-relaxed whitespace-pre-line">{{ $post->content }}</p>
                     </div>
 
                     <!-- Post Media (Photos / Videos Grid) -->
@@ -288,7 +288,7 @@
                     <!-- Social Activity Counters -->
                     <div class="px-4 py-2.5 flex justify-between items-center text-[10px] text-muted border-b border-charcoal/5 font-semibold">
                         <div class="flex items-center gap-1.5">
-                            <span class="w-4.5 h-4.5 rounded-full bg-purple-600 dark:bg-purple-500 flex items-center justify-center text-charcoal text-[9px]"><i class="fas fa-thumbs-up"></i></span>
+                            <span class="w-5 h-5 rounded-full bg-purple-600 dark:bg-purple-500 flex items-center justify-center text-charcoal text-[9px]"><i class="fas fa-thumbs-up"></i></span>
                             <span><span class="like-count">{{ $post->likes->count() }}</span> reactions</span>
                         </div>
                         <div class="flex items-center gap-2">
@@ -319,7 +319,7 @@
                             <div class="w-8 h-8 rounded-full bg-cream-darker flex items-center justify-center text-charcoal font-extrabold text-[10px] shrink-0">
                                 {{ substr(auth()->user()->name, 0, 1) }}
                             </div>
-                            <input type="text" name="content" required class="flex-grow bg-cream-dark/50 border border-charcoal/10 rounded-full px-4 py-2.5 text-xs text-charcoal placeholder-slate-600 focus:outline-none focus:ring-1 focus:ring-[#0a66c2] focus:border-transparent" placeholder="Add a comment...">
+                            <input type="text" name="content" required class="flex-grow bg-cream-dark/50 border border-charcoal/10 rounded-full px-4 py-2.5 text-xs text-charcoal placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0a66c2] focus:border-transparent" placeholder="Add a comment...">
                             <button type="submit" class="bg-purple-600 dark:bg-purple-500 hover:bg-purple-700 dark:hover:bg-purple-400 text-charcoal font-bold px-4 py-2 rounded-full text-xs transition">Post</button>
                         </form>
 
@@ -339,15 +339,15 @@
                                                     </span>
                                                     @if($comment->user->role !== 'student' && $comment->user->role)
                                                         @if($comment->user->role === 'admin')
-                                                            <span class="inline-flex items-center gap-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 font-extrabold uppercase tracking-wider text-[8px] px-1.5 py-0.2 rounded-full shadow shadow-amber-500/10"><i class="fas fa-shield-alt text-[7px]"></i> Admin</span>
+                                                            <span class="inline-flex items-center gap-1 bg-amber-500/20 border border-amber-500/30 text-amber-400 font-extrabold uppercase tracking-wider text-[8px] px-1.5 py-0.2 rounded-full shadow shadow-amber-500/10"><i class="fas fa-shield-alt text-[7px]"></i> Admin</span>
                                                         @elseif($comment->user->role === 'president')
-                                                            <span class="inline-flex items-center gap-1 bg-purple-500/10 border border-purple-500/30 text-purple-400 font-extrabold uppercase tracking-wider text-[8px] px-1.5 py-0.2 rounded-full shadow shadow-purple-500/10"><i class="fas fa-crown text-[7px]"></i> President</span>
+                                                            <span class="inline-flex items-center gap-1 bg-purple-500/20 border border-purple-500/30 text-purple-400 font-extrabold uppercase tracking-wider text-[8px] px-1.5 py-0.2 rounded-full shadow shadow-purple-500/10"><i class="fas fa-crown text-[7px]"></i> President</span>
                                                         @elseif($comment->user->role === 'secretary')
-                                                            <span class="inline-flex items-center gap-1 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-extrabold uppercase tracking-wider text-[8px] px-1.5 py-0.2 rounded-full shadow shadow-cyan-500/10"><i class="fas fa-signature text-[7px]"></i> Secretary</span>
+                                                            <span class="inline-flex items-center gap-1 bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 font-extrabold uppercase tracking-wider text-[8px] px-1.5 py-0.2 rounded-full shadow shadow-cyan-500/10"><i class="fas fa-signature text-[7px]"></i> Secretary</span>
                                                         @elseif($comment->user->role === 'treasurer')
-                                                            <span class="inline-flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-extrabold uppercase tracking-wider text-[8px] px-1.5 py-0.2 rounded-full shadow shadow-emerald-500/10"><i class="fas fa-coins text-[7px]"></i> Treasurer</span>
+                                                            <span class="inline-flex items-center gap-1 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 font-extrabold uppercase tracking-wider text-[8px] px-1.5 py-0.2 rounded-full shadow shadow-emerald-500/10"><i class="fas fa-coins text-[7px]"></i> Treasurer</span>
                                                         @elseif($comment->user->role === 'media_manager')
-                                                            <span class="inline-flex items-center gap-1 bg-rose-500/10 border border-rose-500/30 text-rose-400 font-extrabold uppercase tracking-wider text-[8px] px-1.5 py-0.2 rounded-full shadow shadow-rose-500/10"><i class="fas fa-photo-video text-[7px]"></i> Media Manager</span>
+                                                            <span class="inline-flex items-center gap-1 bg-rose-500/20 border border-rose-500/30 text-rose-400 font-extrabold uppercase tracking-wider text-[8px] px-1.5 py-0.2 rounded-full shadow shadow-rose-500/10"><i class="fas fa-photo-video text-[7px]"></i> Media Manager</span>
                                                         @endif
                                                     @endif
                                                 </div>
@@ -363,7 +363,7 @@
                                             </div>
                                             <span class="text-[8px] text-muted font-semibold">{{ $comment->created_at->diffForHumans() }}</span>
                                         </div>
-                                        <p class="text-charcoal/70 mt-2 leading-relaxed">{{ $comment->content }}</p>
+                                        <p class="text-charcoal/90 mt-2 leading-relaxed">{{ $comment->content }}</p>
                                     </div>
                                 </div>
                             @empty
@@ -373,8 +373,8 @@
                     </div>
                 </div>
                 @empty
-                <div class="glass-card rounded-xl p-12 text-center text-slate-550 border border-charcoal/5 glass-card">
-                    <i class="far fa-newspaper text-4xl mb-4 text-slate-650 animate-pulse"></i>
+                <div class="glass-card rounded-xl p-12 text-center text-slate-500 border border-charcoal/5 glass-card">
+                    <i class="far fa-newspaper text-4xl mb-4 text-slate-500 animate-pulse"></i>
                     <p class="text-xs font-bold uppercase tracking-wider">Your Developer feed is empty.</p>
                 </div>
                 @endforelse
@@ -403,31 +403,31 @@
         <form method="POST" action="{{ route('student.event.create') }}" class="p-6 space-y-4">
             @csrf
             <div>
-                <label class="block text-slate-350 font-semibold text-[10px] mb-1.5 uppercase tracking-widest">Event Title</label>
-                <input type="text" name="title" required class="w-full bg-cream-dark/50 border border-charcoal/10 rounded-xl px-4 py-2.5 text-charcoal placeholder-slate-600 focus:outline-none focus:ring-1 focus:ring-yellow-500 transition text-xs sm:text-sm" placeholder="e.g. Generative AI Bootcamp">
+                <label class="block text-slate-500 font-semibold text-[10px] mb-1.5 uppercase tracking-widest">Event Title</label>
+                <input type="text" name="title" required class="w-full bg-cream-dark/50 border border-charcoal/10 rounded-xl px-4 py-2.5 text-charcoal placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-yellow-500 transition text-xs sm:text-sm" placeholder="e.g. Generative AI Bootcamp">
             </div>
             <div>
-                <label class="block text-slate-350 font-semibold text-[10px] mb-1.5 uppercase tracking-widest">Description</label>
-                <textarea name="description" required rows="3" class="w-full bg-cream-dark/50 border border-charcoal/10 rounded-xl px-4 py-2.5 text-charcoal placeholder-slate-600 focus:outline-none focus:ring-1 focus:ring-yellow-500 transition text-xs sm:text-sm resize-none" placeholder="Provide event details, schedule, requirements..."></textarea>
+                <label class="block text-slate-500 font-semibold text-[10px] mb-1.5 uppercase tracking-widest">Description</label>
+                <textarea name="description" required rows="3" class="w-full bg-cream-dark/50 border border-charcoal/10 rounded-xl px-4 py-2.5 text-charcoal placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-yellow-500 transition text-xs sm:text-sm resize-none" placeholder="Provide event details, schedule, requirements..."></textarea>
             </div>
             <div class="grid grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-slate-350 font-semibold text-[10px] mb-1.5 uppercase tracking-widest">Date & Time</label>
+                    <label class="block text-slate-500 font-semibold text-[10px] mb-1.5 uppercase tracking-widest">Date & Time</label>
                     <input type="datetime-local" name="date" required class="w-full bg-cream-dark/50 border border-charcoal/10 rounded-xl px-4 py-2.5 text-charcoal focus:outline-none focus:ring-1 focus:ring-yellow-500 transition text-xs sm:text-sm">
                 </div>
                 <div>
-                    <label class="block text-slate-350 font-semibold text-[10px] mb-1.5 uppercase tracking-widest">Max Participants</label>
+                    <label class="block text-slate-500 font-semibold text-[10px] mb-1.5 uppercase tracking-widest">Max Participants</label>
                     <input type="number" name="max_participants" required min="1" max="1000" class="w-full bg-cream-dark/50 border border-charcoal/10 rounded-xl px-4 py-2.5 text-charcoal focus:outline-none focus:ring-1 focus:ring-yellow-500 transition text-xs sm:text-sm" placeholder="e.g. 100">
                 </div>
             </div>
             <div>
-                <label class="block text-slate-350 font-semibold text-[10px] mb-1.5 uppercase tracking-widest">Venue / Location</label>
-                <input type="text" name="location" required class="w-full bg-cream-dark/50 border border-charcoal/10 rounded-xl px-4 py-2.5 text-charcoal placeholder-slate-600 focus:outline-none focus:ring-1 focus:ring-yellow-500 transition text-xs sm:text-sm" placeholder="e.g. CSI Lab, tech park 5th floor">
+                <label class="block text-slate-500 font-semibold text-[10px] mb-1.5 uppercase tracking-widest">Venue / Location</label>
+                <input type="text" name="location" required class="w-full bg-cream-dark/50 border border-charcoal/10 rounded-xl px-4 py-2.5 text-charcoal placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-yellow-500 transition text-xs sm:text-sm" placeholder="e.g. CSI Lab, tech park 5th floor">
             </div>
             
             <!-- Footer buttons -->
             <div class="flex justify-end gap-3 pt-4 border-t border-charcoal/5 ">
-                <button type="button" id="cancel-event-modal-btn" class="px-4 py-2 border border-charcoal/10 text-charcoal/70 hover:bg-charcoal/5 rounded-xl text-xs font-semibold transition">Cancel</button>
+                <button type="button" id="cancel-event-modal-btn" class="px-4 py-2 border border-charcoal/10 text-charcoal/90 hover:bg-charcoal/5 rounded-xl text-xs font-semibold transition">Cancel</button>
                 <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-charcoal font-extrabold px-5 py-2 rounded-xl text-xs shadow-lg hover:shadow-yellow-500/20 transition">Create Event</button>
             </div>
         </form>
@@ -586,8 +586,3 @@
     });
 </script>
 @endpush
-
-
-
-
-
