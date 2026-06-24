@@ -35,37 +35,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
-            --color-cream: #F5F0E8;
-            --color-cream-dark: #EDE7D9;
-            --color-cream-darker: #E0D8C8;
-            --color-charcoal: #1A1A1A;
-            --color-charcoal-light: #2D2D2D;
-            --color-charcoal-lighter: #3D3D3D;
+            --color-cream: #ffffff;
+            --color-cream-dark: #f9f9f9;
+            --color-cream-darker: #f0f0f0;
+            --color-charcoal: #000000;
+            --color-charcoal-light: #1a1a1a;
+            --color-charcoal-lighter: #333333;
             --color-warm: #000000;
             --color-warm-light: #333333;
             --color-warm-lighter: #666666;
             --color-warm-dark: #000000;
-            --color-sage: #7A8B6F;
-            --color-sage-light: #95A888;
-            --color-sage-dark: #5E6D54;
-            --color-muted: #6B6B6B;
+            --color-sage: #888888;
+            --color-sage-light: #aaaaaa;
+            --color-sage-dark: #555555;
+            --color-muted: #999999;
         }
 
         html.dark {
-            --color-cream: #09090b;
-            --color-cream-dark: #18181b;
-            --color-cream-darker: #27272a;
-            --color-charcoal: #fafafa;
-            --color-charcoal-light: #e4e4e7;
-            --color-charcoal-lighter: #a1a1aa;
-            --color-warm: #FFFFFF;
-            --color-warm-light: #E0E0E0;
-            --color-warm-lighter: #CCCCCC;
-            --color-warm-dark: #FFFFFF;
-            --color-sage: #5E6D54;
-            --color-sage-light: #7A8B6F;
-            --color-sage-dark: #95A888;
-            --color-muted: #A0A0A0;
+            --color-cream: #000000;
+            --color-cream-dark: #0a0a0a;
+            --color-cream-darker: #141414;
+            --color-charcoal: #ffffff;
+            --color-charcoal-light: #e5e5e5;
+            --color-charcoal-lighter: #cccccc;
+            --color-warm: #ffffff;
+            --color-warm-light: #eeeeee;
+            --color-warm-lighter: #cccccc;
+            --color-warm-dark: #ffffff;
+            --color-sage: #888888;
+            --color-sage-light: #aaaaaa;
+            --color-sage-dark: #555555;
+            --color-muted: #777777;
         }
 
         * { font-family: 'DM Sans', sans-serif; }
@@ -175,78 +175,127 @@
         </div>
     @endif
 
-    <div class="min-h-screen flex flex-col md:flex-row w-full {{ session()->has('impersonator_id') ? 'pt-12' : '' }}">
-        <!-- Sidebar -->
-        <aside class="w-full md:w-72 bg-cream-dark/50 backdrop-blur-xl border-r border-charcoal/5 p-6 shrink-0 flex flex-col justify-between">
-            <div>
-                <div class="flex items-center justify-between mb-8">
+    <div class="flex-1 flex flex-col md:flex-row overflow-hidden w-full {{ session()->has('impersonator_id') ? 'pt-12' : '' }}">
+        <!-- Desktop Sidebar -->
+        <aside class="hidden md:flex w-72 bg-gray-50 dark:bg-[#0a0a0a] border-r border-gray-200 dark:border-gray-900 p-6 shrink-0 flex-col justify-between z-30">
+            <div class="space-y-8 overflow-y-auto no-scrollbar">
+                <div class="flex items-center justify-between">
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-charcoal flex items-center justify-center shadow-lg">
-                            <i class="fas fa-shield-alt text-cream text-lg"></i>
+                        <div class="w-8 h-8 rounded-lg bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-black dark:text-white text-xs"></i>
                         </div>
                         <div>
-                            <div class="text-xl font-extrabold text-charcoal font-display leading-tight">Command Center</div>
+                            <div class="text-lg font-bold text-black dark:text-white font-display leading-none tracking-widest uppercase">Admin Panel</div>
                         </div>
                     </div>
                     <!-- Theme Toggle -->
-                    <button onclick="toggleTheme()" class="w-10 h-10 rounded-full flex items-center justify-center bg-cream-dark text-charcoal hover:bg-charcoal/5 transition-colors border border-charcoal/5 " title="Toggle Light/Dark Mode">
-                        <i class="fas theme-icon fa-moon text-lg transition-transform hover:rotate-12"></i>
+                    <button onclick="toggleTheme()" class="w-8 h-8 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-800 text-black dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors" title="Toggle Light/Dark Mode">
+                        <i class="fas theme-icon fa-moon text-sm"></i>
                     </button>
                 </div>
 
                 <nav class="space-y-1.5 font-medium">
-                    <a href="{{ route('admin.dashboard') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.dashboard') ? 'bg-charcoal text-cream  shadow-md' : 'text-charcoal/70 hover:bg-charcoal/5 hover:text-charcoal ' }}">
-                        <i class="fas fa-chart-pie w-5 {{ request()->routeIs('admin.dashboard') ? 'text-cream/70 ' : 'text-charcoal/50 ' }}"></i>
+                    <a href="{{ route('admin.dashboard') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.dashboard') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white' }}">
+                        <i class="fas fa-chart-pie w-5 text-center"></i>
                         <span>Dashboard</span>
                     </a>
-                    <a href="{{ route('admin.posts.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.posts.*') ? 'bg-charcoal text-cream  shadow-md' : 'text-charcoal/70 hover:bg-charcoal/5 hover:text-charcoal ' }}">
-                        <i class="fas fa-bullhorn w-5 {{ request()->routeIs('admin.posts.*') ? 'text-cream/70 ' : 'text-charcoal/50 ' }}"></i>
+                    <a href="{{ route('admin.posts.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.posts.*') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white' }}">
+                        <i class="fas fa-bullhorn w-5 text-center"></i>
                         <span>Posts</span>
                     </a>
                     @if(auth()->user()->role !== 'media_manager')
-                    <a href="{{ route('admin.quizzes.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.quizzes.*') || request()->routeIs('admin.questions.*') ? 'bg-charcoal text-cream  shadow-md' : 'text-charcoal/70 hover:bg-charcoal/5 hover:text-charcoal ' }}">
-                        <i class="fas fa-laptop-code w-5 {{ request()->routeIs('admin.quizzes.*') || request()->routeIs('admin.questions.*') ? 'text-cream/70 ' : 'text-charcoal/50 ' }}"></i>
+                    <a href="{{ route('admin.quizzes.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.quizzes.*') || request()->routeIs('admin.questions.*') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white' }}">
+                        <i class="fas fa-laptop-code w-5 text-center"></i>
                         <span>Quizzes</span>
                     </a>
-                    <a href="{{ route('admin.users.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.users.*') ? 'bg-charcoal text-cream  shadow-md' : 'text-charcoal/70 hover:bg-charcoal/5 hover:text-charcoal ' }}">
-                        <i class="fas fa-users-cog w-5 {{ request()->routeIs('admin.users.*') ? 'text-cream/70 ' : 'text-charcoal/50 ' }}"></i>
+                    <a href="{{ route('admin.users.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.users.*') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white' }}">
+                        <i class="fas fa-users-cog w-5 text-center"></i>
                         <span>Users</span>
                     </a>
-                    <a href="{{ route('admin.suggestions.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.suggestions.*') ? 'bg-charcoal text-cream  shadow-md' : 'text-charcoal/70 hover:bg-charcoal/5 hover:text-charcoal ' }}">
-                        <i class="fas fa-vote-yea w-5 {{ request()->routeIs('admin.suggestions.*') ? 'text-cream/70 ' : 'text-charcoal/50 ' }}"></i>
-                        <span>Suggestions & Votes</span>
+                    <a href="{{ route('admin.suggestions.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.suggestions.*') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white' }}">
+                        <i class="fas fa-vote-yea w-5 text-center"></i>
+                        <span>Suggestions</span>
                     </a>
-                    <a href="{{ route('admin.events.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.events.*') ? 'bg-charcoal text-cream  shadow-md' : 'text-charcoal/70 hover:bg-charcoal/5 hover:text-charcoal ' }}">
-                        <i class="fas fa-calendar-alt w-5 {{ request()->routeIs('admin.events.*') ? 'text-cream/70 ' : 'text-charcoal/50 ' }}"></i>
+                    <a href="{{ route('admin.events.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.events.*') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white' }}">
+                        <i class="fas fa-calendar-alt w-5 text-center"></i>
                         <span>Events</span>
                     </a>
                     @endif
                     @if(auth()->user()->canManageGallery())
-                    <a href="{{ route('admin.gallery.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.gallery.*') || request()->routeIs('admin.gallery-categories.*') ? 'bg-charcoal text-cream shadow-md' : 'text-charcoal/70 hover:bg-charcoal/5 hover:text-charcoal' }}">
-                        <i class="fas fa-images w-5 {{ request()->routeIs('admin.gallery.*') || request()->routeIs('admin.gallery-categories.*') ? 'text-cream/70' : 'text-charcoal/50' }}"></i>
+                    <a href="{{ route('admin.gallery.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.gallery.*') || request()->routeIs('admin.gallery-categories.*') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white' }}">
+                        <i class="fas fa-images w-5 text-center"></i>
                         <span>Gallery</span>
                     </a>
                     @endif
                 </nav>
             </div>
 
-            <div class="mt-8 pt-6 border-t border-charcoal/10 space-y-2">
-                <a href="{{ route('student.dashboard') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-charcoal/70 hover:bg-charcoal/5 transition-all">
-                    <i class="fas fa-user-graduate w-5"></i>
+            <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800 space-y-2">
+                <a href="{{ route('student.dashboard') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white transition-all">
+                    <i class="fas fa-user-graduate w-5 text-center"></i>
                     <span>Student Portal</span>
                 </a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="w-full flex items-center space-x-3 rounded-xl px-4 py-3 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 transition-all font-bold">
-                        <i class="fas fa-sign-out-alt w-5"></i>
+                        <i class="fas fa-sign-out-alt w-5 text-center"></i>
                         <span>Logout</span>
                     </button>
                 </form>
             </div>
         </aside>
 
+        <!-- Mobile Header -->
+        <header class="md:hidden flex justify-between items-center h-16 bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-900 px-6 sticky top-0 z-40">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+                    <i class="fas fa-shield-alt text-black dark:text-white text-xs"></i>
+                </div>
+                <span class="text-lg font-bold text-black dark:text-white font-display leading-none tracking-widest uppercase">Admin Panel</span>
+            </div>
+            <button id="mobile-toggle-sidebar" class="text-black dark:text-white hover:text-gray-500 focus:outline-none transition">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </header>
+
+        <!-- Mobile Drawer Overlay -->
+        <div id="mobile-sidebar-overlay" class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none md:hidden"></div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-sidebar" class="fixed inset-y-0 left-0 z-50 w-[280px] max-w-[80vw] bg-white dark:bg-[#0a0a0a] border-r border-gray-200 dark:border-gray-900 flex flex-col justify-between transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden shadow-2xl overflow-y-auto">
+            <div class="p-6 space-y-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-black dark:text-white text-xs"><i class="fas fa-shield-alt"></i></div>
+                        <span class="text-lg font-bold text-black dark:text-white font-display uppercase tracking-widest">Admin</span>
+                    </div>
+                    <button id="mobile-close-sidebar" class="text-black dark:text-white hover:text-gray-500 text-2xl p-2 -mr-2"><i class="fas fa-times"></i></button>
+                </div>
+                <nav class="space-y-2">
+                    <a href="{{ route('admin.dashboard') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Dashboard</a>
+                    <a href="{{ route('admin.posts.index') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Posts</a>
+                    @if(auth()->user()->role !== 'media_manager')
+                    <a href="{{ route('admin.quizzes.index') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Quizzes</a>
+                    <a href="{{ route('admin.users.index') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Users</a>
+                    <a href="{{ route('admin.suggestions.index') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Suggestions</a>
+                    <a href="{{ route('admin.events.index') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Events</a>
+                    @endif
+                    @if(auth()->user()->canManageGallery())
+                    <a href="{{ route('admin.gallery.index') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Gallery</a>
+                    @endif
+                    <a href="{{ route('student.dashboard') }}" class="block px-4 py-3 rounded-xl font-semibold text-black dark:text-white bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 mt-4 transition-colors">Student Portal</a>
+                </nav>
+            </div>
+            <div class="p-6 border-t border-gray-100 dark:border-gray-900">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="w-full flex items-center justify-center space-x-3 rounded-xl py-3 text-red-600 bg-red-50 hover:bg-red-100 dark:bg-red-950/30 dark:hover:bg-red-950/50 dark:text-red-400 transition-colors font-semibold"><i class="fas fa-sign-out-alt"></i><span>Logout</span></button>
+                </form>
+            </div>
+        </div>
+
         <!-- Main Content -->
-        <main class="flex-1 p-6 md:p-8 min-w-0 bg-cream ">
+        <main class="flex-grow min-w-0 flex flex-col overflow-y-auto h-full p-4 md:p-8 bg-white dark:bg-black">
             @if(session('success'))
                 <div class="mb-6 rounded-2xl bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800/50 text-green-700 dark:text-green-400 px-5 py-4 flex items-center gap-3 shadow-sm">
                     <i class="fas fa-check-circle"></i>
@@ -262,6 +311,32 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- Toggle Drawer JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('mobile-toggle-sidebar');
+            const closeBtn = document.getElementById('mobile-close-sidebar');
+            const drawer = document.getElementById('mobile-sidebar');
+            const overlay = document.getElementById('mobile-sidebar-overlay');
+            
+            function openDrawer() {
+                if(overlay) overlay.classList.remove('opacity-0', 'pointer-events-none');
+                if(overlay) overlay.classList.add('opacity-100');
+                if(drawer) drawer.classList.remove('-translate-x-full');
+            }
+            
+            function closeDrawer() {
+                if(overlay) overlay.classList.remove('opacity-100');
+                if(overlay) overlay.classList.add('opacity-0', 'pointer-events-none');
+                if(drawer) drawer.classList.add('-translate-x-full');
+            }
+            
+            if (toggleBtn) toggleBtn.addEventListener('click', openDrawer);
+            if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+            if (overlay) overlay.addEventListener('click', closeDrawer);
+        });
+    </script>
     @stack('scripts')
 </body>
 </html>

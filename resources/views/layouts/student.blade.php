@@ -35,37 +35,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
-            --color-cream: #F5F0E8;
-            --color-cream-dark: #EDE7D9;
-            --color-cream-darker: #E0D8C8;
-            --color-charcoal: #1A1A1A;
-            --color-charcoal-light: #2D2D2D;
-            --color-charcoal-lighter: #3D3D3D;
+            --color-cream: #ffffff;
+            --color-cream-dark: #f9f9f9;
+            --color-cream-darker: #f0f0f0;
+            --color-charcoal: #000000;
+            --color-charcoal-light: #1a1a1a;
+            --color-charcoal-lighter: #333333;
             --color-warm: #000000;
             --color-warm-light: #333333;
             --color-warm-lighter: #666666;
             --color-warm-dark: #000000;
-            --color-sage: #7A8B6F;
-            --color-sage-light: #95A888;
-            --color-sage-dark: #5E6D54;
-            --color-muted: #6B6B6B;
+            --color-sage: #888888;
+            --color-sage-light: #aaaaaa;
+            --color-sage-dark: #555555;
+            --color-muted: #999999;
         }
 
         html.dark {
-            --color-cream: #09090b;
-            --color-cream-dark: #18181b;
-            --color-cream-darker: #27272a;
-            --color-charcoal: #fafafa;
-            --color-charcoal-light: #e4e4e7;
-            --color-charcoal-lighter: #a1a1aa;
-            --color-warm: #FFFFFF;
-            --color-warm-light: #E0E0E0;
-            --color-warm-lighter: #CCCCCC;
-            --color-warm-dark: #FFFFFF;
-            --color-sage: #5E6D54;
-            --color-sage-light: #7A8B6F;
-            --color-sage-dark: #95A888;
-            --color-muted: #A0A0A0;
+            --color-cream: #000000;
+            --color-cream-dark: #0a0a0a;
+            --color-cream-darker: #141414;
+            --color-charcoal: #ffffff;
+            --color-charcoal-light: #e5e5e5;
+            --color-charcoal-lighter: #cccccc;
+            --color-warm: #ffffff;
+            --color-warm-light: #eeeeee;
+            --color-warm-lighter: #cccccc;
+            --color-warm-dark: #ffffff;
+            --color-sage: #888888;
+            --color-sage-light: #aaaaaa;
+            --color-sage-dark: #555555;
+            --color-muted: #777777;
         }
 
         * { font-family: 'DM Sans', sans-serif; }
@@ -112,8 +112,8 @@
             border: 1px solid color-mix(in srgb, var(--color-charcoal) 5%, transparent);
         }
         html.dark .glass-card {
-            background: color-mix(in srgb, var(--color-charcoal-light) 50%, transparent);
-            border: 1px solid color-mix(in srgb, var(--color-cream) 5%, transparent);
+            background: color-mix(in srgb, var(--color-cream-dark) 80%, transparent);
+            border: 1px solid color-mix(in srgb, var(--color-charcoal) 10%, transparent);
         }
         
     </style>
@@ -176,7 +176,7 @@
             </form>
         </div>
     @endif
-    <div class="flex-1 flex overflow-hidden w-full">
+    <div class="flex-1 flex flex-col md:flex-row overflow-hidden w-full">
         <!-- Desktop Sidebar Nav -->
         <aside class="hidden md:flex md:w-64 flex-col bg-cream-darker/50 glass-card border-r border-charcoal/5 p-6 h-full shrink-0 justify-between z-30">
             <div class="space-y-8 overflow-y-auto no-scrollbar">
@@ -186,7 +186,7 @@
                         <i class="fas fa-user-graduate text-charcoal text-xs"></i>
                     </div>
                     <div class="flex flex-col">
-                        <span class="text-lg font-bold text-purple-600 dark:text-purple-400 font-display leading-none">Tech Planet</span>
+                        <span class="text-lg font-bold text-black dark:text-white font-display leading-none tracking-widest uppercase">Tech Planet</span>
                         <span class="text-[9px] uppercase tracking-wider text-muted mt-1 font-semibold">Student Portal</span>
                     </div>
                 </div>
@@ -198,28 +198,28 @@
                 </div>
                 <!-- Nav Items -->
                 <nav class="space-y-1.5">
-                    <a href="{{ route('student.dashboard') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.dashboard') ? 'bg-purple-600/10 text-purple-400 border border-purple-800/20' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
+                    <a href="{{ route('student.dashboard') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.dashboard') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
                         <i class="fas fa-th-large w-5 text-center"></i>
                         <span>Dashboard</span>
                     </a>
-                    <a href="{{ route('student.events') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.events') ? 'bg-purple-600/10 text-purple-400 border border-purple-800/20' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
+                    <a href="{{ route('student.events') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.events') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
                         <i class="fas fa-calendar-alt w-5 text-center"></i>
                         <span>Events</span>
                     </a>
-                    <a href="{{ route('student.coding-arena') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.coding-arena') || request()->routeIs('student.quiz.*') ? 'bg-purple-600/10 text-purple-400 border border-purple-800/20' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
+                    <a href="{{ route('student.coding-arena') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.coding-arena') || request()->routeIs('student.quiz.*') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
                         <i class="fas fa-code w-5 text-center"></i>
                         <span>Coding Arena</span>
                     </a>
-                    <a href="{{ route('student.leaderboard') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.leaderboard') ? 'bg-purple-600/10 text-purple-400 border border-purple-800/20' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
+                    <a href="{{ route('student.leaderboard') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.leaderboard') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
                         <i class="fas fa-trophy w-5 text-center"></i>
                         <span>Leaderboard</span>
                     </a>
-                    <a href="{{ route('student.profile') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.profile') ? 'bg-purple-600/10 text-purple-400 border border-purple-800/20' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
+                    <a href="{{ route('student.profile') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.profile') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
                         <i class="fas fa-user-circle w-5 text-center"></i>
                         <span>Profile</span>
                     </a>
                     @php $unreadCount = auth()->user()->userNotifications()->where('is_read', false)->count(); @endphp
-                    <a href="{{ route('student.notifications') }}" class="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.notifications') ? 'bg-purple-600/10 text-purple-400 border border-purple-800/20' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
+                    <a href="{{ route('student.notifications') }}" class="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-all {{ request()->routeIs('student.notifications') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-muted hover:bg-charcoal/5 hover:text-charcoal/80 ' }}">
                         <div class="flex items-center space-x-3">
                             <i class="fas fa-bell w-5 text-center"></i>
                             <span>Notifications</span>
@@ -252,54 +252,59 @@
                 <div class="w-8 h-8 rounded-lg bg-cream-darker flex items-center justify-center shadow-lg">
                     <i class="fas fa-user-graduate text-charcoal text-xs"></i>
                 </div>
-                <span class="text-lg font-bold text-purple-600 dark:text-purple-400 font-display leading-none">Tech Planet</span>
+                <span class="text-lg font-bold text-black dark:text-white font-display leading-none tracking-widest uppercase">Tech Planet</span>
             </div>
-            <button id="mobile-toggle-sidebar" class="text-muted hover:text-cyan-400 focus:outline-none transition">
+            <button id="mobile-toggle-sidebar" class="text-black dark:text-white hover:text-gray-500 focus:outline-none transition">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </header>
 
+        <!-- Mobile Drawer Overlay -->
+        <div id="mobile-sidebar-overlay" class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none md:hidden"></div>
+
         <!-- Mobile Drawer Menu -->
-        <div id="mobile-sidebar" class="hidden md:hidden fixed inset-0 z-50 bg-cream-darker/95 backdrop-blur-md p-6 flex flex-col justify-between">
-            <div class="space-y-8">
+        <div id="mobile-sidebar" class="fixed inset-y-0 left-0 z-50 w-[280px] max-w-[80vw] bg-white dark:bg-[#0a0a0a] border-r border-gray-200 dark:border-gray-900 flex flex-col justify-between transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden shadow-2xl overflow-y-auto">
+            <div class="p-6 space-y-8">
                 <div class="flex justify-between items-center">
                     <div class="flex items-center space-x-3">
-                        <div class="w-8 h-8 rounded-lg bg-cream-darker flex items-center justify-center text-charcoal text-xs"><i class="fas fa-user-graduate"></i></div>
-                        <span class="text-lg font-bold text-purple-600 dark:text-purple-400">Tech Planet</span>
+                        <div class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-black dark:text-white text-xs"><i class="fas fa-user-graduate"></i></div>
+                        <span class="text-lg font-bold text-black dark:text-white font-display uppercase tracking-widest">Tech Planet</span>
                     </div>
-                    <button id="mobile-close-sidebar" class="text-muted hover:text-cyan-400 text-2xl"><i class="fas fa-times"></i></button>
+                    <button id="mobile-close-sidebar" class="text-black dark:text-white hover:text-gray-500 text-2xl p-2 -mr-2"><i class="fas fa-times"></i></button>
                 </div>
                 <nav class="space-y-2">
-                    <a href="{{ route('student.dashboard') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/70 hover:bg-charcoal/5 ">Dashboard</a>
-                    <a href="{{ route('student.events') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/70 hover:bg-charcoal/5 ">Events</a>
-                    <a href="{{ route('student.coding-arena') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/70 hover:bg-charcoal/5 ">Coding Arena</a>
-                    <a href="{{ route('student.leaderboard') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/70 hover:bg-charcoal/5 ">Leaderboard</a>
-                    <a href="{{ route('student.profile') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/70 hover:bg-charcoal/5 ">Profile</a>
-                    <a href="{{ route('student.notifications') }}" class="block px-4 py-3 rounded-xl font-semibold text-charcoal/70 hover:bg-charcoal/5 flex justify-between items-center">
+                    <a href="{{ route('student.dashboard') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Dashboard</a>
+                    <a href="{{ route('student.events') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Events</a>
+                    <a href="{{ route('student.coding-arena') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Coding Arena</a>
+                    <a href="{{ route('student.leaderboard') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Leaderboard</a>
+                    <a href="{{ route('student.profile') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Profile</a>
+                    <a href="{{ route('student.notifications') }}" class="flex justify-between items-center px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">
                         <span>Notifications</span>
-                        @if($unreadCount) <span class="bg-red-500 text-charcoal text-xs rounded-full px-2 py-0.5">{{ $unreadCount }}</span> @endif
+                        @if($unreadCount) <span class="bg-black text-white dark:bg-white dark:text-black text-[10px] font-bold rounded-full px-2 py-0.5">{{ $unreadCount }}</span> @endif
                     </a>
                     @if(auth()->user()->role !== 'student' && auth()->user()->role)
-                        <a href="{{ route('admin.dashboard') }}" class="block px-4 py-3 rounded-xl font-semibold text-yellow-500 hover:bg-charcoal/5 ">Admin Panel</a>
+                        <a href="{{ route('admin.dashboard') }}" class="block px-4 py-3 rounded-xl font-semibold text-black dark:text-white bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 mt-4 transition-colors">Admin Panel</a>
                     @endif
                 </nav>
             </div>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="w-full flex items-center justify-center space-x-3 rounded-xl py-3 text-red-500 bg-red-500/10 border border-red-500/20 font-semibold"><i class="fas fa-sign-out-alt"></i><span>Logout</span></button>
-            </form>
+            <div class="p-6 border-t border-gray-100 dark:border-gray-900">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="w-full flex items-center justify-center space-x-3 rounded-xl py-3 text-red-600 bg-red-50 hover:bg-red-100 dark:bg-red-950/30 dark:hover:bg-red-950/50 dark:text-red-400 transition-colors font-semibold"><i class="fas fa-sign-out-alt"></i><span>Logout</span></button>
+                </form>
+            </div>
         </div>
         <!-- Main Content Area -->
         <div class="flex-grow flex flex-col min-w-0 overflow-y-auto h-full">
-            <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <div class="flex flex-col lg:flex-row gap-8">
+            <div class="w-full mx-auto px-0 md:px-6 lg:px-8 py-0 md:py-8">
+                <div class="flex flex-col lg:flex-row gap-0 lg:gap-8">
                     <!-- Main Content -->
-                    <main class="flex-grow min-w-0">
+                    <main class="flex-grow min-w-0 w-full">
                         @yield('content')
                     </main>
 
-                    <!-- Right Sidebar -->
-                    <aside class="lg:w-96 w-full shrink-0">
+                    <!-- Right Sidebar (Hidden on mobile for full width content) -->
+                    <aside class="hidden lg:block lg:w-96 shrink-0">
                         @include('students.partials.sidebar')
                     </aside>
                 </div>
@@ -313,12 +318,23 @@
             const toggleBtn = document.getElementById('mobile-toggle-sidebar');
             const closeBtn = document.getElementById('mobile-close-sidebar');
             const drawer = document.getElementById('mobile-sidebar');
-            if (toggleBtn && drawer) {
-                toggleBtn.addEventListener('click', () => drawer.classList.remove('hidden'));
+            const overlay = document.getElementById('mobile-sidebar-overlay');
+            
+            function openDrawer() {
+                if(overlay) overlay.classList.remove('opacity-0', 'pointer-events-none');
+                if(overlay) overlay.classList.add('opacity-100');
+                if(drawer) drawer.classList.remove('-translate-x-full');
             }
-            if (closeBtn && drawer) {
-                closeBtn.addEventListener('click', () => drawer.classList.add('hidden'));
+            
+            function closeDrawer() {
+                if(overlay) overlay.classList.remove('opacity-100');
+                if(overlay) overlay.classList.add('opacity-0', 'pointer-events-none');
+                if(drawer) drawer.classList.add('-translate-x-full');
             }
+            
+            if (toggleBtn) toggleBtn.addEventListener('click', openDrawer);
+            if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+            if (overlay) overlay.addEventListener('click', closeDrawer);
         });
     </script>
 

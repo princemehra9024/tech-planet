@@ -37,37 +37,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
-            --color-cream: #F5F0E8;
-            --color-cream-dark: #EDE7D9;
-            --color-cream-darker: #E0D8C8;
-            --color-charcoal: #1A1A1A;
-            --color-charcoal-light: #2D2D2D;
-            --color-charcoal-lighter: #3D3D3D;
+            --color-cream: #ffffff;
+            --color-cream-dark: #f9f9f9;
+            --color-cream-darker: #f0f0f0;
+            --color-charcoal: #000000;
+            --color-charcoal-light: #1a1a1a;
+            --color-charcoal-lighter: #333333;
             --color-warm: #000000;
             --color-warm-light: #333333;
             --color-warm-lighter: #666666;
             --color-warm-dark: #000000;
-            --color-sage: #7A8B6F;
-            --color-sage-light: #95A888;
-            --color-sage-dark: #5E6D54;
-            --color-muted: #6B6B6B;
+            --color-sage: #888888;
+            --color-sage-light: #aaaaaa;
+            --color-sage-dark: #555555;
+            --color-muted: #999999;
         }
 
         html.dark {
-            --color-cream: #121212;
-            --color-cream-dark: #1A1A1A;
-            --color-cream-darker: #2D2D2D;
-            --color-charcoal: #F5F0E8;
-            --color-charcoal-light: #EDE7D9;
-            --color-charcoal-lighter: #E0D8C8;
-            --color-warm: #FFFFFF;
-            --color-warm-light: #E0E0E0;
-            --color-warm-lighter: #CCCCCC;
-            --color-warm-dark: #FFFFFF;
-            --color-sage: #5E6D54;
-            --color-sage-light: #7A8B6F;
-            --color-sage-dark: #95A888;
-            --color-muted: #A0A0A0;
+            --color-cream: #000000;
+            --color-cream-dark: #0a0a0a;
+            --color-cream-darker: #141414;
+            --color-charcoal: #ffffff;
+            --color-charcoal-light: #e5e5e5;
+            --color-charcoal-lighter: #cccccc;
+            --color-warm: #ffffff;
+            --color-warm-light: #eeeeee;
+            --color-warm-lighter: #cccccc;
+            --color-warm-dark: #ffffff;
+            --color-sage: #888888;
+            --color-sage-light: #aaaaaa;
+            --color-sage-dark: #555555;
+            --color-muted: #777777;
         }
 
         * { font-family: 'DM Sans', sans-serif; }
