@@ -1,28 +1,28 @@
-﻿{{-- resources/views/components/navbar.blade.php --}}
+{{-- resources/views/components/navbar.blade.php --}}
 <nav id="main-nav" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-[1200px] z-[110] transition-all duration-500 py-2 glass shadow-lg rounded-[2rem] border border-charcoal/10 outline outline-2 outline-offset-[6px] outline-charcoal/20 dark:outline-white/20 pointer-events-none">
-    <div class="max-w-[1400px] mx-auto px-6 sm:px-10 pointer-events-auto">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-10 pointer-events-auto">
         <div class="flex justify-between items-center relative z-[110]">
             <!-- Logo -->
-            <a href="{{ url('/') }}" class="flex items-center gap-3 sm:gap-5 group relative z-[110]">
-                <div class="w-16 h-16 sm:w-20 sm:h-20 transition-all duration-500 flex items-center justify-center transform group-hover:-rotate-3 group-hover:scale-105">
+            <a href="{{ url('/') }}" class="flex items-center gap-2 sm:gap-5 group relative z-[110]">
+                <div class="w-12 h-12 sm:w-20 sm:h-20 transition-all duration-500 flex items-center justify-center transform group-hover:-rotate-3 group-hover:scale-105 shrink-0">
                     <img src="/logo.png" alt="Tech Planet Logo" class="w-full h-full object-contain drop-shadow-xl transform transition-transform duration-700 group-hover:scale-110">
                 </div>
                 <div class="flex flex-col logo-text transition-colors duration-500">
-                    <span class="font-display font-black text-2xl sm:text-3xl text-charcoal leading-none tracking-tighter transition-all duration-300 group-hover:translate-x-1.5">Tech Planet</span>
-                    <span class="text-[10px] sm:text-xs text-muted font-bold tracking-[0.3em] uppercase mt-1 transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-charcoal/80">CSI / UOK</span>
+                    <span class="font-display font-black text-lg sm:text-3xl text-charcoal leading-none tracking-tighter transition-all duration-300 group-hover:translate-x-1.5" id="logo-main-text">Tech Planet</span>
+                    <span class="text-[9px] sm:text-xs text-muted font-bold tracking-[0.3em] uppercase mt-0.5 sm:mt-1 transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-charcoal/80" id="logo-sub-text">CSI / UOK</span>
                 </div>
             </a>
 
             <!-- Actions -->
-            <div class="flex items-center gap-3 relative z-[110]">
+            <div class="flex items-center gap-2 sm:gap-3 relative z-[110]">
                 <!-- Theme Toggle Button -->
-                <button id="main-theme-toggle" class="theme-toggle-btn w-12 h-12 rounded-full border border-charcoal/20 dark:border-white/20 bg-cream-dark/5 backdrop-blur-sm flex items-center justify-center hover:bg-charcoal hover:text-white  transition-all group text-charcoal dark:text-white shadow-sm">
+                <button id="main-theme-toggle" class="theme-toggle-btn w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-charcoal/20 dark:border-white/20 bg-cream-dark/5 backdrop-blur-sm flex items-center justify-center hover:bg-charcoal hover:text-white transition-all group text-charcoal dark:text-white shadow-sm">
                     <i class="fas fa-moon dark:hidden group-hover:scale-110 transition-transform"></i>
                     <i class="fas fa-sun hidden dark:block group-hover:scale-110 transition-transform"></i>
                 </button>
 
                 <!-- Hamburger Button -->
-                <button id="menu-trigger" class="w-12 h-12 flex items-center justify-center rounded-full bg-charcoal text-cream hover:bg-warm transition-all duration-300 shadow-lg shadow-charcoal/20 group overflow-hidden border border-transparent">
+                <button id="menu-trigger" class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-charcoal text-cream hover:bg-warm transition-all duration-300 shadow-lg shadow-charcoal/20 group overflow-hidden border border-transparent">
                     <div class="flex flex-col justify-between items-end w-5 h-[14px] relative">
                         <span class="w-full h-[2px] bg-cream rounded-full transform transition-all duration-300 origin-center" id="line-1"></span>
                         <span class="w-3/4 h-[2px] bg-cream rounded-full transform transition-all duration-300 group-hover:w-full origin-center" id="line-2"></span>
@@ -34,11 +34,11 @@
 </nav>
     
 <!-- Fullscreen Menu Overlay -->
-    <div id="fullscreen-menu" class="fixed inset-0 bg-charcoal text-cream z-[105] flex items-center justify-center opacity-0 pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden">
+    <div id="fullscreen-menu" class="fixed inset-0 z-[105] flex items-center justify-center opacity-0 pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden" style="background-color: #000000; color: #ffffff;">
         
         <!-- Decorative background elements -->
-        <div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-warm/10 blur-[150px] pointer-events-none transition-transform duration-1000 transform translate-y-20" id="menu-blob-1"></div>
-        <div class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-sage/10 blur-[150px] pointer-events-none transition-transform duration-1000 transform -translate-y-20" id="menu-blob-2"></div>
+        <div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full blur-[150px] pointer-events-none transition-transform duration-1000 transform translate-y-20" id="menu-blob-1" style="background: rgba(255,255,255,0.05);"></div>
+        <div class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full blur-[150px] pointer-events-none transition-transform duration-1000 transform -translate-y-20" id="menu-blob-2" style="background: rgba(136,136,136,0.05);"></div>
 
         <!-- Premium Image Hover Reveals -->
         <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -48,37 +48,43 @@
             <img id="hover-img-gallery" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2000" class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 grayscale transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]">
             <img id="hover-img-contact" src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=2000" class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 grayscale transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]">
             <!-- Overlay to ensure text readability -->
-            <div class="absolute inset-0 bg-charcoal/80 transition-opacity duration-500"></div>
+            <div class="absolute inset-0 transition-opacity duration-500" style="background: rgba(0,0,0,0.8);"></div>
         </div>
 
-        <div class="max-w-[1400px] w-full mx-auto px-6 sm:px-10 flex flex-col md:flex-row justify-between h-full pt-32 pb-10 sm:pb-20 relative z-10 overflow-y-auto hide-scrollbar">
+        <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-10 flex flex-col md:flex-row justify-between h-full pt-28 sm:pt-32 pb-6 sm:pb-20 relative z-10 overflow-y-auto" style="-ms-overflow-style: none; scrollbar-width: none;">
             
             <!-- Navigation Links -->
-            <div class="flex flex-col gap-2 sm:gap-4 md:gap-6 w-full md:w-2/3 justify-center" id="menu-links">
-                <a href="{{ url('/') }}" data-hover="home" class="menu-item font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-[7rem] leading-none uppercase tracking-tighter transition-colors transform translate-y-12 opacity-0 inline-block w-full group/link"><span class="menu-item-text block w-max relative z-10 group-hover/link:text-cream">Home</span></a>
-                <a href="{{ url('/about') }}" data-hover="about" class="menu-item font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-[7rem] leading-none uppercase tracking-tighter transition-colors transform translate-y-12 opacity-0 inline-block w-full group/link"><span class="menu-item-text block w-max relative z-10 group-hover/link:text-cream">About</span></a>
-                <a href="{{ url('/events') }}" data-hover="events" class="menu-item font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-[7rem] leading-none uppercase tracking-tighter transition-colors transform translate-y-12 opacity-0 inline-block w-full group/link"><span class="menu-item-text block w-max relative z-10 group-hover/link:text-cream">Events</span></a>
-                <a href="{{ url('/gallery') }}" data-hover="gallery" class="menu-item font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-[7rem] leading-none uppercase tracking-tighter transition-colors transform translate-y-12 opacity-0 inline-block w-full group/link"><span class="menu-item-text block w-max relative z-10 group-hover/link:text-cream">Gallery</span></a>
-                <a href="{{ url('/contact') }}" data-hover="contact" class="menu-item font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-[7rem] leading-none uppercase tracking-tighter transition-colors transform translate-y-12 opacity-0 inline-block w-full group/link"><span class="menu-item-text block w-max relative z-10 group-hover/link:text-cream">Contact</span></a>
+            <div class="flex flex-col gap-1 sm:gap-4 md:gap-6 w-full md:w-2/3 justify-center" id="menu-links">
+                <a href="{{ url('/') }}" data-hover="home" class="menu-item font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-[7rem] leading-[1.1] uppercase tracking-tighter transition-colors transform translate-y-12 opacity-0 inline-block w-full group/link"><span class="menu-item-text block w-max relative z-10" style="color: #ffffff;">Home</span></a>
+                <a href="{{ url('/about') }}" data-hover="about" class="menu-item font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-[7rem] leading-[1.1] uppercase tracking-tighter transition-colors transform translate-y-12 opacity-0 inline-block w-full group/link"><span class="menu-item-text block w-max relative z-10" style="color: #ffffff;">About</span></a>
+                <a href="{{ url('/events') }}" data-hover="events" class="menu-item font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-[7rem] leading-[1.1] uppercase tracking-tighter transition-colors transform translate-y-12 opacity-0 inline-block w-full group/link"><span class="menu-item-text block w-max relative z-10" style="color: #ffffff;">Events</span></a>
+                <a href="{{ url('/gallery') }}" data-hover="gallery" class="menu-item font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-[7rem] leading-[1.1] uppercase tracking-tighter transition-colors transform translate-y-12 opacity-0 inline-block w-full group/link"><span class="menu-item-text block w-max relative z-10" style="color: #ffffff;">Gallery</span></a>
+                <a href="{{ url('/contact') }}" data-hover="contact" class="menu-item font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-[7rem] leading-[1.1] uppercase tracking-tighter transition-colors transform translate-y-12 opacity-0 inline-block w-full group/link"><span class="menu-item-text block w-max relative z-10" style="color: #ffffff;">Contact</span></a>
                 
                 <!-- Mobile Only Info -->
-                <div class="flex md:hidden flex-col mt-8 gap-6 border-t border-white/10 pt-8">
+                <div class="flex md:hidden flex-col mt-6 gap-5 border-t border-white/10 pt-6">
                     <div class="menu-item transform translate-y-10 opacity-0">
-                        <span class="text-cream/40 text-[10px] font-bold uppercase tracking-widest block mb-2">Connect</span>
+                        <span class="text-white/40 text-[10px] font-bold uppercase tracking-widest block mb-2">Location</span>
+                        <p class="text-white font-display font-bold text-sm">SRM Institute of Science and Technology</p>
+                        <p class="text-white/50 text-xs mt-0.5">Kattankulathur, Chennai</p>
+                    </div>
+                    <div class="menu-item transform translate-y-10 opacity-0">
+                        <span class="text-white/40 text-[10px] font-bold uppercase tracking-widest block mb-2">Connect</span>
                         <div class="flex gap-3">
-                            <a href="#" class="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center hover:bg-cream hover:text-charcoal transition-all"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center hover:bg-cream hover:text-charcoal transition-all"><i class="fab fa-github"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
-                    <div class="flex gap-4 menu-item transform translate-y-10 opacity-0">
+                    <div class="flex gap-3 menu-item transform translate-y-10 opacity-0">
                         @auth
-                            <a href="{{ route('student.dashboard') }}" class="btn-pill bg-cream text-charcoal hover:bg-warm hover:text-cream text-xs">Console <i class="fas fa-arrow-right arrow-icon"></i></a>
+                            <a href="{{ route('student.dashboard') }}" class="btn-pill bg-white text-black hover:bg-gray-200 text-xs">Console <i class="fas fa-arrow-right arrow-icon"></i></a>
                         @else
-                            <a href="{{ url('/login') }}" class="btn-pill bg-cream text-charcoal hover:bg-warm hover:text-cream text-xs">Login <i class="fas fa-arrow-right arrow-icon"></i></a>
+                            <a href="{{ url('/login') }}" class="btn-pill bg-white text-black hover:bg-gray-200 text-xs">Login <i class="fas fa-arrow-right arrow-icon"></i></a>
                         @endauth
-                        <button class="theme-toggle-btn w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center hover:bg-cream hover:text-charcoal transition-all">
-                            <i class="fas fa-moon dark:hidden hover:text-charcoal"></i>
-                            <i class="fas fa-sun hidden dark:block hover:text-charcoal"></i>
+                        <button class="theme-toggle-btn w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
+                            <i class="fas fa-moon dark:hidden"></i>
+                            <i class="fas fa-sun hidden dark:block"></i>
                         </button>
                     </div>
                 </div>
@@ -89,33 +95,33 @@
                 <div class="transform translate-y-12 opacity-0 menu-info-item group/loc cursor-pointer">
                     <div class="flex items-center gap-3 mb-4">
                         <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-warm opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-warm"></span>
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style="background: #ffffff;"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2" style="background: #ffffff;"></span>
                         </span>
-                        <span class="text-cream/40 text-xs font-bold uppercase tracking-widest">Location</span>
+                        <span class="text-white/40 text-xs font-bold uppercase tracking-widest">Location</span>
                     </div>
-                    <div class="border-l-2 border-cream/10 pl-5 group-hover/loc:border-warm transition-colors duration-500">
-                        <p class="font-display text-xl font-bold text-cream group-hover/loc:text-warm transition-colors duration-300">SRM Institute of Science and Technology</p>
-                        <p class="text-sm font-medium text-cream/50 mt-1.5">Kattankulathur, Chennai</p>
+                    <div class="border-l-2 border-white/10 pl-5 group-hover/loc:border-white/40 transition-colors duration-500">
+                        <p class="font-display text-xl font-bold text-white group-hover/loc:text-white/80 transition-colors duration-300">SRM Institute of Science and Technology</p>
+                        <p class="text-sm font-medium text-white/50 mt-1.5">Kattankulathur, Chennai</p>
                     </div>
                 </div>
                 <div class="mt-10 transform translate-y-12 opacity-0 menu-info-item">
-                    <span class="text-cream/40 text-xs font-bold uppercase tracking-widest block mb-4">Connect</span>
+                    <span class="text-white/40 text-xs font-bold uppercase tracking-widest block mb-4">Connect</span>
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center hover:bg-cream hover:text-charcoal transition-all"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center hover:bg-cream hover:text-charcoal transition-all"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center hover:bg-cream hover:text-charcoal transition-all"><i class="fab fa-github"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="mt-12 flex gap-4 transform translate-y-12 opacity-0 menu-info-item">
                     @auth
-                        <a href="{{ route('student.dashboard') }}" class="btn-pill bg-cream text-charcoal hover:bg-warm hover:text-cream text-xs border border-transparent hover:border-cream">Console <i class="fas fa-arrow-right arrow-icon"></i></a>
+                        <a href="{{ route('student.dashboard') }}" class="btn-pill bg-white text-black hover:bg-gray-200 text-xs border border-transparent">Console <i class="fas fa-arrow-right arrow-icon"></i></a>
                     @else
-                        <a href="{{ url('/login') }}" class="btn-pill bg-cream text-charcoal hover:bg-warm hover:text-cream text-xs border border-transparent hover:border-cream">Login <i class="fas fa-arrow-right arrow-icon"></i></a>
+                        <a href="{{ url('/login') }}" class="btn-pill bg-white text-black hover:bg-gray-200 text-xs border border-transparent">Login <i class="fas fa-arrow-right arrow-icon"></i></a>
                     @endauth
-                    <button class="theme-toggle-btn w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center hover:bg-cream hover:text-charcoal transition-all group">
-                        <i class="fas fa-moon dark:hidden group-hover:text-charcoal transition-colors"></i>
-                        <i class="fas fa-sun hidden dark:block group-hover:text-charcoal transition-colors"></i>
+                    <button class="theme-toggle-btn w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all group">
+                        <i class="fas fa-moon dark:hidden group-hover:text-black transition-colors"></i>
+                        <i class="fas fa-sun hidden dark:block group-hover:text-black transition-colors"></i>
                     </button>
                 </div>
             </div>
@@ -133,7 +139,7 @@
         transform: translateY(0) !important;
     }
     
-    /* Huge menu item hover effect */
+    /* Huge menu item hover effect — use hardcoded colors for the menu overlay */
     .menu-item-text {
         transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         transform-origin: left center;
@@ -141,13 +147,21 @@
     }
     .menu-item:hover .menu-item-text {
         -webkit-text-fill-color: transparent;
-        -webkit-text-stroke: 2px var(--color-cream);
-        transform: translateX(40px);
+        -webkit-text-stroke: 2px #ffffff;
+        transform: translateX(20px);
+    }
+    @media (min-width: 768px) {
+        .menu-item:hover .menu-item-text {
+            transform: translateX(40px);
+        }
     }
     .hover-img-active {
         opacity: 0.4 !important;
         transform: scale(1) !important;
     }
+
+    /* Hide scrollbar in fullscreen menu */
+    #fullscreen-menu > div::-webkit-scrollbar { display: none; }
 </style>
 
 <script>
@@ -157,8 +171,8 @@
         const menu = document.getElementById('fullscreen-menu');
         const line1 = document.getElementById('line-1');
         const line2 = document.getElementById('line-2');
-        const logoTexts = document.querySelectorAll('.logo-text span');
-        const logoTextContainer = document.querySelector('.logo-text');
+        const logoMainText = document.getElementById('logo-main-text');
+        const logoSubText = document.getElementById('logo-sub-text');
         
         const menuItems = document.querySelectorAll('.menu-item');
         const infoItems = document.querySelectorAll('.menu-info-item');
@@ -181,8 +195,6 @@
         }
         themeToggleBtns.forEach(btn => btn.addEventListener('click', toggleTheme));
 
-        // Scroll effect removed since we are using a permanent pill
-
         // Toggle Menu
         if(trigger && menu) {
             trigger.addEventListener('click', () => {
@@ -199,23 +211,20 @@
                     line2.style.width = '100%';
                     line2.style.transform = 'translateY(-6px) rotate(-45deg)';
                     
-                    // Button styles
-                    trigger.classList.remove('bg-charcoal', 'text-cream');
-                    trigger.classList.add('bg-cream-dark', 'text-charcoal');
-                    line1.classList.remove('bg-cream'); line1.classList.add('bg-charcoal');
-                    line2.classList.remove('bg-cream'); line2.classList.add('bg-charcoal');
+                    // Button styles — use hardcoded colors so they work in both light and dark mode
+                    trigger.style.backgroundColor = '#ffffff';
+                    line1.style.backgroundColor = '#000000';
+                    line2.style.backgroundColor = '#000000';
                     
-                    // Change Logo Text Color to White for contrast
-                    logoTextContainer.classList.remove('text-charcoal');
-                    logoTextContainer.classList.add('text-white');
-                    logoTexts[0].classList.remove('text-charcoal');
-                    logoTexts[0].classList.add('text-white');
+                    // Change Logo Text Color to White for contrast against black overlay
+                    if(logoMainText) { logoMainText.style.color = '#ffffff'; }
+                    if(logoSubText) { logoSubText.style.color = 'rgba(255,255,255,0.5)'; }
                     
-                    // Change main theme toggle button color for contrast
+                    // Change main theme toggle button for contrast
                     const mainThemeToggle = document.getElementById('main-theme-toggle');
                     if (mainThemeToggle) {
-                        mainThemeToggle.classList.remove('text-charcoal', 'border-charcoal/20');
-                        mainThemeToggle.classList.add('text-white', 'border-white/20');
+                        mainThemeToggle.style.color = '#ffffff';
+                        mainThemeToggle.style.borderColor = 'rgba(255,255,255,0.2)';
                     }
                     
                     // Remove pill styles so menu is not obscured
@@ -224,8 +233,8 @@
                     
                     // Animate Blobs
                     setTimeout(() => {
-                        blob1.style.transform = 'translateY(0)';
-                        blob2.style.transform = 'translateY(0)';
+                        if(blob1) blob1.style.transform = 'translateY(0)';
+                        if(blob2) blob2.style.transform = 'translateY(0)';
                     }, 100);
 
                     // Stagger Links
@@ -253,23 +262,20 @@
                     line2.style.width = '75%';
                     line2.style.transform = 'translateY(0) rotate(0)';
                     
-                    // Button styles
-                    trigger.classList.add('bg-charcoal', 'text-cream');
-                    trigger.classList.remove('bg-cream-dark', 'text-charcoal');
-                    line1.classList.add('bg-cream'); line1.classList.remove('bg-charcoal');
-                    line2.classList.add('bg-cream'); line2.classList.remove('bg-charcoal');
+                    // Reset button styles
+                    trigger.style.backgroundColor = '';
+                    line1.style.backgroundColor = '';
+                    line2.style.backgroundColor = '';
                     
-                    // Revert Logo Text Color
-                    logoTextContainer.classList.add('text-charcoal');
-                    logoTextContainer.classList.remove('text-white');
-                    logoTexts[0].classList.add('text-charcoal');
-                    logoTexts[0].classList.remove('text-white');
+                    // Revert Logo Text Color — clear inline styles so CSS classes take effect again
+                    if(logoMainText) { logoMainText.style.color = ''; }
+                    if(logoSubText) { logoSubText.style.color = ''; }
                     
-                    // Revert main theme toggle button color
+                    // Revert main theme toggle button
                     const mainThemeToggle = document.getElementById('main-theme-toggle');
                     if (mainThemeToggle) {
-                        mainThemeToggle.classList.add('text-charcoal', 'border-charcoal/20');
-                        mainThemeToggle.classList.remove('text-white', 'border-white/20');
+                        mainThemeToggle.style.color = '';
+                        mainThemeToggle.style.borderColor = '';
                     }
                     
                     // Restore pill styles
@@ -277,8 +283,8 @@
                     nav.classList.remove('border-transparent');
                     
                     // Reset Blobs
-                    blob1.style.transform = 'translateY(20px)';
-                    blob2.style.transform = 'translateY(-20px)';
+                    if(blob1) blob1.style.transform = 'translateY(20px)';
+                    if(blob2) blob2.style.transform = 'translateY(-20px)';
 
                     // Remove Active classes
                     menuItems.forEach(item => {
@@ -311,4 +317,3 @@
         });
     });
 </script>
-

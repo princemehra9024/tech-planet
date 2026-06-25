@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Planet Club Admin | @yield('title')</title>
+    <title>Tech Planet Command Center | @yield('title')</title>
     <!-- Tailwind CSS + Google Fonts + Font Awesome -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -12,11 +12,22 @@
             theme: {
                 extend: {
                     colors: {
-                        cream: { DEFAULT: 'var(--color-cream)', dark: 'var(--color-cream-dark)', darker: 'var(--color-cream-darker)' },
-                        charcoal: { DEFAULT: 'var(--color-charcoal)', light: 'var(--color-charcoal-light)', lighter: 'var(--color-charcoal-lighter)' },
-                        warm: { DEFAULT: 'var(--color-warm)', light: 'var(--color-warm-light)', lighter: 'var(--color-warm-lighter)', dark: 'var(--color-warm-dark)' },
-                        sage: { DEFAULT: 'var(--color-sage)', light: 'var(--color-sage-light)', dark: 'var(--color-sage-dark)' },
-                        muted: 'var(--color-muted)',
+                        surface: {
+                            DEFAULT: '#000000',
+                            raised: '#0d0d0d',
+                            overlay: '#141414',
+                            card: '#0a0a0a',
+                        },
+                        accent: {
+                            DEFAULT: '#c8a24e',
+                            light: '#d4b366',
+                            dim: '#8a6d2b',
+                        },
+                        text: {
+                            primary: '#f0f0f0',
+                            secondary: '#a0a0a0',
+                            muted: '#6b6b6b',
+                        },
                     },
                     fontFamily: {
                         sans: ['DM Sans', 'sans-serif'],
@@ -34,109 +45,119 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        :root {
-            --color-cream: #ffffff;
-            --color-cream-dark: #f9f9f9;
-            --color-cream-darker: #f0f0f0;
-            --color-charcoal: #000000;
-            --color-charcoal-light: #1a1a1a;
-            --color-charcoal-lighter: #333333;
-            --color-warm: #000000;
-            --color-warm-light: #333333;
-            --color-warm-lighter: #666666;
-            --color-warm-dark: #000000;
-            --color-sage: #888888;
-            --color-sage-light: #aaaaaa;
-            --color-sage-dark: #555555;
-            --color-muted: #999999;
-        }
-
-        html.dark {
-            --color-cream: #000000;
-            --color-cream-dark: #0a0a0a;
-            --color-cream-darker: #141414;
-            --color-charcoal: #ffffff;
-            --color-charcoal-light: #e5e5e5;
-            --color-charcoal-lighter: #cccccc;
-            --color-warm: #ffffff;
-            --color-warm-light: #eeeeee;
-            --color-warm-lighter: #cccccc;
-            --color-warm-dark: #ffffff;
-            --color-sage: #888888;
-            --color-sage-light: #aaaaaa;
-            --color-sage-dark: #555555;
-            --color-muted: #777777;
-        }
-
         * { font-family: 'DM Sans', sans-serif; }
         h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Outfit', sans-serif; }
-        
-        body { 
-            background-color: var(--color-cream); 
-            color: var(--color-charcoal);
+
+        body {
+            background-color: #000000;
+            color: #f0f0f0;
             scroll-behavior: smooth;
         }
 
-        /* Glassmorphism */
-        .glass {
-            background: color-mix(in srgb, var(--color-cream) 75%, transparent);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-        .glass-dark {
-            background: color-mix(in srgb, var(--color-charcoal) 85%, transparent);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+        /* Custom scrollbar - dark themed */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 99px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
+
+        /* Sidebar nav link active state with amber glow */
+        .nav-link-active {
+            background: linear-gradient(135deg, rgba(200, 162, 78, 0.15), rgba(200, 162, 78, 0.05));
+            color: #f0f0f0;
+            border: 1px solid rgba(200, 162, 78, 0.25);
         }
 
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--color-cream); }
-        ::-webkit-scrollbar-thumb { background: var(--color-warm-light); border-radius: 99px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--color-warm); }
-        
         /* Card hover lift */
         .card-lift {
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
         }
         .card-lift:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(200, 162, 78, 0.06);
+            border-color: rgba(200, 162, 78, 0.3);
         }
-        html.dark .card-lift:hover { box-shadow: 0 20px 60px rgba(255,255,255,0.03); }
 
-        .glass-card {
-            background: color-mix(in srgb, var(--color-cream-dark) 50%, transparent);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        /* Stat card border glow on hover */
+        .stat-card {
+            background: #0d0d0d;
+            border: 1px solid #1a1a1a;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        html.dark .glass-card {
-            background: color-mix(in srgb, var(--color-charcoal-light) 50%, transparent);
+        .stat-card:hover {
+            border-color: rgba(200, 162, 78, 0.3);
+            box-shadow: 0 0 30px rgba(200, 162, 78, 0.04);
         }
-        
+
+        /* Command card styling */
+        .command-card {
+            background: #0d0d0d;
+            border: 1px solid #1a1a1a;
+        }
+
+        /* Action button hover */
+        .action-btn {
+            background: #0d0d0d;
+            border: 1px solid #1f1f1f;
+            transition: all 0.3s ease;
+        }
+        .action-btn:hover {
+            border-color: rgba(200, 162, 78, 0.35);
+            background: #111111;
+            box-shadow: 0 0 20px rgba(200, 162, 78, 0.05);
+        }
+
+        /* Fade in animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+        .animate-delay-1 { animation-delay: 0.05s; }
+        .animate-delay-2 { animation-delay: 0.1s; }
+        .animate-delay-3 { animation-delay: 0.15s; }
+        .animate-delay-4 { animation-delay: 0.2s; }
+        .animate-delay-5 { animation-delay: 0.25s; }
+        .animate-delay-6 { animation-delay: 0.3s; }
+
+        /* Sidebar link transition */
+        .sidebar-link {
+            transition: all 0.2s ease;
+        }
+        .sidebar-link:hover {
+            background: rgba(255,255,255,0.04);
+            color: #f0f0f0;
+        }
+
+        /* No scrollbar utility */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
     @stack('styles')
-    
-    <!-- Dark Mode Init Script -->
+
+    <!-- Theme Init - Force dark -->
     <script>
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-        
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+
         function toggleTheme() {
             if (document.documentElement.classList.contains('dark')) {
                 document.documentElement.classList.remove('dark');
+                document.body.style.backgroundColor = '#ffffff';
+                document.body.style.color = '#000000';
                 localStorage.setItem('theme', 'light');
                 updateThemeIcon('light');
             } else {
                 document.documentElement.classList.add('dark');
+                document.body.style.backgroundColor = '#000000';
+                document.body.style.color = '#f0f0f0';
                 localStorage.setItem('theme', 'dark');
                 updateThemeIcon('dark');
             }
         }
-        
+
         function updateThemeIcon(theme) {
             const icons = document.querySelectorAll('.theme-icon');
             icons.forEach(icon => {
@@ -149,26 +170,26 @@
                 }
             });
         }
-        
+
         document.addEventListener('DOMContentLoaded', () => {
             const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
             updateThemeIcon(currentTheme);
         });
     </script>
 </head>
-<body class="antialiased min-h-screen flex flex-col md:flex-row transition-colors duration-500 selection:bg-charcoal selection:text-cream dark:selection:bg-cream dark:selection:text-charcoal">
+<body class="antialiased min-h-screen flex flex-col md:flex-row">
     @if(session()->has('impersonator_id'))
         <div class="absolute top-0 left-0 right-0 bg-gradient-to-r from-red-600 to-rose-600 text-white px-6 py-3 flex items-center justify-between gap-4 text-xs font-bold shadow-lg z-50">
             <div class="flex items-center gap-2.5">
                 <span class="flex h-2 w-2 relative">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cream-dark opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-cream-dark"></span>
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
                 </span>
                 <span>Impersonation Active: You are logged in as <span class="underline">{{ auth()->user()->name }}</span> ({{ ucfirst(auth()->user()->role) }})</span>
             </div>
             <form method="POST" action="{{ route('student.stop-impersonating') }}">
                 @csrf
-                <button type="submit" class="bg-cream-dark/20 hover:bg-cream-dark/30 border border-white/30 text-white font-bold px-3 py-1 rounded-lg transition text-[10px] uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+                <button type="submit" class="bg-white/20 hover:bg-white/30 border border-white/30 text-white font-bold px-3 py-1 rounded-lg transition text-[10px] uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
                     <i class="fas fa-sign-out-alt"></i> Return to Admin
                 </button>
             </form>
@@ -177,67 +198,73 @@
 
     <div class="flex-1 flex flex-col md:flex-row overflow-hidden w-full {{ session()->has('impersonator_id') ? 'pt-12' : '' }}">
         <!-- Desktop Sidebar -->
-        <aside class="hidden md:flex w-72 bg-gray-50 dark:bg-[#0a0a0a] border-r border-gray-200 dark:border-gray-900 p-6 shrink-0 flex-col justify-between z-30">
-            <div class="space-y-8 overflow-y-auto no-scrollbar">
+        <aside class="hidden md:flex w-64 bg-[#0a0a0a] border-r border-[#1a1a1a] p-5 shrink-0 flex-col justify-between z-30 min-h-screen">
+            <div class="space-y-7 overflow-y-auto no-scrollbar">
+                <!-- Brand Header -->
                 <div class="flex items-center justify-between">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-8 h-8 rounded-lg bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
-                            <i class="fas fa-shield-alt text-black dark:text-white text-xs"></i>
+                    <div class="flex items-center space-x-2.5">
+                        <div class="w-8 h-8 rounded-lg bg-[#1a1a1a] flex items-center justify-center border border-[#2a2a2a]">
+                            <i class="fas fa-terminal text-accent text-xs"></i>
                         </div>
                         <div>
-                            <div class="text-lg font-bold text-black dark:text-white font-display leading-none tracking-widest uppercase">Admin Panel</div>
+                            <div class="text-sm font-bold text-white font-display leading-none">Command</div>
+                            <div class="text-sm font-bold text-white font-display leading-none">Center</div>
                         </div>
                     </div>
                     <!-- Theme Toggle -->
-                    <button onclick="toggleTheme()" class="w-8 h-8 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-800 text-black dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors" title="Toggle Light/Dark Mode">
-                        <i class="fas theme-icon fa-moon text-sm"></i>
+                    <button onclick="toggleTheme()" class="w-8 h-8 rounded-full flex items-center justify-center bg-[#1a1a1a] text-text-secondary hover:text-white hover:bg-[#252525] transition-all border border-[#2a2a2a]" title="Toggle Light/Dark Mode">
+                        <i class="fas theme-icon fa-sun text-xs"></i>
                     </button>
                 </div>
 
-                <nav class="space-y-1.5 font-medium">
-                    <a href="{{ route('admin.dashboard') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.dashboard') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white' }}">
-                        <i class="fas fa-chart-pie w-5 text-center"></i>
+                <!-- Navigation -->
+                <nav class="space-y-1 font-medium text-sm">
+                    <a href="{{ route('admin.dashboard') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-2.5 transition-all {{ request()->routeIs('admin.dashboard') ? 'nav-link-active font-semibold' : 'sidebar-link text-text-secondary' }}">
+                        <i class="fas fa-chart-pie w-5 text-center {{ request()->routeIs('admin.dashboard') ? 'text-accent' : '' }}"></i>
                         <span>Dashboard</span>
                     </a>
-                    <a href="{{ route('admin.posts.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.posts.*') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white' }}">
-                        <i class="fas fa-bullhorn w-5 text-center"></i>
+                    <a href="{{ route('admin.posts.index') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-2.5 transition-all {{ request()->routeIs('admin.posts.*') ? 'nav-link-active font-semibold' : 'sidebar-link text-text-secondary' }}">
+                        <i class="fas fa-bullhorn w-5 text-center {{ request()->routeIs('admin.posts.*') ? 'text-accent' : '' }}"></i>
                         <span>Posts</span>
                     </a>
                     @if(auth()->user()->role !== 'media_manager')
-                    <a href="{{ route('admin.quizzes.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.quizzes.*') || request()->routeIs('admin.questions.*') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white' }}">
-                        <i class="fas fa-laptop-code w-5 text-center"></i>
+                    <a href="{{ route('admin.quizzes.index') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-2.5 transition-all {{ request()->routeIs('admin.quizzes.*') || request()->routeIs('admin.questions.*') ? 'nav-link-active font-semibold' : 'sidebar-link text-text-secondary' }}">
+                        <i class="fas fa-laptop-code w-5 text-center {{ request()->routeIs('admin.quizzes.*') || request()->routeIs('admin.questions.*') ? 'text-accent' : '' }}"></i>
                         <span>Quizzes</span>
                     </a>
-                    <a href="{{ route('admin.users.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.users.*') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white' }}">
-                        <i class="fas fa-users-cog w-5 text-center"></i>
+                    <a href="{{ route('admin.users.index') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-2.5 transition-all {{ request()->routeIs('admin.users.*') ? 'nav-link-active font-semibold' : 'sidebar-link text-text-secondary' }}">
+                        <i class="fas fa-users-cog w-5 text-center {{ request()->routeIs('admin.users.*') ? 'text-accent' : '' }}"></i>
                         <span>Users</span>
                     </a>
-                    <a href="{{ route('admin.suggestions.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.suggestions.*') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white' }}">
-                        <i class="fas fa-vote-yea w-5 text-center"></i>
-                        <span>Suggestions</span>
+                    <a href="{{ route('admin.suggestions.index') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-2.5 transition-all {{ request()->routeIs('admin.suggestions.*') ? 'nav-link-active font-semibold' : 'sidebar-link text-text-secondary' }}">
+                        <i class="fas fa-vote-yea w-5 text-center {{ request()->routeIs('admin.suggestions.*') ? 'text-accent' : '' }}"></i>
+                        <span>Suggestions & Votes</span>
                     </a>
-                    <a href="{{ route('admin.events.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.events.*') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white' }}">
-                        <i class="fas fa-calendar-alt w-5 text-center"></i>
+                    <a href="{{ route('admin.events.index') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-2.5 transition-all {{ request()->routeIs('admin.events.*') ? 'nav-link-active font-semibold' : 'sidebar-link text-text-secondary' }}">
+                        <i class="fas fa-calendar-alt w-5 text-center {{ request()->routeIs('admin.events.*') ? 'text-accent' : '' }}"></i>
                         <span>Events</span>
                     </a>
                     @endif
                     @if(auth()->user()->canManageGallery())
-                    <a href="{{ route('admin.gallery.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.gallery.*') || request()->routeIs('admin.gallery-categories.*') ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white' }}">
-                        <i class="fas fa-images w-5 text-center"></i>
+                    <a href="{{ route('admin.gallery.index') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-2.5 transition-all {{ request()->routeIs('admin.gallery.*') || request()->routeIs('admin.gallery-categories.*') ? 'nav-link-active font-semibold' : 'sidebar-link text-text-secondary' }}">
+                        <i class="fas fa-images w-5 text-center {{ request()->routeIs('admin.gallery.*') || request()->routeIs('admin.gallery-categories.*') ? 'text-accent' : '' }}"></i>
                         <span>Gallery</span>
                     </a>
                     @endif
+
+
                 </nav>
             </div>
 
-            <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800 space-y-2">
-                <a href="{{ route('student.dashboard') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white transition-all">
+            <!-- Bottom Section -->
+            <div class="mt-6 pt-5 border-t border-[#1a1a1a] space-y-1">
+                <a href="{{ route('student.dashboard') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-2.5 sidebar-link text-text-secondary text-sm font-medium">
                     <i class="fas fa-user-graduate w-5 text-center"></i>
                     <span>Student Portal</span>
                 </a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="w-full flex items-center space-x-3 rounded-xl px-4 py-3 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 transition-all font-bold">
+                    <button type="submit" class="w-full flex items-center space-x-3 rounded-xl px-3.5 py-2.5 text-red-500 hover:bg-red-950/20 transition-all font-semibold text-sm">
                         <i class="fas fa-sign-out-alt w-5 text-center"></i>
                         <span>Logout</span>
                     </button>
@@ -246,65 +273,103 @@
         </aside>
 
         <!-- Mobile Header -->
-        <header class="md:hidden flex justify-between items-center h-16 bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-900 px-6 sticky top-0 z-40">
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-                    <i class="fas fa-shield-alt text-black dark:text-white text-xs"></i>
+        <header class="md:hidden flex justify-between items-center h-14 bg-[#0a0a0a] border-b border-[#1a1a1a] px-4 sticky top-0 z-40">
+            <div class="flex items-center space-x-2.5">
+                <div class="w-7 h-7 rounded-lg bg-[#1a1a1a] flex items-center justify-center border border-[#2a2a2a]">
+                    <i class="fas fa-terminal text-accent text-[10px]"></i>
                 </div>
-                <span class="text-lg font-bold text-black dark:text-white font-display leading-none tracking-widest uppercase">Admin Panel</span>
+                <span class="text-sm font-bold text-white font-display leading-none">Command Center</span>
             </div>
-            <button id="mobile-toggle-sidebar" class="text-black dark:text-white hover:text-gray-500 focus:outline-none transition">
-                <i class="fas fa-bars text-xl"></i>
+            <button id="mobile-toggle-sidebar" class="text-white hover:text-accent focus:outline-none transition w-9 h-9 flex items-center justify-center rounded-lg hover:bg-[#1a1a1a]">
+                <i class="fas fa-bars text-lg"></i>
             </button>
         </header>
 
         <!-- Mobile Drawer Overlay -->
-        <div id="mobile-sidebar-overlay" class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none md:hidden"></div>
+        <div id="mobile-sidebar-overlay" class="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none md:hidden"></div>
 
         <!-- Mobile Drawer Menu -->
-        <div id="mobile-sidebar" class="fixed inset-y-0 left-0 z-50 w-[280px] max-w-[80vw] bg-white dark:bg-[#0a0a0a] border-r border-gray-200 dark:border-gray-900 flex flex-col justify-between transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden shadow-2xl overflow-y-auto">
-            <div class="p-6 space-y-8">
+        <div id="mobile-sidebar" class="fixed inset-y-0 left-0 z-50 w-[280px] max-w-[85vw] bg-[#0a0a0a] border-r border-[#1a1a1a] flex flex-col justify-between transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden shadow-2xl overflow-y-auto">
+            <div class="p-5 space-y-6">
                 <div class="flex justify-between items-center">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-black dark:text-white text-xs"><i class="fas fa-shield-alt"></i></div>
-                        <span class="text-lg font-bold text-black dark:text-white font-display uppercase tracking-widest">Admin</span>
+                    <div class="flex items-center space-x-2.5">
+                        <div class="w-7 h-7 rounded-lg bg-[#1a1a1a] flex items-center justify-center border border-[#2a2a2a]">
+                            <i class="fas fa-terminal text-accent text-[10px]"></i>
+                        </div>
+                        <div>
+                            <span class="text-sm font-bold text-white font-display">Command Center</span>
+                        </div>
                     </div>
-                    <button id="mobile-close-sidebar" class="text-black dark:text-white hover:text-gray-500 text-2xl p-2 -mr-2"><i class="fas fa-times"></i></button>
+                    <button id="mobile-close-sidebar" class="text-text-secondary hover:text-white text-xl p-2 -mr-2 rounded-lg hover:bg-[#1a1a1a] transition"><i class="fas fa-times"></i></button>
                 </div>
-                <nav class="space-y-2">
-                    <a href="{{ route('admin.dashboard') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Dashboard</a>
-                    <a href="{{ route('admin.posts.index') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Posts</a>
+
+                <!-- Theme Toggle Mobile -->
+                <button onclick="toggleTheme()" class="w-full flex items-center space-x-3 rounded-xl px-3.5 py-2.5 bg-[#141414] text-text-secondary hover:text-white transition-all text-sm font-medium border border-[#1f1f1f]">
+                    <i class="fas theme-icon fa-sun w-5 text-center text-accent"></i>
+                    <span>Toggle Theme</span>
+                </button>
+
+                <nav class="space-y-1 text-sm font-medium">
+                    <a href="{{ route('admin.dashboard') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-3 transition-all {{ request()->routeIs('admin.dashboard') ? 'nav-link-active font-semibold' : 'sidebar-link text-text-secondary' }}">
+                        <i class="fas fa-chart-pie w-5 text-center {{ request()->routeIs('admin.dashboard') ? 'text-accent' : '' }}"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="{{ route('admin.posts.index') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-3 transition-all {{ request()->routeIs('admin.posts.*') ? 'nav-link-active font-semibold' : 'sidebar-link text-text-secondary' }}">
+                        <i class="fas fa-bullhorn w-5 text-center {{ request()->routeIs('admin.posts.*') ? 'text-accent' : '' }}"></i>
+                        <span>Posts</span>
+                    </a>
                     @if(auth()->user()->role !== 'media_manager')
-                    <a href="{{ route('admin.quizzes.index') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Quizzes</a>
-                    <a href="{{ route('admin.users.index') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Users</a>
-                    <a href="{{ route('admin.suggestions.index') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Suggestions</a>
-                    <a href="{{ route('admin.events.index') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Events</a>
+                    <a href="{{ route('admin.quizzes.index') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-3 transition-all {{ request()->routeIs('admin.quizzes.*') || request()->routeIs('admin.questions.*') ? 'nav-link-active font-semibold' : 'sidebar-link text-text-secondary' }}">
+                        <i class="fas fa-laptop-code w-5 text-center {{ request()->routeIs('admin.quizzes.*') || request()->routeIs('admin.questions.*') ? 'text-accent' : '' }}"></i>
+                        <span>Quizzes</span>
+                    </a>
+                    <a href="{{ route('admin.users.index') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-3 transition-all {{ request()->routeIs('admin.users.*') ? 'nav-link-active font-semibold' : 'sidebar-link text-text-secondary' }}">
+                        <i class="fas fa-users-cog w-5 text-center {{ request()->routeIs('admin.users.*') ? 'text-accent' : '' }}"></i>
+                        <span>Users</span>
+                    </a>
+                    <a href="{{ route('admin.suggestions.index') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-3 transition-all {{ request()->routeIs('admin.suggestions.*') ? 'nav-link-active font-semibold' : 'sidebar-link text-text-secondary' }}">
+                        <i class="fas fa-vote-yea w-5 text-center {{ request()->routeIs('admin.suggestions.*') ? 'text-accent' : '' }}"></i>
+                        <span>Suggestions & Votes</span>
+                    </a>
+                    <a href="{{ route('admin.events.index') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-3 transition-all {{ request()->routeIs('admin.events.*') ? 'nav-link-active font-semibold' : 'sidebar-link text-text-secondary' }}">
+                        <i class="fas fa-calendar-alt w-5 text-center {{ request()->routeIs('admin.events.*') ? 'text-accent' : '' }}"></i>
+                        <span>Events</span>
+                    </a>
                     @endif
                     @if(auth()->user()->canManageGallery())
-                    <a href="{{ route('admin.gallery.index') }}" class="block px-4 py-3 rounded-xl font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Gallery</a>
+                    <a href="{{ route('admin.gallery.index') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-3 transition-all {{ request()->routeIs('admin.gallery.*') || request()->routeIs('admin.gallery-categories.*') ? 'nav-link-active font-semibold' : 'sidebar-link text-text-secondary' }}">
+                        <i class="fas fa-images w-5 text-center {{ request()->routeIs('admin.gallery.*') || request()->routeIs('admin.gallery-categories.*') ? 'text-accent' : '' }}"></i>
+                        <span>Gallery</span>
+                    </a>
                     @endif
-                    <a href="{{ route('student.dashboard') }}" class="block px-4 py-3 rounded-xl font-semibold text-black dark:text-white bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 mt-4 transition-colors">Student Portal</a>
                 </nav>
             </div>
-            <div class="p-6 border-t border-gray-100 dark:border-gray-900">
+            <div class="p-5 border-t border-[#1a1a1a] space-y-1">
+                <a href="{{ route('student.dashboard') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-3 sidebar-link text-text-secondary text-sm font-medium">
+                    <i class="fas fa-user-graduate w-5 text-center"></i>
+                    <span>Student Portal</span>
+                </a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="w-full flex items-center justify-center space-x-3 rounded-xl py-3 text-red-600 bg-red-50 hover:bg-red-100 dark:bg-red-950/30 dark:hover:bg-red-950/50 dark:text-red-400 transition-colors font-semibold"><i class="fas fa-sign-out-alt"></i><span>Logout</span></button>
+                    <button type="submit" class="w-full flex items-center space-x-3 rounded-xl px-3.5 py-3 text-red-500 hover:bg-red-950/20 transition-all font-semibold text-sm">
+                        <i class="fas fa-sign-out-alt w-5 text-center"></i>
+                        <span>Logout</span>
+                    </button>
                 </form>
             </div>
         </div>
 
         <!-- Main Content -->
-        <main class="flex-grow min-w-0 flex flex-col overflow-y-auto h-full p-4 md:p-8 bg-white dark:bg-black">
+        <main class="flex-grow min-w-0 flex flex-col overflow-y-auto h-screen p-4 md:p-8 bg-black">
             @if(session('success'))
-                <div class="mb-6 rounded-2xl bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800/50 text-green-700 dark:text-green-400 px-5 py-4 flex items-center gap-3 shadow-sm">
-                    <i class="fas fa-check-circle"></i>
+                <div class="mb-5 rounded-xl bg-emerald-950/40 border border-emerald-800/40 text-emerald-400 px-4 py-3 flex items-center gap-3 text-sm font-medium animate-fade-in">
+                    <i class="fas fa-check-circle text-emerald-400"></i>
                     <span>{{ session('success') }}</span>
                 </div>
             @endif
             @if(session('error'))
-                <div class="mb-6 rounded-2xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800/50 text-red-700 dark:text-red-400 px-5 py-4 flex items-center gap-3 shadow-sm">
-                    <i class="fas fa-exclamation-circle"></i>
+                <div class="mb-5 rounded-xl bg-red-950/40 border border-red-800/40 text-red-400 px-4 py-3 flex items-center gap-3 text-sm font-medium animate-fade-in">
+                    <i class="fas fa-exclamation-circle text-red-400"></i>
                     <span>{{ session('error') }}</span>
                 </div>
             @endif
@@ -319,19 +384,21 @@
             const closeBtn = document.getElementById('mobile-close-sidebar');
             const drawer = document.getElementById('mobile-sidebar');
             const overlay = document.getElementById('mobile-sidebar-overlay');
-            
+
             function openDrawer() {
                 if(overlay) overlay.classList.remove('opacity-0', 'pointer-events-none');
                 if(overlay) overlay.classList.add('opacity-100');
                 if(drawer) drawer.classList.remove('-translate-x-full');
+                document.body.style.overflow = 'hidden';
             }
-            
+
             function closeDrawer() {
                 if(overlay) overlay.classList.remove('opacity-100');
                 if(overlay) overlay.classList.add('opacity-0', 'pointer-events-none');
                 if(drawer) drawer.classList.add('-translate-x-full');
+                document.body.style.overflow = '';
             }
-            
+
             if (toggleBtn) toggleBtn.addEventListener('click', openDrawer);
             if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
             if (overlay) overlay.addEventListener('click', closeDrawer);
@@ -340,4 +407,3 @@
     @stack('scripts')
 </body>
 </html>
-

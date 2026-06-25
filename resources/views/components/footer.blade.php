@@ -1,4 +1,4 @@
-﻿{{-- resources/views/components/footer.blade.php --}}
+{{-- resources/views/components/footer.blade.php --}}
 <style>
     .footer-bg-grid {
         background-color: var(--color-cream);
@@ -117,9 +117,9 @@
                             <span class="text-sm font-medium text-charcoal dark:text-[#EAEAEA]">Jane Smith</span>
                             <span class="text-xs text-charcoal/60 dark:text-[#A0A0A0]">Frontâ€‘end Engineer</span>
                         </div>
-                    </div>
                 </div>
-        
+        </div>
     </div>
 </footer>
+
 
