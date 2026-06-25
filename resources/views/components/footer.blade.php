@@ -96,7 +96,7 @@
                 OFFER
             </div>
                 {{-- Team Grid --}}
-                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                {{-- <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                     <div class="text-xs uppercase tracking-wider text-charcoal/70 dark:text-[#A0A0A0]">CREATIVE TEAM</div>
                     <div class="flex items-center gap-4">
                         <!-- Team Member 1 -->
@@ -117,7 +117,8 @@
                             <span class="text-sm font-medium text-charcoal dark:text-[#EAEAEA]">Jane Smith</span>
                             <span class="text-xs text-charcoal/60 dark:text-[#A0A0A0]">Frontâ€‘end Engineer</span>
                         </div>
-                </div>
+                    </div>
+                </div> --}}
         </div>
     </div>
 </footer>

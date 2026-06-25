@@ -244,6 +244,10 @@
                         <i class="fas fa-calendar-alt w-5 text-center {{ request()->routeIs('admin.events.*') ? 'text-accent' : '' }}"></i>
                         <span>Events</span>
                     </a>
+                    <a href="{{ route('admin.certificates.index') }}" class="flex items-center space-x-3 rounded-xl px-4 py-3 transition-all {{ request()->routeIs('admin.certificates.*') ? 'bg-charcoal text-cream shadow-md' : 'text-charcoal/70 hover:bg-charcoal/5 hover:text-charcoal' }}">
+                        <i class="fas fa-certificate w-5 {{ request()->routeIs('admin.certificates.*') ? 'text-cream/70' : 'text-charcoal/50' }}"></i>
+                        <span>Certificates</span>
+                    </a>
                     @endif
                     @if(auth()->user()->canManageGallery())
                     <a href="{{ route('admin.gallery.index') }}" class="flex items-center space-x-3 rounded-xl px-3.5 py-2.5 transition-all {{ request()->routeIs('admin.gallery.*') || request()->routeIs('admin.gallery-categories.*') ? 'nav-link-active font-semibold' : 'sidebar-link text-text-secondary' }}">

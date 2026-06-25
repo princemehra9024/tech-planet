@@ -69,6 +69,8 @@ Route::middleware('auth')->prefix('student')->name('student.')->group(function (
     // Leaderboard & Notifications
     Route::get('/leaderboard', [LeaderboardController::class, 'index'])->name('leaderboard');
     Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications');
+    Route::post('/push-subscription', [NotificationController::class, 'storePushSubscription'])->name('push-subscription');
+    Route::get('/certificates', [\App\Http\Controllers\StudentCertificateController::class, 'index'])->name('certificates');
 
     // Impersonation control
     Route::post('/stop-impersonating', [AdminUserController::class, 'stopImpersonating'])->name('stop-impersonating');
@@ -111,6 +113,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::patch('/users/{user}', [AdminUserController::class, 'update'])->name('users.update');
     Route::delete('/users/{user}', [AdminUserController::class, 'destroy'])->name('users.destroy');
     Route::post('/users/{user}/impersonate', [AdminUserController::class, 'impersonate'])->name('users.impersonate');
+
+    // Certificates Management
+    Route::get('/certificates', [\App\Http\Controllers\Admin\AdminCertificateController::class, 'index'])->name('certificates.index');
+    Route::get('/certificates/create', [\App\Http\Controllers\Admin\AdminCertificateController::class, 'create'])->name('certificates.create');
+    Route::post('/certificates', [\App\Http\Controllers\Admin\AdminCertificateController::class, 'store'])->name('certificates.store');
+    Route::delete('/certificates/{certificate}', [\App\Http\Controllers\Admin\AdminCertificateController::class, 'destroy'])->name('certificates.destroy');
 
     // Gallery Management (Authorized via EnsureUserCanManageGallery middleware)
     Route::middleware([\App\Http\Middleware\EnsureUserCanManageGallery::class])->group(function () {

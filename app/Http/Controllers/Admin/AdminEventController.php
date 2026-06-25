@@ -41,6 +41,16 @@ class AdminEventController extends Controller
             'max_participants' => $request->max_participants,
         ]);
 
+        $users = \App\Models\User::all();
+        foreach ($users as $user) {
+            \App\Models\Notification::create([
+                'user_id' => $user->id,
+                'type' => 'new_event',
+                'message' => "New Event Published: {$request->title}! Check it out and register now.",
+                'is_read' => false,
+            ]);
+        }
+
         return redirect()->route('admin.events.index')->with('success', 'Event successfully created and published!');
     }
 

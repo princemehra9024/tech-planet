@@ -16,7 +16,7 @@
                         Who we are
                     </h1>
                     <p class="text-charcoal/60 text-sm sm:text-base leading-relaxed mb-8 max-w-md">
-                        Tech Planet SRM is an elite student group under the Computer Society of India (CSI), bridging tech education and industry skills.
+                        Tech Planet is an elite student Club under the Computer Science and Informatics (CSI) Dept., bridging tech education and industry skills.
                     </p>
                     <div class="flex gap-4">
                         <div class="flex items-center gap-3 glass px-4 py-3 rounded-xl border border-charcoal/10 shadow-sm">
@@ -128,14 +128,14 @@
         </div>
 
         <!-- Team -->
-        <div>
+        <div class="mb-24">
             <div class="reveal text-center mb-16">
                 <span class="text-warm text-xs font-semibold tracking-widest uppercase mb-4 block">Our People</span>
-                <h2 class="animate-text font-display font-bold text-4xl sm:text-5xl text-charcoal">Core Team</h2>
+                <h2 class="animate-text font-display font-bold text-4xl sm:text-5xl text-charcoal">Core Developers</h2>
             </div>
 
             @php
-                $team = [
+                $devs = [
                     [
                         'name' => 'Aditya', 
                         'role' => 'Platform Architect & Lead Developer', 
@@ -151,8 +151,8 @@
                 ];
             @endphp
             
-            <div class="flex flex-wrap justify-center gap-8">
-                @foreach($team as $i => $member)
+            <div class="flex flex-wrap justify-center gap-8 mb-24">
+                @foreach($devs as $i => $member)
                 @if(isset($member['portfolio']))
                 <a href="{{ $member['portfolio'] }}" target="_blank" class="reveal {{ $i > 0 ? 'reveal-delay-'.$i : '' }} w-full sm:w-[280px] glass rounded-3xl p-6 border border-charcoal/10 relative overflow-hidden group card-lift shadow-lg flex flex-col items-center text-center block cursor-pointer">
                 @else
@@ -176,6 +176,47 @@
                 @else
                 </div>
                 @endif
+                @endforeach
+            </div>
+
+            <!-- Committee -->
+            <div class="reveal text-center mb-16 mt-8">
+                <span class="text-warm text-xs font-semibold tracking-widest uppercase mb-4 block">Leadership</span>
+                <h2 class="animate-text font-display font-bold text-4xl sm:text-5xl text-charcoal">Session 2026-2027 Committee</h2>
+            </div>
+
+            @php
+                $committee = [
+                    [
+                        'name' => 'Aditya', 
+                        'role' => 'Secretary', 
+                        'img' => asset('storage/devs/aditya.png'),
+                    ],
+                    [
+                        'name' => 'Ram Lakhan Nagar', 
+                        'role' => 'Active President', 
+                        'img' => asset('storage/devs/ram.jfif'),
+                    ],
+                    [
+                        'name' => 'Kanak Maheshwari', 
+                        'role' => 'Active Treasurer', 
+                        'img' => asset('storage/devs/kanak.jpeg'),
+                        'img_position' => 'object-[50%_20%]'
+                    ]
+                ];
+            @endphp
+            
+            <div class="flex flex-wrap justify-center gap-8">
+                @foreach($committee as $i => $member)
+                <div class="reveal {{ $i > 0 ? 'reveal-delay-'.$i : '' }} w-full sm:w-[280px] glass rounded-3xl p-6 border border-charcoal/10 relative overflow-hidden group card-lift shadow-lg flex flex-col items-center text-center">
+                    <div class="absolute inset-0 bg-gradient-to-b from-warm/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative w-40 h-40 rounded-2xl mx-auto mb-6 overflow-hidden border-2 border-charcoal/10 group-hover:border-warm transition-colors duration-300 shadow-md">
+                        <img src="{{ $member['img'] }}" alt="{{ $member['name'] }}" class="w-full h-full object-cover {{ $member['img_position'] ?? 'object-center' }} group-hover:scale-110 transition-all duration-700">
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-charcoal mb-1 relative z-10">{{ $member['name'] }}</h3>
+                    <p class="text-warm text-sm font-medium relative z-10 mb-2">{{ $member['role'] }}</p>
+                </div>
                 @endforeach
             </div>
         </div>
