@@ -19,9 +19,9 @@
                             card: '#0a0a0a',
                         },
                         accent: {
-                            DEFAULT: '#c8a24e',
-                            light: '#d4b366',
-                            dim: '#8a6d2b',
+                            DEFAULT: '#0ea5e9',
+                            light: '#38bdf8',
+                            dim: '#0284c7',
                         },
                         text: {
                             primary: '#f0f0f0',
@@ -60,11 +60,11 @@
         ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 99px; }
         ::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
 
-        /* Sidebar nav link active state with amber glow */
+        /* Sidebar nav link active state with cyan glow */
         .nav-link-active {
-            background: linear-gradient(135deg, rgba(200, 162, 78, 0.15), rgba(200, 162, 78, 0.05));
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.05));
             color: #f0f0f0;
-            border: 1px solid rgba(200, 162, 78, 0.25);
+            border: 1px solid rgba(14, 165, 233, 0.25);
         }
 
         /* Card hover lift */
@@ -73,8 +73,8 @@
         }
         .card-lift:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(200, 162, 78, 0.06);
-            border-color: rgba(200, 162, 78, 0.3);
+            box-shadow: 0 12px 40px rgba(14, 165, 233, 0.06);
+            border-color: rgba(14, 165, 233, 0.3);
         }
 
         /* Stat card border glow on hover */
@@ -84,8 +84,8 @@
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .stat-card:hover {
-            border-color: rgba(200, 162, 78, 0.3);
-            box-shadow: 0 0 30px rgba(200, 162, 78, 0.04);
+            border-color: rgba(14, 165, 233, 0.3);
+            box-shadow: 0 0 30px rgba(14, 165, 233, 0.04);
         }
 
         /* Command card styling */
@@ -101,9 +101,9 @@
             transition: all 0.3s ease;
         }
         .action-btn:hover {
-            border-color: rgba(200, 162, 78, 0.35);
+            border-color: rgba(14, 165, 233, 0.35);
             background: #111111;
-            box-shadow: 0 0 20px rgba(200, 162, 78, 0.05);
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.05);
         }
 
         /* Fade in animation */
@@ -204,7 +204,7 @@
                 <div class="flex items-center justify-between">
                     <div class="flex items-center space-x-2.5">
                         <div class="w-8 h-8 rounded-lg bg-[#1a1a1a] flex items-center justify-center border border-[#2a2a2a]">
-                            <i class="fas fa-terminal text-accent text-xs"></i>
+                            <i class="fas fa-layer-group text-accent text-xs"></i>
                         </div>
                         <div>
                             <div class="text-sm font-bold text-white font-display leading-none">Command</div>
@@ -276,7 +276,7 @@
         <header class="md:hidden flex justify-between items-center h-14 bg-[#0a0a0a] border-b border-[#1a1a1a] px-4 sticky top-0 z-40">
             <div class="flex items-center space-x-2.5">
                 <div class="w-7 h-7 rounded-lg bg-[#1a1a1a] flex items-center justify-center border border-[#2a2a2a]">
-                    <i class="fas fa-terminal text-accent text-[10px]"></i>
+                    <i class="fas fa-layer-group text-accent text-[10px]"></i>
                 </div>
                 <span class="text-sm font-bold text-white font-display leading-none">Command Center</span>
             </div>
@@ -294,7 +294,7 @@
                 <div class="flex justify-between items-center">
                     <div class="flex items-center space-x-2.5">
                         <div class="w-7 h-7 rounded-lg bg-[#1a1a1a] flex items-center justify-center border border-[#2a2a2a]">
-                            <i class="fas fa-terminal text-accent text-[10px]"></i>
+                            <i class="fas fa-layer-group text-accent text-[10px]"></i>
                         </div>
                         <div>
                             <span class="text-sm font-bold text-white font-display">Command Center</span>

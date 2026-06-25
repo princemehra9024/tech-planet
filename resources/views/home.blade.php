@@ -94,14 +94,13 @@
 
                     <!-- Top-right floating location card -->
                     <div class="absolute top-4 right-4 hero-float-card z-10">
-                        <div class="glass-dark rounded-xl p-3 flex items-center gap-3 border border-white/10 shadow-2xl">
+                        <div class="bg-black/70 backdrop-blur-md rounded-xl p-3 flex items-center gap-3 border border-white/20 shadow-2xl">
                             <div>
                                 <p class="text-white font-display font-bold text-xs leading-tight">TechPlanet Club</p>
-                                <p class="text-white/50 text-[10px]">Kota, Raj.</p>
+                                <p class="text-white/70 text-[10px]">Kota, Raj.</p>
                             </div>
-                            <div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-white/10">
-                                <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=80&h=80"
-                                    alt="Campus" class="w-full h-full object-cover">
+                            <div class="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 border border-white/20 bg-gradient-to-br from-amber-500/20 to-amber-700/40 text-amber-400">
+                                <i class="fas fa-code text-lg drop-shadow-lg"></i>
                             </div>
                         </div>
                         <div
