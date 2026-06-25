@@ -1,10 +1,12 @@
-﻿{{-- resources/views/auth/login.blade.php --}}
+{{-- resources/views/auth/login.blade.php --}}
 @extends('layouts.app')
 
-@section('title', 'Login - Tech Planet SRM')
+@section('title', 'Login - Tech Planet UOK')
 
 @section('content')
 <section class="relative min-h-[85vh] flex items-center justify-center px-4 sm:px-8 py-12 mt-10">
+    <!-- Subtle background gradient for depth -->
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(0,0,0,0.04), transparent);"></div>
     <div class="max-w-[1400px] mx-auto w-full h-full">
         <div class="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-8 items-center h-full min-h-[75vh]">
             
@@ -30,14 +32,14 @@
             <div class="reveal reveal-delay-1 flex justify-center py-8 lg:py-4 h-full items-center">
                 <div class="w-full max-w-md">
                     <!-- Glassmorphism Form Card -->
-                    <div class="glass rounded-[2.5rem] p-8 sm:p-10 border border-charcoal/5 relative z-10 card-lift shadow-2xl shadow-charcoal/5 dark:shadow-none">
+                    <div class="glass rounded-[2.5rem] p-8 sm:p-10 border border-charcoal/10 relative z-10 card-lift shadow-[0_8px_40px_rgba(0,0,0,0.12)] ring-1 ring-charcoal/5">
                         <!-- Header -->
                         <div class="text-center mb-8">
                             <div class="mx-auto w-14 h-14 rounded-2xl bg-cream-dark flex items-center justify-center shadow-lg mb-4 img-zoom border border-charcoal/5 group">
                                 <i class="fas fa-lock text-charcoal text-2xl group-hover:scale-110 transition-transform"></i>
                             </div>
                             <h2 class="text-3xl font-extrabold text-charcoal font-display tracking-tight mb-2">Access Portal</h2>
-                            <p class="text-muted text-sm px-4">Login to your SRM CSI student profile console</p>
+                            <p class="text-muted text-sm px-4">Login to your Tech Planet UOK CSI profile</p>
                         </div>
 
                         <form class="space-y-5" action="{{ route('login') }}" method="POST">
@@ -46,7 +48,7 @@
                                 <label class="block text-charcoal font-bold text-[11px] mb-1.5 uppercase tracking-widest pl-1">Developer Email</label>
                                 <div class="relative group">
                                     <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-muted group-focus-within:text-charcoal transition-colors"><i class="fas fa-envelope"></i></span>
-                                    <input type="email" name="email" value="{{ old('email') }}" required class="w-full bg-cream-dark border-2 @error('email') border-red-500 @else border-transparent focus:border-charcoal/20 @enderror rounded-xl pl-12 pr-4 py-3 text-charcoal placeholder-muted focus:outline-none transition-all shadow-inner text-sm" placeholder="student@srmist.edu.in">
+                                    <input type="email" name="email" value="{{ old('email') }}" required class="w-full bg-cream-dark border-2 @error('email') border-red-500 @else border-transparent focus:border-charcoal/20 @enderror rounded-xl pl-12 pr-4 py-3 text-charcoal placeholder-muted focus:outline-none transition-all shadow-inner text-sm" placeholder="student@uok.ac.in">
                                 </div>
                                 @error('email')
                                     <p class="text-red-500 text-xs mt-1 pl-1">{{ $message }}</p>
@@ -60,7 +62,7 @@
                                 </div>
                                 <div class="relative group">
                                     <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-muted group-focus-within:text-charcoal transition-colors"><i class="fas fa-key"></i></span>
-                                    <input type="password" name="password" required class="w-full bg-cream-dark border-2 @error('password') border-red-500 @else border-transparent focus:border-charcoal/20 @enderror rounded-xl pl-12 pr-4 py-3 text-charcoal placeholder-muted focus:outline-none transition-all shadow-inner text-sm" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢">
+                                    <input type="password" name="password" required class="w-full bg-cream-dark border-2 @error('password') border-red-500 @else border-transparent focus:border-charcoal/20 @enderror rounded-xl pl-12 pr-4 py-3 text-charcoal placeholder-muted focus:outline-none transition-all shadow-inner text-sm" placeholder="Enter your password">
                                 </div>
                                 @error('password')
                                     <p class="text-red-500 text-xs mt-1 pl-1">{{ $message }}</p>

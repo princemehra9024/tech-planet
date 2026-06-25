@@ -1,7 +1,7 @@
 {{-- resources/views/gallery.blade.php --}}
 @extends('layouts.app')
 
-@section('title', 'Gallery - Tech Planet SRM')
+@section('title', 'Gallery - Tech Planet UOK')
 
 @section('content')
 
@@ -62,8 +62,14 @@
                 @endif
             </div>
         @empty
-            <div class="col-span-1 sm:col-span-2 lg:col-span-3 text-center py-20">
-                <p class="text-charcoal/50 text-lg">No gallery images found.</p>
+            <div class="col-span-full flex flex-col items-center justify-center py-32 text-center">
+                <div class="w-24 h-24 rounded-3xl bg-charcoal/5 border border-charcoal/10 flex items-center justify-center mb-6 shadow-inner">
+                    <i class="fas fa-images text-3xl text-charcoal/30"></i>
+                </div>
+                <h3 class="font-display font-black text-2xl text-charcoal mb-3">Gallery Coming Soon</h3>
+                <p class="text-charcoal/50 text-sm max-w-xs leading-relaxed">
+                    We're capturing moments from our events. Photos from our hackathons, bootcamps and meetups will be showcased here soon.
+                </p>
             </div>
         @endforelse
 

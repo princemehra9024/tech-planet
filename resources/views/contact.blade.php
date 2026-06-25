@@ -64,8 +64,8 @@
                         <h3 class="text-charcoal font-display font-bold text-xl mb-3">Location</h3>
                         <p class="text-charcoal/70 text-sm leading-relaxed">
                             Tech Planet Club<br>
-                            Tech Block, Console 305<br>
-                            SRM University, Chennai
+                            Dept. of Computer Science<br>
+                            University of Kota, Rajasthan
                         </p>
                     </div>
                     

@@ -1,7 +1,7 @@
 {{-- resources/views/events.blade.php --}}
 @extends('layouts.app')
 
-@section('title', 'Events - Tech Planet SRM')
+@section('title', 'Events - Tech Planet UOK')
 
 @section('content')
 <section class="relative pt-32 pb-20 px-6 sm:px-10 min-h-screen overflow-hidden">
@@ -196,7 +196,7 @@
                     <label class="block text-charcoal font-bold text-[11px] mb-1.5 uppercase tracking-widest pl-1">Email Address</label>
                     <div class="relative group">
                         <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-muted group-focus-within:text-charcoal transition-colors"><i class="fas fa-envelope"></i></span>
-                        <input type="email" name="email" required class="w-full bg-cream-dark border-2 border-transparent focus:border-charcoal/20 rounded-xl pl-12 pr-4 py-3 text-charcoal placeholder-muted focus:outline-none transition-all shadow-inner text-sm" placeholder="alex@srmist.edu.in">
+                        <input type="email" name="email" required class="w-full bg-cream-dark border-2 border-transparent focus:border-charcoal/20 rounded-xl pl-12 pr-4 py-3 text-charcoal placeholder-muted focus:outline-none transition-all shadow-inner text-sm" placeholder="student@uok.ac.in">
                     </div>
                 </div>
             </div>

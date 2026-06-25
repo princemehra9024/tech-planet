@@ -65,8 +65,8 @@
                 <div class="flex md:hidden flex-col mt-6 gap-5 border-t border-white/10 pt-6">
                     <div class="menu-item transform translate-y-10 opacity-0">
                         <span class="text-white/40 text-[10px] font-bold uppercase tracking-widest block mb-2">Location</span>
-                        <p class="text-white font-display font-bold text-sm">SRM Institute of Science and Technology</p>
-                        <p class="text-white/50 text-xs mt-0.5">Kattankulathur, Chennai</p>
+                        <p class="text-white font-display font-bold text-sm">University of Kota</p>
+                        <p class="text-white/50 text-xs mt-0.5">Kota, Rajasthan</p>
                     </div>
                     <div class="menu-item transform translate-y-10 opacity-0">
                         <span class="text-white/40 text-[10px] font-bold uppercase tracking-widest block mb-2">Connect</span>
@@ -101,8 +101,8 @@
                         <span class="text-white/40 text-xs font-bold uppercase tracking-widest">Location</span>
                     </div>
                     <div class="border-l-2 border-white/10 pl-5 group-hover/loc:border-white/40 transition-colors duration-500">
-                        <p class="font-display text-xl font-bold text-white group-hover/loc:text-white/80 transition-colors duration-300">SRM Institute of Science and Technology</p>
-                        <p class="text-sm font-medium text-white/50 mt-1.5">Kattankulathur, Chennai</p>
+                        <p class="font-display text-xl font-bold text-white group-hover/loc:text-white/80 transition-colors duration-300">University of Kota</p>
+                        <p class="text-sm font-medium text-white/50 mt-1.5">Kota, Rajasthan</p>
                     </div>
                 </div>
                 <div class="mt-10 transform translate-y-12 opacity-0 menu-info-item">
